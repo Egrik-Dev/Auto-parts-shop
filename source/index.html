@@ -4,12 +4,88 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Интернет-магазин Автозапчастей</title>
-    <!-- <link rel="preload" href="fonts/montserratbold.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="fonts/montserratmedium.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="fonts/montserratregular.woff2" as="font" crossorigin="anonymous">
-    <link rel="preload" href="fonts/montserratsemibold.woff2" as="font" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="css/style.min.css">
   </head>
   <body>
-
+    <header class="page-header">
+      <input class="visually-hidden" type="radio" name="hamburger-toggle" id="toggle">
+      <nav class="page-header__hamburger-nav hamburger-nav">
+        <label class="hamburger-nav__label" for="hamburger-toggle">
+          <button class="hamburger-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>
+        </label>
+        <ul class="hamburger-nav__list">
+          <li class="hamburger-nav__item hamburger-nav__item--login">Войти</li>
+          <li class="hamburger-nav__item hamburger-nav__item--login">Регистрация</li>
+          <li class="hamburger-nav__item hamburger-nav__item--popular">Избранное</li>
+          <li class="hamburger-nav__item hamburger-nav__item--shops">Магазины</li>
+          <li class="hamburger-nav__item hamburger-nav__item--promotions">Акции</li>
+          <li class="hamburger-nav__item hamburger-nav__item--delivery">Доставка и оплата</li>
+          <li class="hamburger-nav__item">Каталог запчастей</li>
+          <li class="hamburger-nav__item">Каталог ТО</li>
+          <li class="hamburger-nav__item">Шины</li>
+          <li class="hamburger-nav__item">Диски</li>
+          <li class="hamburger-nav__item">Аккумуляторы</li>
+          <li class="hamburger-nav__item">Автомасла</li>
+          <li class="hamburger-nav__item">Автолампы</li>
+          <li class="hamburger-nav__item">Аксессуары</li>
+          <li class="hamburger-nav__item hamburger-nav__item--adress">Санкт-Петербург, ул Большая Конюшенная, д 19</li>
+        </ul>
+      </nav>
+      <div class="page-header__user-menu user-menu">
+        <ul class="user-menu__shop-info-list">
+          <li class="user-menu__shop-info-item">Магазины</li>
+          <li class="user-menu__shop-info-item">Акции</li>
+          <li class="user-menu__shop-info-item">Доставка и оплата</li>
+        </ul>
+        <a class="user-menu__logo">
+          <span class="visually-hidden">Логотип магазина Auto-parts</span>
+          <svg class="user-menu__logo-image" width="69" height="38">
+            <use xlink:href="img/sprite.svg#icon-logo"></use>
+          </svg>
+        </a>
+        <div class="user-menu__adress-block">
+          <p class="user-menu__adress-text">Санкт-Петербург, ул Большая Конюшенная, д 19</p>
+        </div>
+        <div class="user-menu__icons-block">
+          <ul class="user-menu__icons-list">
+            <li class="user-menu__icons-item">
+              <a href="popular.html">
+                <span class="visually-hidden">Избранное</span>
+                <svg class="user-menu__icon-image user-menu__icon-image--popular" width="23" height="20">
+                  <use xlink:href="img/sprite.svg#icon-heart"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="user-menu__icons-item">
+              <a href="logn.html">
+                <span class="visually-hidden">Личный кабинет</span>
+                <svg class="user-menu__icon-image user-menu__icon-image--login" width="20" height="23">
+                  <use xlink:href="img/sprite.svg#icon-login"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="user-menu__icons-item">
+              <a href="cart.html">
+                <span class="visually-hidden">Корзина</span>
+                <svg class="user-menu__icon-image user-menu__icon-image--cart" width="25" height="21">
+                  <use xlink:href="img/sprite.svg#icon-cart"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <nav class="page-header__main-nav main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item">Каталог запчастей</li>
+          <li class="main-nav__item">Каталог ТО</li>
+          <li class="main-nav__item">Шины</li>
+          <li class="main-nav__item">Диски</li>
+          <li class="main-nav__item">Аккумуляторы</li>
+          <li class="main-nav__item">Автомасла</li>
+          <li class="main-nav__item">Автолампы</li>
+          <li class="main-nav__item">Аксессуары</li>
+        </ul>
+      </nav>
+    </header>
   </body>
