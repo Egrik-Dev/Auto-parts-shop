@@ -1,0 +1,45 @@
+.main-wrapper {
+  position: relative;
+  overflow-x: hidden;
+
+  height: 1000px; // Временная мера
+}
+
+.main-wrapper__hamburger-nav {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+  width: 243px;
+  height: 100%;
+
+  transition: all 0.5s;
+  transform: translateX(-100%);
+}
+
+.main-wrapper__content-container {
+  transition: all 0.5s;
+}
+
+.main-wrapper__toggle:checked ~ .main-wrapper__hamburger-nav {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+  transform: translateX(0%);
+}
+
+.main-wrapper__toggle:checked ~ .main-wrapper__content-container {
+  transform: translateX(242px);
+}
+
+.main-wrapper__toggle:checked ~ .main-wrapper__hamburger-nav .hamburger-nav__label::after {
+  opacity: 1;
+
+  right: -20px;
+}
+
+@media (min-width: $desktop-width) {
+  .main-wrapper__hamburger-nav {
+    display: none;
+  }
+}

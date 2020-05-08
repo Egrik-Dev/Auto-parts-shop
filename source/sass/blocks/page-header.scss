@@ -1,0 +1,21 @@
+.page-header__user-menu {
+  padding: 30px 25px 0;
+  margin-bottom: 17px;
+}
+
+@media (min-width: $desktop-width) {
+  .page-header {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .page-header__user-menu {
+    padding: 35px 0 20px;
+    margin-bottom: 0;
+  }
+
+  .page-header__main-nav {
+    width: 1170px;
+    margin: 0 auto;
+    padding: 15px 0;
+  }
+}

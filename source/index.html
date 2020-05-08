@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="css/style.min.css">
   </head>
   <body>
-    <header class="page-header">
-      <input class="visually-hidden" type="radio" name="hamburger-toggle" id="toggle">
-      <nav class="page-header__hamburger-nav hamburger-nav">
-        <label class="hamburger-nav__label" for="hamburger-toggle">
-          <button class="hamburger-nav__toggle" type="button"><span class="visually-hidden">Открыть меню</span></button>
-        </label>
+    <div class="main-wrapper">
+      <input class="main-wrapper__toggle visually-hidden" type="checkbox" name="hamburger-toggle-name" id="hamburger-toggle">
+      <nav class="main-wrapper__hamburger-nav hamburger-nav">
+        <button class="hamburger-nav__toggle" type="button">
+          <label class="hamburger-nav__label" for="hamburger-toggle">
+            <span class="visually-hidden">Открыть меню</span>
+          </label>
+        </button>
         <ul class="hamburger-nav__list">
           <li class="hamburger-nav__item hamburger-nav__item--login">Войти</li>
           <li class="hamburger-nav__item hamburger-nav__item--login">Регистрация</li>
           <li class="hamburger-nav__item hamburger-nav__item--popular">Избранное</li>
           <li class="hamburger-nav__item hamburger-nav__item--shops">Магазины</li>
           <li class="hamburger-nav__item hamburger-nav__item--promotions">Акции</li>
-          <li class="hamburger-nav__item hamburger-nav__item--delivery">Доставка и оплата</li>
+          <li class="hamburger-nav__item hamburger-nav__item--delivery">Доставка<br> и оплата</li>
           <li class="hamburger-nav__item">Каталог запчастей</li>
           <li class="hamburger-nav__item">Каталог ТО</li>
           <li class="hamburger-nav__item">Шины</li>
@@ -31,61 +33,67 @@
           <li class="hamburger-nav__item hamburger-nav__item--adress">Санкт-Петербург, ул Большая Конюшенная, д 19</li>
         </ul>
       </nav>
-      <div class="page-header__user-menu user-menu">
-        <ul class="user-menu__shop-info-list">
-          <li class="user-menu__shop-info-item">Магазины</li>
-          <li class="user-menu__shop-info-item">Акции</li>
-          <li class="user-menu__shop-info-item">Доставка и оплата</li>
-        </ul>
-        <a class="user-menu__logo">
-          <span class="visually-hidden">Логотип магазина Auto-parts</span>
-          <svg class="user-menu__logo-image" width="69" height="38">
-            <use xlink:href="img/sprite.svg#icon-logo"></use>
-          </svg>
-        </a>
-        <div class="user-menu__adress-block">
-          <p class="user-menu__adress-text">Санкт-Петербург, ул Большая Конюшенная, д 19</p>
-        </div>
-        <div class="user-menu__icons-block">
-          <ul class="user-menu__icons-list">
-            <li class="user-menu__icons-item">
-              <a href="popular.html">
-                <span class="visually-hidden">Избранное</span>
-                <svg class="user-menu__icon-image user-menu__icon-image--popular" width="23" height="20">
-                  <use xlink:href="img/sprite.svg#icon-heart"></use>
+      <div class="main-wrapper__content-container">
+        <header class="page-header">
+          <div class="page-header__user-menu user-menu">
+            <div class="user-menu__wrapper">
+              <ul class="user-menu__shop-info-list">
+                <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Магазины</a></li>
+                <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Акции</a></li>
+                <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Доставка и оплата</a></li>
+              </ul>
+              <a class="user-menu__logo">
+                <span class="visually-hidden">Логотип магазина Auto-parts</span>
+                <svg class="user-menu__logo-image" width="69" height="38">
+                  <use xlink:href="img/sprite.svg#icon-logo"></use>
                 </svg>
               </a>
-            </li>
-            <li class="user-menu__icons-item">
-              <a href="logn.html">
-                <span class="visually-hidden">Личный кабинет</span>
-                <svg class="user-menu__icon-image user-menu__icon-image--login" width="20" height="23">
-                  <use xlink:href="img/sprite.svg#icon-login"></use>
-                </svg>
-              </a>
-            </li>
-            <li class="user-menu__icons-item">
-              <a href="cart.html">
-                <span class="visually-hidden">Корзина</span>
-                <svg class="user-menu__icon-image user-menu__icon-image--cart" width="25" height="21">
-                  <use xlink:href="img/sprite.svg#icon-cart"></use>
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
+              <div class="user-menu__adress-block">
+                <p class="user-menu__adress-text">Санкт-Петербург, ул Большая Конюшенная, д 19</p>
+              </div>
+              <div class="user-menu__icons-block">
+                <ul class="user-menu__icons-list">
+                  <li class="user-menu__icons-item user-menu__icons-item--popular">
+                    <a href="popular.html">
+                      <span class="visually-hidden">Избранное</span>
+                      <svg class="user-menu__icon-image user-menu__icon-image--popular" width="26" height="24">
+                        <use xlink:href="img/sprite.svg#icon-heart"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="user-menu__icons-item user-menu__icons-item--login">
+                    <a href="logn.html">
+                      <span class="visually-hidden">Личный кабинет</span>
+                      <svg class="user-menu__icon-image user-menu__icon-image--login" width="21" height="24">
+                        <use xlink:href="img/sprite.svg#icon-login"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="user-menu__icons-item user-menu__icons-item--cart">
+                    <a href="cart.html">
+                      <span class="visually-hidden">Корзина</span>
+                      <svg class="user-menu__icon-image user-menu__icon-image--cart" width="28" height="24">
+                        <use xlink:href="img/sprite.svg#icon-cart"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <nav class="page-header__main-nav main-nav">
+            <ul class="main-nav__list">
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог Запчастей</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог ТО</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Шины</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Диски</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Аккумуляторы</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Автомасла</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Автолампы</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Аксессуары</a></li>
+            </ul>
+          </nav>
+        </header>
       </div>
-      <nav class="page-header__main-nav main-nav">
-        <ul class="main-nav__list">
-          <li class="main-nav__item">Каталог запчастей</li>
-          <li class="main-nav__item">Каталог ТО</li>
-          <li class="main-nav__item">Шины</li>
-          <li class="main-nav__item">Диски</li>
-          <li class="main-nav__item">Аккумуляторы</li>
-          <li class="main-nav__item">Автомасла</li>
-          <li class="main-nav__item">Автолампы</li>
-          <li class="main-nav__item">Аксессуары</li>
-        </ul>
-      </nav>
-    </header>
+    </div>
   </body>
