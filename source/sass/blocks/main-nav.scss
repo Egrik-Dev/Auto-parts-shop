@@ -15,7 +15,7 @@
     pointer-events: none;
 
     content: "";
-    background: linear-gradient(to left, #ffffff 0%, transparent 100%);
+    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0.1) 100%);
   }
 }
 
@@ -64,7 +64,6 @@
 
     font-size: 21px;
     line-height: 24px;
-    transition: text-shadow 0.3s;
 
     &::before,
     &::after {
@@ -102,7 +101,7 @@
     }
 
     &:hover {
-      text-shadow: 0 0 0.9px #333333, 0 0 0.9px #333333;
+      text-shadow: #333333 1px 1px 1px;
     }
   }
 }

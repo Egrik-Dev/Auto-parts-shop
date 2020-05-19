@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Интернет-магазин Автозапчастей</title>
+    <title>Интернет-магазин Автозапчастей Auto-Shop</title>
     <link rel="stylesheet" href="css/style.min.css">
   </head>
   <body>
@@ -94,6 +94,125 @@
             </ul>
           </nav>
         </header>
+        <main class="page-main">
+          <h1 class="visually-hidden">Интернет-магазин Автомобильных запчастей Auto-Shop</h1>
+          <section class="page-main__promo promo">
+            <h2 class="visually-hidden">Спец предложения магазина</h2>
+            <div class="promo__slider">
+              <ul class="promo__slider-buttons">
+                <li class="promo__slider-button promo__slider-button--left">
+                  <img class="promo__slider-button-img promo__slider-button-img--left" src="img/icon-arrow.svg" alt="Стрелка влево" width="16" height="16">
+                </li>
+                <li class="promo__slider-button promo__slider-button--right">
+                  <img class="promo__slider-button-img promo__slider-button-img--right" src="img/icon-arrow.svg" alt="Стрелка вправо" width="16" height="16">
+                </li>
+              </ul>
+              <ul class="promo__slider-list">
+                <li class="promo__slider-item">
+                  <a class="promo__slider-item-link" href="promo.html">
+                    <picture>
+                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop.jpg">
+                      <img class="promo__slider-image" src="img/promo-image.jpg" alt="Картинка в слайдере 1" width="320" height="164">
+                      </picture>
+                  </a>
+                </li>
+                <li class="promo__slider-item">
+                  <a class="promo__slider-item-link" href="promo.html">
+                    <picture>
+                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-2.jpg">
+                      <img class="promo__slider-image" src="img/promo-image-2.jpg" alt="Картинка в слайдере 2" width="320" height="164">
+                      </picture>
+                  </a>
+                </li>
+                <li class="promo__slider-item">
+                  <a class="promo__slider-item-link" href="promo.html">
+                    <picture>
+                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-3.jpg">
+                      <img class="promo__slider-image" src="img/promo-image-3.jpg" alt="Картинка в слайдере 3" width="320" height="164">
+                      </picture>
+                  </a>
+                </li>
+                <li class="promo__slider-item">
+                  <a class="promo__slider-item-link" href="promo.html">
+                    <picture>
+                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop.jpg">
+                      <img class="promo__slider-image" src="img/promo-image-4.jpg" alt="Картинка в слайдере 4" width="320" height="164">
+                      </picture>
+                  </a>
+                </li>
+                <li class="promo__slider-item">
+                  <a class="promo__slider-item-link" href="promo.html">
+                    <picture>
+                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-2.jpg">
+                      <img class="promo__slider-image" src="img/promo-image-5.jpg" alt="Картинка в слайдере 5" width="320" height="164">
+                      </picture>
+                  </a>
+                </li>
+                <li class="promo__slider-item">
+                  <a class="promo__slider-item-link" href="promo.html">
+                    <picture>
+                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-3.jpg">
+                      <img class="promo__slider-image" src="img/promo-image-6.jpg" alt="Картинка в слайдере 6" width="320" height="164">
+                    </picture>
+                  </a>
+                </li>
+              </ul>
+              <ul class="promo__circles-list">
+                <li class="promo__circles-item" data-toggle-status="active"></li>
+                <li class="promo__circles-item" data-toggle-status="none"></li>
+                <li class="promo__circles-item" data-toggle-status="none"></li>
+                <li class="promo__circles-item" data-toggle-status="none"></li>
+                <li class="promo__circles-item" data-toggle-status="none"></li>
+                <li class="promo__circles-item" data-toggle-status="none"></li>
+              </ul>
+            </div>
+            <div class="promo__timer-block">
+              <ul class="promo__timer-list">
+              </ul>
+              <div class="promo__timer-toggles">
+                <ul class="promo-timer-toggles-list">
+                  <li class="promo__timer-toggle" data-toggle-status="active"></li>
+                  <li class="promo__timer-toggle" data-toggle-status="none"></li>
+                  <li class="promo__timer-toggle" data-toggle-status="none"></li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section class="page-main__search search">
+            <form class="search__form" action="#" method="post">
+              <fieldset class="search__fieldset">
+                <legend class="visually-hidden">Поиск по категориям</legend>
+                <ul class="search__list">
+                  <li class="search__item">
+                    <input class="search__input-radio visually-hidden" type="radio" name="category" id="vin">
+                    <label class="search__label-radio" for="vin">Поиск по Vin</label>
+                  </li>
+                  <li class="search__item">
+                    <input class="search__input-radio visually-hidden" type="radio" name="category" id="brand" checked>
+                    <label class="search__label-radio" for="brand">Поиск по марке</label>
+                  </li>
+                  <li class="search__item">
+                    <input class="search__input-radio visually-hidden" type="radio" name="category" id="title">
+                    <label class="search__label-radio" for="title">Поиск по названию товара</label>
+                  </li>
+                  <li class="search__item">
+                    <input class="search__input-radio visually-hidden" type="radio" name="category" id="article">
+                    <label class="search__label-radio" for="article">Поиск по артикулу</label>
+                  </li>
+                </ul>
+              </fieldset>
+              <div class="search__block-search">
+                <input class="search__input-search" type="search" name="search" id="search-field" placeholder="Введите марку автомобиля" required>
+                <label class="visually-hidden" for="search-field">Поиск</label>
+                <button class="search__btn" type="submit" name="send-search">
+                  <span class="search__btn-word">Искать</span>
+                </button>
+              </div>
+            </form>
+          </section>
+        </main>
       </div>
     </div>
+    <script type="module" src="js/promo.js"></script>
+    <script type="module" src="js/search.js"></script>
   </body>

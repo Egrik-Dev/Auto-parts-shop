@@ -1,0 +1,23 @@
+.page-main__promo {
+  margin-bottom: 80px;
+}
+
+.page-main__search {
+  padding-left: 16px;
+}
+
+@media (min-width: $desktop-width) {
+  .page-main {
+    padding: 47px 0;
+  }
+
+  .page-main__promo {
+    @include desktop-wrapper;
+    margin-bottom: 73px;
+  }
+
+  .page-main__search {
+    @include desktop-wrapper;
+    padding: 0;
+  }
+}

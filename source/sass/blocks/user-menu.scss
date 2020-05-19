@@ -52,8 +52,7 @@
   }
 
   .user-menu__wrapper {
-    width: 1170px;
-    margin: 0 auto;
+    @include desktop-wrapper;
     padding: 0;
     grid-template-columns: repeat(12, 70px);
     align-items: center;

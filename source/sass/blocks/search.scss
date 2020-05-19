@@ -1,0 +1,144 @@
+.search__fieldset {
+  min-inline-size: unset;
+  padding: 0;
+  margin: 0 0 15px;
+
+  border: none;
+}
+
+.search__list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.search__item {
+  padding-bottom: 5px;
+  margin-right: 40px;
+}
+
+.search__label-radio {
+  padding-bottom: 5px;
+
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.search__input-radio:checked ~ .search__label-radio {
+  text-shadow: #333333 1px 1px 1px;
+  border-bottom: 2px solid #ff7931;
+}
+
+.search__block-search {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.search__input-search {
+  display: block;
+  width: 100%;
+  margin-right: 16px;
+  padding: 15px 45px 15px 10px;
+
+  font-size: 17px;
+  line-height: 19px;
+  color: #656464;
+
+  background-color: #f0f0f4;
+  border: none;
+}
+
+.search__btn {
+  padding: 0;
+
+  border: none;
+
+  &::before {
+    position: absolute;
+    top: 11px;
+    right: 31px;
+
+    content: "";
+
+    width: 23px;
+    height: 23px;
+    background-image: url("../img/icon-magnifier.svg");
+  }
+}
+
+.search__btn-word {
+  display: none;
+}
+
+@media (min-width: $desktop-width) {
+  .search__fieldset {
+    margin-bottom: 22px;
+  }
+
+  .search__list {
+    margin-left: 20px;
+
+    overflow-x: unset;
+  }
+
+  .search__item {
+    padding: 12px 0;
+    margin-right: 50px;
+  }
+
+  .search__label-radio {
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .search__input-radio:checked ~ .search__label-radio {
+    letter-spacing: 1px;
+
+    text-shadow: #333333 1px 1px 1px;
+    border-bottom: none;
+
+    padding: 12px 20px;
+    background-color: #f0f0f4;
+    border-radius: 5px;
+  }
+
+  .search__input-search {
+    width: 1025px;
+    margin-right: 0;
+    padding-left: 20px;
+
+    border: none;
+  }
+
+  .search__btn {
+    width: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ff7931;
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .search__btn-word {
+    display: block;
+
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+  }
+}

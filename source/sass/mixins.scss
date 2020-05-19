@@ -1,0 +1,9 @@
+@mixin desktop-wrapper {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+@mixin grid12 {
+  grid-template-columns: repeat(12, 70px);
+  gap: 30px;
+}
