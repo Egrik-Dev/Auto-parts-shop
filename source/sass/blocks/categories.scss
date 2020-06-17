@@ -1,0 +1,120 @@
+.categories__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  gap: 30px;
+  padding: 0 18px 0 14px;
+  margin: 0;
+
+  list-style: none;
+}
+
+.categories__item {
+  border: 1px solid #cdcdcd;
+  border-radius: 3px;
+}
+
+.categories__item-block {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 43.5px);
+  padding: 20px;
+  box-sizing: border-box;
+
+  &::after {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    content: "";
+
+    width: 60px;
+    height: 60px;
+  }
+
+  &--autochemistry::after {
+    background-image: url("../img/icon-autochemistry.svg");
+  }
+
+  &--tyres::after {
+    background-image: url("../img/icon-tyres.svg");
+  }
+
+  &--tools::after {
+    background-image: url("../img/icon-tools.svg");
+  }
+
+  &--spares::after {
+    background-image: url("../img/icon-spares.svg");
+  }
+
+  &--electronics::after {
+    background-image: url("../img/icon-electronics.svg");
+  }
+
+  &--accessories::after {
+    background-image: url("../img/icon-accessories.svg");
+  }
+}
+
+.categories__item-title {
+  grid-column: 1 / 3;
+  margin: 0;
+
+  font-size: 23px;
+  line-height: 28px;
+  color: #48494d;
+}
+
+.categories__word {
+  position: relative;
+
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  align-self: end;
+
+  font-size: 20px;
+  line-height: 24px;
+  color: #c4c4c4;
+
+  &::after {
+    position: absolute;
+    top: 6px;
+    left: 85px;
+
+    content: "";
+
+    width: 6px;
+    height: 10px;
+    background-image: url("../img/icon-arrow-triangle.svg");
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .categories__list {
+    padding: 0;
+  }
+
+  .categories__item {
+    transition: 0.3s;
+
+    &:hover .categories__item-title {
+      color: #ff7931;
+    }
+
+    &:hover {
+      box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+    }
+  }
+
+  .categories__item-block::after {
+    bottom: 15px;
+    right: 25px;
+
+    width: 97px;
+    height: 97px;
+
+    background-size: contain;
+  }
+}

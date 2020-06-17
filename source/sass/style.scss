@@ -2,6 +2,7 @@
 @import "variables.scss";
 @import "mixins.scss";
 @import "global.scss";
+@import "keyframes.scss";
 @import "blocks/main-wrapper.scss";
 @import "blocks/hamburger-nav.scss";
 @import "blocks/page-header.scss";
@@ -9,4 +10,9 @@
 @import "blocks/main-nav.scss";
 @import "blocks/page-main.scss";
 @import "blocks/promo.scss";
+@import "blocks/slider-buttons.scss";
+@import "blocks/slider-toggles.scss";
 @import "blocks/search.scss";
+@import "blocks/categories.scss";
+@import "blocks/popular.scss";
+@import "blocks/product.scss";

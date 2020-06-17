@@ -98,82 +98,88 @@
           <h1 class="visually-hidden">Интернет-магазин Автомобильных запчастей Auto-Shop</h1>
           <section class="page-main__promo promo">
             <h2 class="visually-hidden">Спец предложения магазина</h2>
-            <div class="promo__slider">
-              <ul class="promo__slider-buttons">
-                <li class="promo__slider-button promo__slider-button--left">
-                  <img class="promo__slider-button-img promo__slider-button-img--left" src="img/icon-arrow.svg" alt="Стрелка влево" width="16" height="16">
-                </li>
-                <li class="promo__slider-button promo__slider-button--right">
-                  <img class="promo__slider-button-img promo__slider-button-img--right" src="img/icon-arrow.svg" alt="Стрелка вправо" width="16" height="16">
-                </li>
-              </ul>
-              <ul class="promo__slider-list">
-                <li class="promo__slider-item">
-                  <a class="promo__slider-item-link" href="promo.html">
-                    <picture>
-                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop.jpg">
-                      <img class="promo__slider-image" src="img/promo-image.jpg" alt="Картинка в слайдере 1" width="320" height="164">
+            <div class="promo__slider-block">
+              <div class="promo__slider-container" data-slider="container">
+                <ul class="promo__slider-buttons slider-buttons">
+                  <li class="slider-buttons__btn promo__slider-btn promo__slider-btn--left" data-side="left">
+                    <svg class="slider-buttons__img slider-buttons__img--left" width="16" height="16">
+                      <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                    </svg>
+                  </li>
+                  <li class="slider-buttons__btn promo__slider-btn promo__slider-btn--right" data-side="right">
+                    <svg class="slider-buttons__img slider-buttons__img--right" width="16" height="16">
+                      <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                    </svg>
+                  </li>
+                </ul>
+                <ul class="promo__slider-list" data-slider="list">
+                  <li class="promo__slider-item" data-slider="slide">
+                    <a class="promo__slider-item-link" href="promo.html">
+                      <picture>
+                        <source media="(min-width: 1170px)" srcset="img/promo-image-desktop.jpg">
+                        <img class="promo__slider-image" src="img/promo-image.jpg" alt="Картинка в слайдере 1" width="320" height="164">
                       </picture>
-                  </a>
-                </li>
-                <li class="promo__slider-item">
-                  <a class="promo__slider-item-link" href="promo.html">
-                    <picture>
-                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-2.jpg">
-                      <img class="promo__slider-image" src="img/promo-image-2.jpg" alt="Картинка в слайдере 2" width="320" height="164">
+                    </a>
+                  </li>
+                  <li class="promo__slider-item" data-slider="slide">
+                    <a class="promo__slider-item-link" href="promo.html">
+                      <picture>
+                        <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-2.jpg">
+                        <img class="promo__slider-image" src="img/promo-image-2.jpg" alt="Картинка в слайдере 2" width="320" height="164">
                       </picture>
-                  </a>
-                </li>
-                <li class="promo__slider-item">
-                  <a class="promo__slider-item-link" href="promo.html">
-                    <picture>
-                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-3.jpg">
-                      <img class="promo__slider-image" src="img/promo-image-3.jpg" alt="Картинка в слайдере 3" width="320" height="164">
+                    </a>
+                  </li>
+                  <li class="promo__slider-item" data-slider="slide">
+                    <a class="promo__slider-item-link" href="promo.html">
+                      <picture>
+                        <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-3.jpg">
+                        <img class="promo__slider-image" src="img/promo-image-3.jpg" alt="Картинка в слайдере 3" width="320" height="164">
                       </picture>
-                  </a>
-                </li>
-                <li class="promo__slider-item">
-                  <a class="promo__slider-item-link" href="promo.html">
-                    <picture>
-                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop.jpg">
-                      <img class="promo__slider-image" src="img/promo-image-4.jpg" alt="Картинка в слайдере 4" width="320" height="164">
+                    </a>
+                  </li>
+                  <li class="promo__slider-item" data-slider="slide">
+                    <a class="promo__slider-item-link" href="promo.html">
+                      <picture>
+                        <source media="(min-width: 1170px)" srcset="img/promo-image-desktop.jpg">
+                        <img class="promo__slider-image" src="img/promo-image-4.jpg" alt="Картинка в слайдере 4" width="320" height="164">
                       </picture>
-                  </a>
-                </li>
-                <li class="promo__slider-item">
-                  <a class="promo__slider-item-link" href="promo.html">
-                    <picture>
-                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-2.jpg">
-                      <img class="promo__slider-image" src="img/promo-image-5.jpg" alt="Картинка в слайдере 5" width="320" height="164">
+                    </a>
+                  </li>
+                  <li class="promo__slider-item" data-slider="slide">
+                    <a class="promo__slider-item-link" href="promo.html">
+                      <picture>
+                        <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-2.jpg">
+                        <img class="promo__slider-image" src="img/promo-image-5.jpg" alt="Картинка в слайдере 5" width="320" height="164">
                       </picture>
-                  </a>
-                </li>
-                <li class="promo__slider-item">
-                  <a class="promo__slider-item-link" href="promo.html">
-                    <picture>
-                      <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-3.jpg">
-                      <img class="promo__slider-image" src="img/promo-image-6.jpg" alt="Картинка в слайдере 6" width="320" height="164">
-                    </picture>
-                  </a>
-                </li>
-              </ul>
-              <ul class="promo__circles-list">
-                <li class="promo__circles-item" data-toggle-status="active"></li>
-                <li class="promo__circles-item" data-toggle-status="none"></li>
-                <li class="promo__circles-item" data-toggle-status="none"></li>
-                <li class="promo__circles-item" data-toggle-status="none"></li>
-                <li class="promo__circles-item" data-toggle-status="none"></li>
-                <li class="promo__circles-item" data-toggle-status="none"></li>
-              </ul>
+                    </a>
+                  </li>
+                  <li class="promo__slider-item" data-slider="slide">
+                    <a class="promo__slider-item-link" href="promo.html">
+                      <picture>
+                        <source media="(min-width: 1170px)" srcset="img/promo-image-desktop-3.jpg">
+                        <img class="promo__slider-image" src="img/promo-image-6.jpg" alt="Картинка в слайдере 6" width="320" height="164">
+                      </picture>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="promo__circles-list" data-toggle="list">
+                  <li class="promo__circles-item" data-toggle-status="active"></li>
+                  <li class="promo__circles-item" data-toggle-status="none"></li>
+                  <li class="promo__circles-item" data-toggle-status="none"></li>
+                  <li class="promo__circles-item" data-toggle-status="none"></li>
+                  <li class="promo__circles-item" data-toggle-status="none"></li>
+                  <li class="promo__circles-item" data-toggle-status="none"></li>
+                </ul>
+              </div>
             </div>
             <div class="promo__timer-block">
-              <ul class="promo__timer-list">
-              </ul>
-              <div class="promo__timer-toggles">
-                <ul class="promo-timer-toggles-list">
-                  <li class="promo__timer-toggle" data-toggle-status="active"></li>
-                  <li class="promo__timer-toggle" data-toggle-status="none"></li>
-                  <li class="promo__timer-toggle" data-toggle-status="none"></li>
+              <div class="promo__timer-container" data-slider="container">
+                <ul class="promo__timer-list" data-slider="list">
+                </ul>
+                <ul class="promo__slider-toggles slider-toggles__list" data-toggle="list">
+                  <li class="slider-toggles__item" data-toggle-status="active"></li>
+                  <li class="slider-toggles__item" data-toggle-status="none"></li>
+                  <li class="slider-toggles__item" data-toggle-status="none"></li>
                 </ul>
               </div>
             </div>
@@ -210,9 +216,300 @@
               </div>
             </form>
           </section>
+          <section class="page-main__categories categories">
+            <h2 class="visually-hidden">Категории Интернет-магазина</h2>
+            <ul class="categories__list">
+              <li class="categories__item">
+                <a class="categories__item-link" href="category-autochemistry.html">
+                  <div class="categories__item-block categories__item-block--autochemistry">
+                    <h3 class="categories__item-title">Автохимия</h3>
+                    <span class="categories__word">Перейти</span>
+                  </div>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__item-link" href="category-tyres.html">
+                  <div class="categories__item-block categories__item-block--tyres">
+                    <h3 class="categories__item-title">Шины и диски</h3>
+                    <span class="categories__word">Перейти</span>
+                  </div>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__item-link" href="category-tools.html">
+                  <div class="categories__item-block categories__item-block--tools">
+                    <h3 class="categories__item-title">Инструменты</h3>
+                    <span class="categories__word">Перейти</span>
+                  </div>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__item-link" href="category-spares.html">
+                  <div class="categories__item-block categories__item-block--spares">
+                    <h3 class="categories__item-title">Запчасти на ТО</h3>
+                    <span class="categories__word">Перейти</span>
+                  </div>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__item-link" href="category-electronics.html">
+                  <div class="categories__item-block categories__item-block--electronics">
+                    <h3 class="categories__item-title">Автоэлектроника</h3>
+                    <span class="categories__word">Перейти</span>
+                  </div>
+                </a>
+              </li>
+              <li class="categories__item">
+                <a class="categories__item-link" href="category-accessories.html">
+                  <div class="categories__item-block categories__item-block--accessories">
+                    <h3 class="categories__item-title">Аксессуары<br> и другое</h3>
+                    <span class="categories__word">Перейти</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section class="page-main__popular popular">
+            <h2 class="popular__title">Популярные товары</h2>
+            <ul class="popular__category-list">
+              <li class="popular__category-item popular__category-item--checked" data-category="spares">
+                <a class="popular__category-item-link" href="#">Запчасти</a>
+              </li>
+              <li class="popular__category-item" data-category="autochemistry">
+                <a class="popular__category-item-link" href="#">Автохимия</a>
+              </li>
+              <li class="popular__category-item" data-category="tyres">
+                <a class="popular__category-item-link" href="#">Шины и диски</a>
+              </li>
+              <li class="popular__category-item" data-category="electronics">
+                <a class="popular__category-item-link" href="#">Автоэлектроника</a>
+              </li>
+              <li class="popular__category-item" data-category="tools">
+                <a class="popular__category-item-link" href="#">Инструменты</a>
+              </li>
+              <li class="popular__category-item" data-category="accessories">
+                <a class="popular__category-item-link" href="#">Аксессуары и другое</a>
+              </li>
+            </ul>
+            <div class="popular__goods-block">
+              <ul class="popular__slider-buttons slider-buttons">
+                <li class="slider-buttons__btn popular__slider-btn popular__slider-btn--left" data-side="left">
+                  <svg class="slider-buttons__img slider-buttons__img--left slider-buttons__img--black" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                  </svg>
+                </li>
+                <li class="slider-buttons__btn popular__slider-btn popular__slider-btn--right" data-side="right">
+                  <svg class="slider-buttons__img slider-buttons__img--right slider-buttons__img--black" width="16" height="16">
+                    <use xlink:href="img/sprite.svg#icon-arrow"></use>
+                  </svg>
+                </li>
+              </ul>
+              <div class="popular__goods-wrapper" data-slider="container">
+                <ul class="popular__goods-list" data-slider="list">
+                  <li class="popular__goods-item product" data-slider="slide">
+                    <ul class="product__features-list">
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Популярная модель</span>
+                        <svg class="product__feature-img product__feature-img--heart" width="27" height="25">
+                          <use xlink:href="img/sprite.svg#icon-heart"></use>
+                        </svg>
+                      </li>
+                    </ul>
+                    <a class="product__img-link" href="product-1.html">
+                      <img class="product__img" src="img/promo-belt.png" alt="Фото товара Ремень" width="230" height="215">
+                    </a>
+                    <a class="product__title-link" href="product-1.html">
+                      <h3 class="product__title">Ремень</h3>
+                    </a>
+                    <div class="product__price-block">
+                      <a class="product__price-link" href="product-1.html">
+                        <span class="product__price">440 ₽</span>
+                      </a>
+                    </div>
+                    <a class="product__cart-link" href="cart.html">
+                      <button class="product__cart-btn" type="submit">
+                        <span class="visually-hidden">Купить</span>
+                      </button>
+                    </a>
+                    <div class="product__quick-view-block">
+                      <a class="product__quick-view-link" href="product-1-mini.html">Быстрый просмотр</a>
+                    </div>
+                  </li>
+                  <li class="popular__goods-item product" data-slider="slide">
+                    <div class="product__sticker">
+                      <span class="product__sticker-word">Sale</span>
+                    </div>
+                    <ul class="product__features-list">
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Популярная модель</span>
+                        <svg class="product__feature-img product__feature-img--heart" width="27" height="25">
+                          <use xlink:href="img/sprite.svg#icon-heart"></use>
+                        </svg>
+                      </li>
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Для зимы</span>
+                        <svg class="product__feature-img" width="38" height="31">
+                          <use xlink:href="img/sprite.svg#icon-snowflake"></use>
+                        </svg>
+                      </li>
+                    </ul>
+                    <a class="product__img-link" href="product-2.html">
+                      <img class="product__img" src="img/product-tyre.png" alt="Фото товара Шина 205/80 R16 104Q Misha RF Power Grum" width="151" height="181">
+                    </a>
+                    <a class="product__title-link" href="product-2.html">
+                      <h3 class="product__title">Шина 205/80 R16 104Q Misha RF Power Grum</h3>
+                    </a>
+                    <div class="product__price-block">
+                      <a class="product__price-link" href="product-2.html">
+                        <span class="product__price">11 680 ₽</span>
+                      </a>
+                    </div>
+                    <a class="product__cart-link" href="cart.html">
+                      <button class="product__cart-btn" type="submit">
+                        <span class="visually-hidden">Купить</span>
+                      </button>
+                    </a>
+                    <div class="product__quick-view-block">
+                      <a class="product__quick-view-link" href="product-2-mini.html">Быстрый просмотр</a>
+                    </div>
+                  </li>
+                  <li class="popular__goods-item product" data-slider="slide">
+                    <ul class="product__features-list">
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Популярная модель</span>
+                        <svg class="product__feature-img product__feature-img--heart" width="27" height="25">
+                          <use xlink:href="img/sprite.svg#icon-heart"></use>
+                        </svg>
+                      </li>
+                    </ul>
+                    <a class="product__img-link" href="product-3.html">
+                      <img class="product__img" src="img/product-headlight.png" alt="Фото товара Фара Nokian 2025" width="232" height="174">
+                    </a>
+                    <a class="product__title-link" href="product-3.html">
+                      <h3 class="product__title">Фара Nokian 2025</h3>
+                    </a>
+                    <div class="product__price-block">
+                      <a class="product__price-link" href="product-3.html">
+                        <span class="product__price">680 ₽</span>
+                      </a>
+                    </div>
+                    <a class="product__cart-link" href="cart.html">
+                      <button class="product__cart-btn" type="submit">
+                        <span class="visually-hidden">Купить</span>
+                      </button>
+                    </a>
+                    <div class="product__quick-view-block">
+                      <a class="product__quick-view-link" href="product-3-mini.html">Быстрый просмотр</a>
+                    </div>
+                  </li>
+                  <li class="popular__goods-item product" data-slider="slide">
+                    <div class="product__sticker">
+                      <span class="product__sticker-word">Sale</span>
+                    </div>
+                    <ul class="product__features-list">
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Популярная модель</span>
+                        <svg class="product__feature-img product__feature-img--heart" width="27" height="25">
+                          <use xlink:href="img/sprite.svg#icon-heart"></use>
+                        </svg>
+                      </li>
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Для летнего времени года</span>
+                        <svg class="product__feature-img" width="31" height="31">
+                          <use xlink:href="img/sprite.svg#icon-sun"></use>
+                        </svg>
+                      </li>
+                    </ul>
+                    <a class="product__img-link" href="product-4.html">
+                      <img class="product__img" src="img/product-tyre-2.png" alt="Шина 245/60 R18 105T Contyther Crosh Conta..." width="151" height="181">
+                    </a>
+                    <a class="product__title-link" href="product-4.html">
+                      <h3 class="product__title">Шина 245/60 R18 105T Contyther Crosh Contanital</h3>
+                    </a>
+                    <div class="product__price-block">
+                      <span class="product__out-of-stock-title">Нет в наличии</span>
+                      <a class="product__out-of-stock-link" href="#">Сообщить о поступлении</a>
+                    </div>
+                    <div class="product__quick-view-block">
+                      <a class="product__quick-view-link" href="product-4-mini.html">Быстрый просмотр</a>
+                    </div>
+                  </li>
+                  <li class="popular__goods-item product" data-slider="slide">
+                    <ul class="product__features-list">
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Популярная модель</span>
+                        <svg class="product__feature-img product__feature-img--heart" width="27" height="25">
+                          <use xlink:href="img/sprite.svg#icon-heart"></use>
+                        </svg>
+                      </li>
+                    </ul>
+                    <a class="product__img-link" href="product-1.html">
+                      <img class="product__img" src="img/promo-belt.png" alt="Фото товара Ремень" width="230" height="215">
+                    </a>
+                    <a class="product__title-link" href="product-1.html">
+                      <h3 class="product__title">Ремень</h3>
+                    </a>
+                    <div class="product__price-block">
+                      <a class="product__price-link" href="product-1.html">
+                        <span class="product__price">440 ₽</span>
+                      </a>
+                    </div>
+                    <a class="product__cart-link" href="cart.html">
+                      <button class="product__cart-btn" type="submit">
+                        <span class="visually-hidden">Купить</span>
+                      </button>
+                    </a>
+                    <div class="product__quick-view-block">
+                      <a class="product__quick-view-link" href="product-1-mini.html">Быстрый просмотр</a>
+                    </div>
+                  </li>
+                  <li class="popular__goods-item product" data-slider="slide">
+                    <ul class="product__features-list">
+                      <li class="product__features-item">
+                        <span class="visually-hidden">Популярная модель</span>
+                        <svg class="product__feature-img product__feature-img--heart" width="27" height="25">
+                          <use xlink:href="img/sprite.svg#icon-heart"></use>
+                        </svg>
+                      </li>
+                    </ul>
+                    <a class="product__img-link" href="product-1.html">
+                      <img class="product__img" src="img/promo-belt.png" alt="Фото товара Ремень" width="230" height="215">
+                    </a>
+                    <a class="product__title-link" href="product-1.html">
+                      <h3 class="product__title">Ремень</h3>
+                    </a>
+                    <div class="product__price-block">
+                      <a class="product__price-link" href="product-1.html">
+                        <span class="product__price">440 ₽</span>
+                      </a>
+                    </div>
+                    <a class="product__cart-link" href="cart.html">
+                      <button class="product__cart-btn" type="submit">
+                        <span class="visually-hidden">Купить</span>
+                      </button>
+                    </a>
+                    <div class="product__quick-view-block">
+                      <a class="product__quick-view-link" href="product-1-mini.html">Быстрый просмотр</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="popular__goods-toggles slider-toggles">
+                <ul class="slider-toggles__list" data-toggle="list">
+                </ul>
+              </div>
+              <a class="popular__goods-more-btn" href="category/spares.html">
+                <span class="popular__goods-more-btn-text popular__goods-more-btn-text--mobile">Показать еще</span>
+                <span class="popular__goods-more-btn-text popular__goods-more-btn-text--desktop">Смотреть еще</span>
+              </a>
+            </div>
+          </section>
         </main>
       </div>
     </div>
+    <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/slider.js"></script>
     <script type="module" src="js/promo.js"></script>
     <script type="module" src="js/search.js"></script>
+    <script type="module" src="js/popular.js"></script>
   </body>

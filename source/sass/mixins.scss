@@ -4,6 +4,6 @@
 }
 
 @mixin grid12 {
-  grid-template-columns: repeat(12, 70px);
+  grid-template-columns: repeat(12, 1fr);
   gap: 30px;
 }

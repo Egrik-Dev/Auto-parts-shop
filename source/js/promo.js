@@ -1,94 +1,5 @@
-// -- СЛАЙДЕР --
-const makeSlider = (sliderContainer, sliderList, toggleList, delay) => {
-  const Direction = {
-    LEFT: `left`,
-    RIGHT: `right`
-  };
-  const QUANTITY_SLIDES = sliderList.children.length;
-  const DESKTOP_WIDTH_WINDOW = 1170;
-  const clientWidth = document.body.clientWidth;
-  const sliderSize = sliderList.offsetWidth / QUANTITY_SLIDES;
-  let currentPositionSlider = 0;
-  let currentPositionCircle = 0;
-
-  // Напишем функцию которая переключает активный тогл
-  const changeActiveToggle = () => {
-    let activeElement = toggleList.querySelector(`[data-toggle-status="active"]`);
-    activeElement.dataset.toggleStatus = `none`;
-    toggleList.children[currentPositionCircle].dataset.toggleStatus = `active`;
-  };
-
-  // Функция перемещения 1 слайда
-  const changeSlide = (direction) => {
-    switch (direction) {
-      case Direction.LEFT:
-        currentPositionSlider += sliderSize;
-        currentPositionCircle -= 1;
-        break;
-      case Direction.RIGHT:
-        currentPositionSlider -= sliderSize;
-        currentPositionCircle += 1;
-        break;
-
-      default:
-        console.log(`Не понятно куда ты нажал!`);
-    }
-
-    if (currentPositionSlider === -sliderList.offsetWidth || currentPositionSlider > 0) {
-      sliderList.style.transform = `translateX(0px)`;
-      currentPositionSlider = 0;
-      currentPositionCircle = 0;
-    } else {
-      sliderList.style.transform = `translateX(${currentPositionSlider}px)`;
-    }
-
-    sliderList.style.transition = `0.3s linear`;
-    changeActiveToggle();
-  };
-
-  // Запрограммируем работу слайдера по таймеру
-  setInterval(changeSlide, delay, Direction.RIGHT);
-
-  // Реализуем работу слайдера по свайпу с телефонов
-  if (clientWidth < DESKTOP_WIDTH_WINDOW) {
-    let startX;
-    let walk;
-    let endPos;
-
-    sliderList.addEventListener(`touchstart`, (evt) => {
-      startX = Math.ceil(evt.touches[0].clientX);
-    });
-
-    sliderList.addEventListener(`touchmove`, (evt) => {
-      walk = Math.ceil(evt.touches[0].clientX) - startX;
-      sliderList.style.transition = `0ms linear`;
-      sliderList.style.transform = `translateX(${currentPositionSlider + (walk * 1.5)}px)`;
-    });
-
-    sliderList.addEventListener(`touchend`, (evt) => {
-      endPos = Math.ceil(evt.changedTouches[0].clientX + walk);
-
-      if (endPos > startX) {
-        changeSlide(Direction.LEFT);
-      } else {
-        changeSlide(Direction.RIGHT);
-      }
-    });
-  }
-
-  // Запрограмируем переключение слайдов по нажатию на кнопки
-  const leftBtnElement = sliderContainer.querySelector(`.promo__slider-button--left`);
-  const rightBtnElement = sliderContainer.querySelector(`.promo__slider-button--right`);
-
-  if (leftBtnElement) {
-    leftBtnElement.addEventListener(`click`, () => changeSlide(Direction.LEFT));
-  }
-
-  if (rightBtnElement) {
-    rightBtnElement.addEventListener(`click`, () => changeSlide(Direction.RIGHT));
-  }
-};
-
+import {createElement} from './utils.js';
+import {MakeSlider} from './slider.js';
 
 // -- ТАЙМЕР ОБРАТНОГО ОТСЧЁТА --
 const makeTimer = (element, time) => {
@@ -118,7 +29,7 @@ const makeTimer = (element, time) => {
   if (time.HOURS < 0) {
     changeDataCard();
   } else {
-  // Функция вычитании 1 единицы измерения
+  // Функция вычитания 1 единицы измерения
     const subtractingOne = (unitTime) => {
       const oneUnitTime = 1;
       unitTime -= oneUnitTime;
@@ -178,7 +89,7 @@ const promoProducts = [
     photo: `img/promo-bulb.jpg`,
     newPrice: 200,
     oldPrice: 500,
-    dateEnd: `2020-05-19T14:55:00`
+    dateEnd: `2020-06-08T14:55:00`
   },
   {
     title: `Ремень ГРМ`,
@@ -186,7 +97,7 @@ const promoProducts = [
     photo: `img/promo-belt.png`,
     newPrice: 800,
     oldPrice: 1500,
-    dateEnd: `2020-05-20T10:00:00`
+    dateEnd: `2020-09-09T10:00:00`
   },
   {
     title: `Шина 205/80 R16 104Q Misha RF Power Grum`,
@@ -194,7 +105,7 @@ const promoProducts = [
     photo: `img/promo-tyre.png`,
     newPrice: 8500,
     oldPrice: 11500,
-    dateEnd: `2020-05-21T19:30:00`
+    dateEnd: `2020-06-11T19:30:00`
   }
 ];
 
@@ -202,7 +113,7 @@ const promoProducts = [
 const generateMarkupPromo = (product) => {
   const {title, url, photo, newPrice, oldPrice} = product;
 
-  return (`<li class="prommo__timer-item">
+  return (`<li class="prommo__timer-item" data-slider="slide">
   <div class="promo__timer-good">
     <a class="promo__timer-good-link" href="${url}">
       <h3 class="promo__timer-title">${title}</h3>
@@ -247,14 +158,6 @@ const generateMarkupPromo = (product) => {
 </li>`);
 };
 
-// Создаём контейнер для корректной вставки в HTML
-const createElement = (template) => {
-  const newElement = document.createElement(`div`);
-  newElement.innerHTML = template;
-
-  return newElement.firstChild;
-};
-
 // Функция для рассчёта оставшегося времени акции
 const countRemainingTime = (date) => {
   const nowTimeStamp = Date.now();
@@ -268,7 +171,6 @@ const countRemainingTime = (date) => {
   return time;
 };
 
-
 // ДОБАВИМ ЕЩЁ ТОВАРОВ ПО АКЦИИ
 const promoContainerElement = document.querySelector(`.promo__timer-list`);
 
@@ -279,16 +181,18 @@ promoProducts.forEach((item, index) => {
   makeTimer(promoElement[index], time);
 });
 
+// Флаг на работу таймера
+const isTimer = {
+  YES: `yes`,
+  NO: `no`
+};
+
 // Запускаем первый слайдер
-const firstSliderContainer = document.querySelector(`.promo__slider`);
-const sliderListElement = document.querySelector(`.promo__slider-list`);
-const circlesElements = document.querySelector(`.promo__circles-list`);
-const SLIDER_DELAY = 50000;
-makeSlider(firstSliderContainer, sliderListElement, circlesElements, SLIDER_DELAY);
+const firstSliderContainer = document.querySelector(`.promo__slider-block`);
+const FIRST_SLIDER_DELAY = 50000;
+const firstPromoSlider = new MakeSlider(firstSliderContainer, `loop`, isTimer.YES, FIRST_SLIDER_DELAY);
 
 // Запускаем промо слайдер
 const secondSliderContainer = document.querySelector(`.promo__timer-block`);
-const sliderPromoListElement = document.querySelector(`.promo__timer-list`);
-const circlesPromoElements = document.querySelector(`.promo-timer-toggles-list`);
-const PROMO_SLIDER_DELAY = 8000;
-makeSlider(secondSliderContainer, sliderPromoListElement, circlesPromoElements, PROMO_SLIDER_DELAY);
+const PROMO_SLIDER_DELAY = 80000;
+const secondPromoSlider = new MakeSlider(secondSliderContainer, `loop`, isTimer.YES, PROMO_SLIDER_DELAY);

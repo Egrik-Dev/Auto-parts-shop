@@ -1,12 +1,8 @@
-.promo__slider {
+.promo__slider-container {
   position: relative;
 
   width: 100%;
   margin-bottom: 43px;
-}
-
-.promo__slider-buttons {
-  display: none;
 }
 
 .promo__slider-list {
@@ -61,7 +57,7 @@
   }
 }
 
-.promo__timer-block {
+.promo__timer-container {
   margin: 0 25px;
 
   overflow: hidden;
@@ -256,28 +252,6 @@
   color: #c4c4c4;
 }
 
-.promo-timer-toggles-list {
-  display: flex;
-  justify-content: space-between;
-  width: 86px;
-  padding: 0;
-  margin: 0 auto;
-
-  list-style: none;
-}
-
-.promo__timer-toggle {
-  width: 13px;
-  height: 13px;
-
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
-
-  &[data-toggle-status="active"] {
-    background-color: #ff7931;
-  }
-}
-
 @media (min-width: $desktop-width) {
   .promo {
     display: grid;
@@ -285,43 +259,23 @@
     @include grid12;
   }
 
-  .promo__slider {
+  .promo__slider-block {
     margin-bottom: 0;
     grid-column: 1 / 10;
 
     overflow: hidden;
   }
 
-  .promo__slider-buttons {
-    display: block;
-    margin: 0;
-    padding: 0;
-
-    list-style: none;
-    cursor: pointer;
-  }
-
   .promo__timer-block {
     grid-column: 10 / 13;
+  }
+
+  .promo__timer-container {
     margin: 0;
   }
 
-  .promo-timer-toggles-list {
-    display: none;
-  }
-
-  .promo__slider-button {
-    position: absolute;
+  .promo__slider-btn {
     top: 45%;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
 
     &--left {
       left: 10px;
@@ -330,10 +284,6 @@
     &--right {
       right: 10px;
     }
-  }
-
-  .promo__slider-button-img--left {
-    transform: rotate(180deg);
   }
 
   .promo__circles-list {

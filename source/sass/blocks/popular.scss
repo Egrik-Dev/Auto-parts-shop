@@ -1,0 +1,154 @@
+.popular__title {
+  margin: 0 0 25px 0;
+
+  text-align: center;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.popular__category-list {
+  display: flex;
+  padding: 0;
+  margin: 0 0 25px 25px;
+
+  list-style: none;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.popular__category-item {
+  margin-right: 35px;
+  padding-bottom: 10px;
+
+  font-size: 15px;
+  line-height: 18px;
+
+  &--checked {
+    border-bottom: 2px solid #ff7931;
+  }
+
+  &--checked .popular__category-item-link {
+    font-weight: 600;
+  }
+}
+
+.popular__category-item-link {
+  text-transform: lowercase;
+  color: #48494d;
+}
+
+.popular__goods-block {
+  position: relative;
+}
+
+.popular__goods-wrapper {
+  position: relative;
+  width: 270px;
+  margin: 0 auto 25px;
+
+  overflow: hidden;
+}
+
+.popular__goods-list {
+  display: flex;
+  width: 400%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 25px;
+
+  list-style: none;
+}
+
+.popular__goods-item {
+  width: 268px;
+  margin-right: 30px;
+
+  &:nth-last-child(1) {
+    margin-right: 0;
+  }
+}
+
+.popular__goods-toggles {
+  margin-bottom: 40px;
+}
+
+.popular__goods-more-btn-text {
+  display: block;
+  width: 93%;
+  padding: 17px 0 14px;
+  margin: 0 auto;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #bdbec2;
+
+  background-color: #f0f0f4;
+
+  &--desktop {
+    display: none;
+  }
+}
+
+@media (min-width: $two-products-width) {
+  .popular__goods-wrapper {
+    width: 570px;
+  }
+}
+
+@media (min-width: $three-products-width) {
+  .popular__goods-wrapper {
+    width: 870px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .popular__title {
+    text-align: left;
+  }
+
+  .popular__category-list {
+    margin-left: 0;
+    overflow-x: unset;
+  }
+
+  .popular__category-item {
+    cursor: pointer;
+  }
+
+  .popular__goods-wrapper {
+    width: 100%;
+    margin: 0;
+  }
+
+  .popular__goods-list {
+    margin-bottom: 35px;
+  }
+
+  .popular__goods-more-btn-text {
+    width: 252px;
+
+    &--mobile {
+      display: none;
+    }
+
+    &--desktop {
+      display: block;
+    }
+  }
+
+  .popular__slider-btn {
+    top: 38%;
+
+    &--left {
+      left: -66px;
+    }
+
+    &--right {
+      right: -66px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.slider-toggles__list {
+  display: flex;
+  justify-content: space-between;
+  width: 86px;
+  padding: 0;
+  margin: 0 auto;
+
+  list-style: none;
+}
+
+.slider-toggles__item {
+  width: 13px;
+  height: 13px;
+
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  &[data-toggle-status="active"] {
+    background-color: #ff7931;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .slider-toggles__list {
+    display: none;
+  }
+}
