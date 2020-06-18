@@ -1,4 +1,7 @@
 .search__fieldset {
+  position: relative;
+
+  display: flex;
   min-inline-size: unset;
   padding: 0;
   margin: 0 0 15px;
