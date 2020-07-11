@@ -10,4 +10,12 @@
 
 .banner__img {
   max-width: 653px;
+  height: 92px;
+}
+
+@media (min-width: $desktop-width) {
+  .banner__img {
+    max-width: 1170px;
+    height: 165px;
+  }
 }

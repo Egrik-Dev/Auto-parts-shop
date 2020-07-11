@@ -11,7 +11,11 @@
   margin-bottom: $section-margin-bottom;
 }
 
-.page-main__popular {
+.page-main__category-slider {
+  margin-bottom: $section-margin-bottom;
+}
+
+.page-main__banner {
   margin-bottom: $section-margin-bottom;
 }
 
@@ -36,7 +40,13 @@
     margin-bottom: $section-margin-bottom;
   }
 
-  .page-main__popular {
+  .page-main__category-slider {
     @include desktop-wrapper;
+    margin-bottom: $section-margin-bottom;
+  }
+
+  .page-main__banner {
+    @include desktop-wrapper;
+    margin-bottom: $section-margin-bottom;
   }
 }

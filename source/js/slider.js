@@ -1,5 +1,6 @@
 // Добавим импорты
 import {createElement} from './utils.js';
+import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
 
 export function MakeSlider(container, mode, isTimer = `no`, delay) {
   const Direction = {
@@ -155,30 +156,55 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
     changeActiveToggle();
   };
 
-  // Реализуем работу слайдера по свайпу с телефонов
-  let startX;
-  let walk;
-  let endPos;
+  const swipe = () => {
+    // Реализуем работу слайдера по свайпу с телефонов
+    let startX;
+    let startY;
+    let walkX;
+    let walkY;
+    let endPos;
+    let isSwiping = false;
+    let isVerticalScroll = false;
 
-  sliderListElement.addEventListener(`touchstart`, (evt) => {
-    startX = Math.ceil(evt.touches[0].clientX);
-  });
+    sliderListElement.addEventListener(`touchstart`, (evt) => {
+      startX = Math.ceil(evt.touches[0].clientX);
+      startY = Math.ceil(evt.touches[0].clientY);
+    });
 
-  sliderListElement.addEventListener(`touchmove`, (evt) => {
-    walk = Math.ceil(evt.touches[0].clientX) - startX;
-    sliderListElement.style.transition = `0ms linear`;
-    sliderListElement.style.transform = `translateX(${currentPositionSlider + (walk * 1.5)}px)`;
-  });
+    sliderListElement.addEventListener(`touchmove`, (evt) => {
+      walkY = Math.ceil(evt.touches[0].clientY) - startY;
+      walkX = Math.ceil(evt.touches[0].clientX) - startX;
 
-  sliderListElement.addEventListener(`touchend`, (evt) => {
-    endPos = Math.ceil(evt.changedTouches[0].clientX + walk);
+      if (isVerticalScroll) {
+        sliderListElement.style.touchAction = `pan-y`;
+      } else if (isSwiping) {
+        disableBodyScroll(sliderListElement);
+        sliderListElement.style.transition = `0ms linear`;
+        sliderListElement.style.transform = `translateX(${currentPositionSlider + (walkX * 1.5)}px)`;
+      } else if (walkY > 3 || walkY < -3) {
+        isVerticalScroll = true;
+      } else {
+        isSwiping = true;
+      }
+    });
 
-    if (endPos > startX) {
-      changeCurrentPosition(Direction.LEFT);
-    } else {
-      changeCurrentPosition(Direction.RIGHT);
-    }
-  });
+    sliderListElement.addEventListener(`touchend`, (evt) => {
+      endPos = Math.ceil(evt.changedTouches[0].clientX + walkX);
+
+      if (endPos > startX && isSwiping) {
+        changeCurrentPosition(Direction.LEFT);
+      } else if (endPos < startX && isSwiping) {
+        changeCurrentPosition(Direction.RIGHT);
+      }
+
+      enableBodyScroll(sliderListElement);
+      isSwiping = false;
+      isVerticalScroll = false;
+      sliderListElement.style.touchAction = `auto`;
+    });
+  };
+
+  swipe();
 
   // Запрограмируем переключение слайдов по нажатию на кнопки
   if (leftBtnElement) {

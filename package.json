@@ -28,6 +28,9 @@
     "stylelint": "13.2.x",
     "stylelint-config-htmlacademy": "0.1.x"
   },
+  "dependencies": {
+    "body-scroll-lock": "^3.0.3"
+  },
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",

@@ -1,0 +1,131 @@
+.page-footer {
+  padding-bottom: 14px;
+  background-color: #f9f9fc;
+}
+
+.page-footer__mailing {
+  margin-bottom: 23px;
+  padding: 42px 14px 16px;
+}
+
+.page-footer__mailing-title {
+  margin: 0 0 26px;
+
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: #48494d;
+}
+
+.page-footer__mailing-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 468px;
+}
+
+.page-footer__mailing-input {
+  flex-basis: 63%;
+  padding: 8px 12px;
+
+  line-height: 17px;
+
+  border: none;
+  box-sizing: border-box;
+
+  &::-webkit-input-placeholder {
+    color: #a5a5a5;
+  }
+}
+
+.page-footer__mailing-btn {
+  flex-basis: 37%;
+  padding: 10px 17px;
+
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  border: none;
+  background-color: #ff7931;
+}
+
+.page-footer__nav-item-list {
+  position: relative;
+
+  padding-top: 16px;
+
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.page-footer__nav-list {
+  position: absolute;
+
+  padding-left: 30px;
+  height: 0;
+
+  opacity: 0;
+  overflow: hidden;
+  list-style: none;
+  background-color: #f0f0f4;
+
+  transition: opacity 0.3s, height 0.3s;
+
+  &--opened {
+    position: relative;
+
+    opacity: 1;
+  }
+}
+
+.page-footer__nav {
+  margin: 0 0 31px;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: 1px solid #d6d6d6;
+}
+
+.page-footer__nav-arrow {
+  position: absolute;
+  top: 15px;
+  right: 14px;
+
+  width: 10px;
+  height: 15px;
+
+  background: url("../img/icon-arrowhead.svg") no-repeat 50%;
+
+  transition: transform 0.2s ease-in;
+}
+
+.page-footer__nav-title {
+  padding: 0 0 15px 15px;
+  margin: 0;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #7f7f7f;
+}
+
+.page-footer__nav-item {
+  padding: 10px 0;
+}
+
+.page-footer__nav-link {
+  color: #7f7f7f;
+}
+
+.page-footer__label {
+  padding: 0 50px;
+
+  line-height: 17px;
+  text-align: center;
+  color: #a5a5a5;
+}

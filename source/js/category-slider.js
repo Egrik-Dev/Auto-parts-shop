@@ -1,8 +1,11 @@
 import {MakeSlider} from './slider.js';
 import {createElement} from './utils.js';
 
-const productsContainer = document.querySelector(`.popular__goods-block`);
-const popularProductsSlider = new MakeSlider(productsContainer, `adaptive`);
+// const productsContainer = document.querySelector(`.popular__goods-block`);
+const popularContainer = document.querySelector(`[data-slider-name="popular"]`);
+const moreContainer = document.querySelector(`[data-slider-name="more"]`);
+const popularProductsSlider = new MakeSlider(popularContainer, `adaptive`);
+const moreProductsSlider = new MakeSlider(moreContainer, `adaptive`);
 
 // Напишем фун-ию которая удаляет старые карточки при переключении категории
 
@@ -383,7 +386,7 @@ const generateMarkupCart = () => {
 const generateMarkupPopular = (product) => {
   const {title, url, photo, photoSize, stock, price, sticker, features} = product;
 
-  return (`<li class="popular__goods-item product" data-slider="slide">
+  return (`<li class="category-slider__goods-item product" data-slider="slide">
     ${sticker ? generateMarkupSteacker() : ``}
     <ul class="product__features-list">
     ${features.map((feature) => generateMarkupFeature(feature))
@@ -405,37 +408,42 @@ const generateMarkupPopular = (product) => {
   </li>`);
 };
 
-const categoriesElements = document.querySelectorAll(`.popular__category-item`);
-categoriesElements.forEach((item) => {
-  item.addEventListener(`click`, (evt) => {
-    evt.preventDefault();
-    if (item.dataset.category !== currentCategory) {
-      // Переключаем активную текущую категорию
-      const preventCategory = document.querySelector(`.popular__category-item--checked`);
-      preventCategory.classList.remove(`popular__category-item--checked`);
-      item.classList.add(`popular__category-item--checked`);
+const switchCategories = (container, slider) => {
+  const categoriesElements = container.querySelectorAll(`.category-slider__category-item`);
+  categoriesElements.forEach((item) => {
+    item.addEventListener(`click`, (evt) => {
+      evt.preventDefault();
+      if (item.dataset.category !== currentCategory) {
+        // Переключаем активную текущую категорию
+        const preventCategory = container.querySelector(`.category-slider__category-item--checked`);
+        preventCategory.classList.remove(`category-slider__category-item--checked`);
+        item.classList.add(`category-slider__category-item--checked`);
 
-      // Удаляем все карточки
-      const productsAllElements = document.querySelectorAll(`.popular__goods-item`);
-      productsAllElements.forEach((product) => product.remove());
+        // Удаляем все карточки
+        const productsAllElements = container.querySelectorAll(`.category-slider__goods-item`);
+        productsAllElements.forEach((product) => product.remove());
 
-      // Берем массив с карточками и рендерим их
-      const currentArrProducts = categoriesProducts[item.dataset.category.toUpperCase()].products;
-      const popularContainerElement = document.querySelector(`.popular__goods-list`);
-      currentArrProducts.forEach((product) => {
-        popularContainerElement.append(createElement(generateMarkupPopular(product)));
-      });
+        // Берем массив с карточками и рендерим их
+        const currentArrProducts = categoriesProducts[item.dataset.category.toUpperCase()].products;
+        const popularContainerElement = container.querySelector(`.category-slider__goods-list`);
+        currentArrProducts.forEach((product) => {
+          popularContainerElement.append(createElement(generateMarkupPopular(product)));
+        });
 
-      // Перезапускаем работу слайдера с новыми данными
-      popularProductsSlider.calculateSliderData();
-      popularProductsSlider.reloadSlider();
+        // Перезапускаем работу слайдера с новыми данными
+        slider.calculateSliderData();
+        slider.reloadSlider();
 
-      // Вставляем новую ссылку в кнопку "Смотреть ещё"
-      const showMoreBtn = document.querySelector(`.popular__goods-more-btn`);
-      showMoreBtn.setAttribute(`href`, categoriesProducts[item.dataset.category.toUpperCase()].url);
+        // Вставляем новую ссылку в кнопку "Смотреть ещё"
+        const showMoreBtn = container.querySelector(`.category-slider__goods-more-btn`);
+        showMoreBtn.setAttribute(`href`, categoriesProducts[item.dataset.category.toUpperCase()].url);
 
-      currentCategory = item.dataset.category;
-    }
+        currentCategory = item.dataset.category;
+      }
+    });
   });
-});
+};
+
+switchCategories(popularContainer, popularProductsSlider);
+switchCategories(moreContainer, moreProductsSlider);
 
