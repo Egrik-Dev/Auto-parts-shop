@@ -35,3 +35,12 @@ input[type="radio"].visually-hidden {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+@media (min-width: $desktop-width) {
+  .wrapper {
+    display: flex;
+    width: 1170px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}

@@ -135,6 +135,10 @@
 
   .category-slider__goods-list {
     margin-bottom: 35px;
+
+    &--margin {
+      margin-bottom: 0;
+    }
   }
 
   .category-slider__goods-more-btn:hover .category-slider__goods-more-btn-text {

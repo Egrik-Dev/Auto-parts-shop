@@ -545,7 +545,7 @@
                 </li>
               </ul>
               <div class="category-slider__goods-wrapper" data-slider="container">
-                <ul class="category-slider__goods-list" data-slider="list">
+                <ul class="category-slider__goods-list category-slider__goods-list--margin" data-slider="list">
                   <li class="category-slider__goods-item product" data-slider="slide">
                     <ul class="product__features-list">
                       <li class="product__features-item">
@@ -745,50 +745,52 @@
           </section>
         </main>
         <footer class="page-footer">
-          <h2 class="visually-hidden">Подвал сайта Автомобильных запчастей Auto-Shop</h2>
-          <form class="page-footer__mailing" action="#" method="post">
-            <h3 class="page-footer__mailing-title">Подпишитесь на нашу рассылку и узнавайте о акциях быстрее</h3>
-            <div class="page-footer__mailing-wrapper">
-              <input class="page-footer__mailing-input" type="email" name="email" id="email-field" placeholder="Введите ваш e-mail:" required>
-              <button class="page-footer__mailing-btn" type="submit" name="email-submti">Отправить</button>
-            </div>
-          </form>
-          <ul class="page-footer__nav">
-            <li class="page-footer__nav-item-list">
-              <h3 class="page-footer__nav-title">Информация</h3>
-              <ul class="page-footer__nav-list" data-menu-status="closed">
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="about.html">О компании</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="contacts.html">Контакты</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="requisites.html">Реквизиты</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="shops.html">Магазины</a></li>
-              </ul>
-              <div class="page-footer__nav-arrow"></div>
-            </li>
-            <li class="page-footer__nav-item-list">
-              <h3 class="page-footer__nav-title">Сервисный центр</h3>
-              <ul class="page-footer__nav-list" data-menu-status="closed">
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
-              </ul>
-              <div class="page-footer__nav-arrow"></div>
-            </li>
-            <li class="page-footer__nav-item-list">
-              <h3 class="page-footer__nav-title">Интернет-магазин</h3>
-              <ul class="page-footer__nav-list" data-menu-status="closed">
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="promotions.html">Акции</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="agreement.html">Договор оферты</a></li>
-                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="privacy.html">Политика обработки персональных данных</a></li>
-              </ul>
-              <div class="page-footer__nav-arrow"></div>
-            </li>
-          </ul>
-          <p class="page-footer__label"><span class="page-footer__label-mobile-word">Onisshop. </span>Интернет-магазин автозапчастей</p>
+          <div class="page-footer__wrapper wrapper">
+            <h2 class="visually-hidden">Подвал сайта Автомобильных запчастей Auto-Shop</h2>
+            <form class="page-footer__form" action="#" method="post">
+              <h3 class="page-footer__form-title">Подпишитесь на нашу рассылку и узнавайте о акциях быстрее</h3>
+              <div class="page-footer__form-wrapper">
+                <input class="page-footer__form-input" type="email" name="email" id="email-field" placeholder="Введите ваш e-mail:" required>
+                <button class="page-footer__form-btn" type="submit" name="email-submti">Отправить</button>
+              </div>
+            </form>
+            <ul class="page-footer__nav">
+              <li class="page-footer__nav-item-list">
+                <h3 class="page-footer__nav-title">Информация</h3>
+                <ul class="page-footer__nav-list" data-menu-status="closed">
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="about.html">О компании</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="contacts.html">Контакты</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="requisites.html">Реквизиты</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="shops.html">Магазины</a></li>
+                </ul>
+                <div class="page-footer__nav-arrow"></div>
+              </li>
+              <li class="page-footer__nav-item-list">
+                <h3 class="page-footer__nav-title">Сервисный центр</h3>
+                <ul class="page-footer__nav-list" data-menu-status="closed">
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
+                </ul>
+                <div class="page-footer__nav-arrow"></div>
+              </li>
+              <li class="page-footer__nav-item-list">
+                <h3 class="page-footer__nav-title">Интернет-магазин</h3>
+                <ul class="page-footer__nav-list" data-menu-status="closed">
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="promotions.html">Акции</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="agreement.html">Договор оферты</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="privacy.html">Политика обработки персональных данных</a></li>
+                </ul>
+                <div class="page-footer__nav-arrow"></div>
+              </li>
+            </ul>
+            <p class="page-footer__label"><span class="page-footer__label-mobile-word">Onisshop. </span>Интернет-магазин автозапчастей</p>
+          </div>
         </footer>
       </div>
     </div>
