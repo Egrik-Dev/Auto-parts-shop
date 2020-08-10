@@ -1,7 +1,6 @@
 import {MakeSlider} from './slider.js';
 import {createElement} from './utils.js';
 
-// const productsContainer = document.querySelector(`.popular__goods-block`);
 const popularContainer = document.querySelector(`[data-slider-name="popular"]`);
 const moreContainer = document.querySelector(`[data-slider-name="more"]`);
 const popularProductsSlider = new MakeSlider(popularContainer, `adaptive`);

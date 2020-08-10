@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Интернет-магазин Автозапчастей Auto-Shop</title>
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <input class="main-wrapper__toggle visually-hidden" type="checkbox" name="hamburger-toggle-name" value="hamburger" id="hamburger-toggle">
+      <nav class="main-wrapper__hamburger-nav hamburger-nav">
+        <button class="hamburger-nav__toggle" type="button">
+          <label class="hamburger-nav__label" for="hamburger-toggle">
+            <span class="visually-hidden">Открыть меню</span>
+          </label>
+        </button>
+        <ul class="hamburger-nav__list">
+          <li class="hamburger-nav__item hamburger-nav__item--login">Войти</li>
+          <li class="hamburger-nav__item hamburger-nav__item--login">Регистрация</li>
+          <li class="hamburger-nav__item hamburger-nav__item--category-slider">Избранное</li>
+          <li class="hamburger-nav__item hamburger-nav__item--shops">Магазины</li>
+          <li class="hamburger-nav__item hamburger-nav__item--promotions">Акции</li>
+          <li class="hamburger-nav__item hamburger-nav__item--delivery">Доставка<br> и оплата</li>
+          <li class="hamburger-nav__item">Каталог запчастей</li>
+          <li class="hamburger-nav__item">Каталог ТО</li>
+          <li class="hamburger-nav__item">Шины</li>
+          <li class="hamburger-nav__item">Диски</li>
+          <li class="hamburger-nav__item">Аккумуляторы</li>
+          <li class="hamburger-nav__item">Автомасла</li>
+          <li class="hamburger-nav__item">Автолампы</li>
+          <li class="hamburger-nav__item">Аксессуары</li>
+          <li class="hamburger-nav__item hamburger-nav__item--adress">Санкт-Петербург, ул Большая Конюшенная, д 19</li>
+        </ul>
+      </nav>
+      <div class="main-wrapper__content-container">
+        <header class="page-header page-header--catalog">
+          <div class="page-header__user-menu user-menu">
+            <div class="user-menu__wrapper">
+              <ul class="user-menu__shop-info-list">
+                <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Магазины</a></li>
+                <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Акции</a></li>
+                <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Доставка и оплата</a></li>
+              </ul>
+              <a class="user-menu__logo">
+                <span class="visually-hidden">Логотип магазина Auto-parts</span>
+                <svg class="user-menu__logo-image" width="69" height="38">
+                  <use xlink:href="img/sprite.svg#icon-logo"></use>
+                </svg>
+              </a>
+              <div class="user-menu__adress-block">
+                <p class="user-menu__adress-text">Санкт-Петербург, ул Большая Конюшенная, д 19</p>
+              </div>
+              <div class="user-menu__icons-block">
+                <ul class="user-menu__icons-list">
+                  <li class="user-menu__icons-item">
+                    <a href="category-slider.html">
+                      <span class="visually-hidden">Избранное</span>
+                      <svg class="user-menu__icon-image user-menu__icon-image--popular" width="26" height="24">
+                        <use xlink:href="img/sprite.svg#icon-heart"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="user-menu__icons-item user-menu__icons-item--login">
+                    <a href="logn.html">
+                      <span class="visually-hidden">Личный кабинет</span>
+                      <svg class="user-menu__icon-image user-menu__icon-image--login" width="21" height="24">
+                        <use xlink:href="img/sprite.svg#icon-login"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="user-menu__icons-item user-menu__icons-item--cart">
+                    <a href="cart.html">
+                      <span class="visually-hidden">Корзина</span>
+                      <svg class="user-menu__icon-image user-menu__icon-image--cart" width="28" height="24">
+                        <use xlink:href="img/sprite.svg#icon-cart"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <nav class="page-header__main-nav main-nav main-nav--hidden">
+            <ul class="main-nav__list">
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог Запчастей</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог ТО</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Шины</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Диски</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Аккумуляторы</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Автомасла</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Автолампы</a></li>
+              <li class="main-nav__item"><a class="main-nav__link" href="#">Аксессуары</a></li>
+            </ul>
+          </nav>
+        </header>
+        <main class="page-main">
+          <div class="page-main__breadcrumbs wrapper">
+            <ul class="breadcrumbs">
+              <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+              <li class="breadcrumbs__item"><a href="tyres.html" class="breadcrumbs__link">Шины</a></li>
+              <li class="breadcrumbs__item"><a class="breadcrumbs__link breadcrumbs__link--active">Шины зимние</a></li>
+            </ul>
+          </div>
+          <h1 class="page-main__title">Нешипованные шины</h1>
+          <section class="page-main__control-panel control-panel">
+            <div class="control-panel__sort">
+              <div class="control-panel__sort-block">
+                <select class="control-panel__sort-list" name="sort-list" id="sort-list-box">
+                  <option value="По популярности">По популярности</option>
+                  <option value="По цене (по возрастанию)">По цене (по возр)</option>
+                  <option value="По цене (по убыванию)">По цене (по убыв)</option>
+                </select>
+              </div>
+              <button class="control-panel__filter-btn" type="button">Фильтры</button>
+              <div class="control-panel__sort-view">
+                <ul class="control-panel__sort-view-list">
+                  <li class="control-panel__sort-view-item control-panel__sort-view-item--cards">
+                    <button class="control-panel__sort-view-btn control-panel__sort-view-btn--cards" type="button">
+                      <span class="visually-hidden">Отображение товаров карточками</span>
+                    </button>
+                  </li>
+                  <li class="control-panel__sort-view-item control-panel__sort-view-item--list">
+                    <button class="control-panel__sort-view-btn control-panel__sort-view-btn--list" type="button">
+                      <span class="visually-hidden">Отображение товаров списком</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="control-panel__city-container">
+              <select class="control-panel__city" name="city-list" id="city-list-box">
+                <option value="Набережные Челны">Набережные Челны</option>
+                <option value="Казань">Казань</option>
+                <option value="Уфа">Уфа</option>
+                <option value="Самара">Самара</option>
+                <option value="Другой">Другой</option>
+              </select>
+            </div>
+            <ul class="control-panel__tags">
+              <li class="control-panel__tags-item">
+                <a class="control-panel__tags-link" href="/search/all-wheel-drive.html">Полноприводные</a>
+              </li>
+              <li class="control-panel__tags-item">
+                <a class="control-panel__tags-link" href="/search/5000.html">от 5000</a>
+              </li>
+              <li class="control-panel__tags-item">
+                <a class="control-panel__tags-link" href="/search/nokian.html">Nokian</a>
+              </li>
+              <li class="control-panel__tags-item">
+                <a class="control-panel__tags-link" href="/search/7000.html">от 7000</a>
+              </li>
+              <li class="control-panel__tags-item">
+                <a class="control-panel__tags-link" href="/search/more.html">еще</a>
+              </li>
+            </ul>
+          </section>
+          <section class="page-main__filters filters">
+            <h2 class="filters__title">Фильтры</h2>
+            <input class="visually-hidden filters__input filters__input--parameters" id="filter-parameters" type="radio" name="filters-toggle">
+            <input class="visually-hidden filters__input filters__input--brand" id="filter-brand" type="radio" name="filters-toggle" checked>
+            <ul class="filters__menu">
+              <li class="filters__menu-item filters__menu-item--parameters">
+                <label class="filters__menu-label" for="filter-parameters">По параметрам</label>
+              </li>
+              <li class="filters__menu-item filters__menu-item--brand">
+                <label class="filters__menu-label" for="filter-brand">По марке</label>
+              </li>
+            </ul>
+            <ul class="filters__list">
+              <li class="filters__list-item filters__list-item--parameters">
+                <form class="filters__form" action="https://js.dump/auto-parts" method="POST" enctype="multipart/form-data" autocomplete="off">
+                  <fieldset class="filters__fieldset filters__fieldset--seasonality">
+                    <legend class="filters__fieldset-title">Сезонность</legend>
+                    <ul class="filters__form-list">
+                      <li class="filters__form-item">
+                        <a class="filters__hint-link" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="seasonality" id="winter-box" value="winter">
+                        <label class="filters__label" for="winter-box">Зимние</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="seasonality" id="summer-box" value="summer">
+                        <label class="filters__label" for="summer-box">Летние</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--type-tyres">
+                    <legend class="filters__fieldset-title">Тип шин</legend>
+                    <ul class="filters__radio-list">
+                      <li class="filters__radio-item">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="all" value="all">
+                        <label class="filters__radio-label" for="all">Все</label>
+                      </li>
+                      <li class="filters__radio-item">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="non-studded" value="non-studded">
+                        <label class="filters__radio-label" for="non-studded">Нешипованные</label>
+                      </li>
+                      <li class="filters__radio-item">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="studded" value="studded">
+                        <label class="filters__radio-label" for="studded">Шипованная</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--price">
+                    <legend class="filters__fieldset-title">Цена</legend>
+                    <div class="filters__range-controls">
+                      <div class="filters__scale">
+                        <div class="filters__scale-bar"></div>
+                      </div>
+                      <div class="filters__bar-toggle filters__bar-toggle--min"></div>
+                      <div class="filters__bar-toggle filters__bar-toggle--max"></div>
+                    </div>
+                    <div class="filters__price-value">
+                      <div class="filters__price-indicator">
+                        <span class="filters__price-indicator-word">До</span>
+                        <input class="filters__price-number" type="number" name="minpriceinput" id="minpriceinput" min="0" max="30000" step="100" value="2000">
+                        <input class="filters__price-number" type="number" name="maxpriceinput" id="maxpriceinput" min="0" max="30000" step="100" value="12000">
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-diameter">
+                    <legend class="filters__fieldset-title">Диаметр</legend>
+                    <a class="filters__hint-link" href="#">
+                      <span class="filters__hint-question">?</span>
+                    </a>
+                    <select class="filters__select" name="diameter-list" id="diameter-list-box">
+                      <option value="10">10</option>
+                      <option value="12">12</option>
+                      <option value="12C">12C</option>
+                      <option value="14">14</option>
+                      <option value="14C">14C</option>
+                      <option value="15">15</option>
+                      <option value="15C">15C</option>
+                      <option value="16">16</option>
+                      <option value="16C">16C</option>
+                      <option value="17">17</option>
+                      <option value="17C">17C</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-profile">
+                    <legend class="filters__fieldset-title">Профиль</legend>
+                    <a class="filters__hint-link" href="#">
+                      <span class="filters__hint-question">?</span>
+                    </a>
+                    <select class="filters__select" name="profile-list" id="diamprofileeter-list-box">
+                      <option value="10">10</option>
+                      <option value="12">12</option>
+                      <option value="12C">12C</option>
+                      <option value="14">14</option>
+                      <option value="14C">14C</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-width">
+                    <legend class="filters__fieldset-title">Ширина</legend>
+                    <a class="filters__hint-link" href="#">
+                      <span class="filters__hint-question">?</span>
+                    </a>
+                    <select class="filters__select" name="profile-width" id="diamprofileeter-width-box">
+                      <option value="22">22</option>
+                      <option value="24">24</option>
+                      <option value="26">26</option>
+                      <option value="28">28</option>
+                      <option value="30">30</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--brand">
+                    <legend class="filters__fieldset-title">Бренд</legend>
+                    <input class="filters__input-text" type="text" name="brand-name" id="brand-name-field" placeholder="Введите бренд шины">
+                    <label class="visually-hidden" for="brand-name-field">Бренд шины</label>
+                    <ul class="filters__form-list">
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="b-gudrich-box" value="b-gudrich">
+                        <label class="filters__label" for="b-gudrich-box">B Gudrich</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="rarym-box" value="rarym">
+                        <label class="filters__label" for="rarym-box">Rarym</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="wridrestone-box" value="wridrestone">
+                        <label class="filters__label" for="wridrestone-box">Wridrestone</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="bf-hide-box" value="bf-hide">
+                        <label class="filters__label" for="bf-hide-box">BF hide</label>
+                      </li>
+                    </ul>
+                    <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--model">
+                    <legend class="filters__fieldset-title">Модель</legend>
+                    <input class="filters__input-text" type="text" name="model-name" id="model-name-field" placeholder="Введите модель шины">
+                    <label class="visually-hidden" for="model-name-field">Модели шин</label>
+                    <ul class="filters__form-list">
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="alina-box" value="alina">
+                        <label class="filters__label" for="alina-box">ALINA</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="force-moode-box" value="force-moode">
+                        <label class="filters__label" for="force-moode-box">FORCE Moode</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="bliwwas-box" value="bliwwas">
+                        <label class="filters__label" for="bliwwas-box">BLIWWAS</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="ice-gide-box" value="ice-gide">
+                        <label class="filters__label" for="ice-gide-box">ICE Gide</label>
+                      </li>
+                    </ul>
+                    <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--technology">
+                    <legend class="filters__fieldset-title">Технология</legend>
+                    <a class="filters__hint-link" href="#">
+                      <span class="filters__hint-question">?</span>
+                    </a>
+                    <ul class="filters__radio-list">
+                      <li class="filters__radio-item">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="yes" value="yes">
+                        <label class="filters__radio-label" for="yes">Да</label>
+                      </li>
+                      <li class="filters__radio-item">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="no" value="no">
+                        <label class="filters__radio-label" for="no">Нет</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--discounts">
+                    <legend class="filters__fieldset-title">Акции</legend>
+                    <ul class="filters__form-list">
+                      <!-- Нужно обозвать по другому!!! -->
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="discounts" id="sale-box" value="sale">
+                        <label class="filters__label" for="sale-box">Sale</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="discounts" id="new-box" value="new">
+                        <label class="filters__label" for="new-box">New</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="discounts" id="hit-box" value="hit">
+                        <label class="filters__label" for="hit-box">Hit</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="discounts" id="gift-box" value="gift">
+                        <label class="filters__label" for="gift-box">Подарок</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--checkbox-model">
+                    <legend class="filters__fieldset-title">Страны</legend>
+                    <ul class="filters__form-list">
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="russia-box" value="russia">
+                        <label class="filters__label" for="russia-box">Россия</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="italy-box" value="italy">
+                        <label class="filters__label" for="italy-box">Италия</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="germany-box" value="germany">
+                        <label class="filters__label" for="germany-box">Германия</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="france-box" value="france">
+                        <label class="filters__label" for="france-box">Франция</label>
+                      </li>
+                    </ul>
+                    <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                  </fieldset>
+                  <div class="filters__settings-block">
+                    <button class="filters__btn-submit" type="submit" name="filters-submit">Подобрать</button>
+                    <button class="filters__btn-parameters" type="button" name="filters-parameters">Дополнительные параметры</button>
+                    <ul class="filters__parameters-list">
+                      <li class="filters__parameters-item">Параметр 1</li>
+                      <li class="filters__parameters-item">Параметр 2</li>
+                      <li class="filters__parameters-item">Параметр 3</li>
+                    </ul>
+                    <button class="filters__btn-reset" type="button" name="filters-reset">Сбросить фильтр</button>
+                  </div>
+                </form>
+              </li>
+              <li class="filters__list-item filters__list-item--brand">
+                <form class="filters__form" action="https://js.dump/auto-parts" method="POST" enctype="multipart/form-data" autocomplete="off">
+                  <fieldset class="filters__fieldset filters__fieldset--seasonality">
+                    <legend class="filters__fieldset-title">Сезонность</legend>
+                    <ul class="filters__form-list">
+                      <li class="filters__form-item">
+                        <a class="filters__hint-link" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="summer" id="summer-box">
+                        <label class="filters__label" for="seasonality-box">Летние</label>
+                      </li>
+                      <li class="filters__form-item">
+                        <a class="filters__hint-link" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                        <input class="filters__checkbox visually-hidden type="checkbox" name="winter" id="winter-box">
+                        <label class="filters__label" for="seasonality-box">Зимние</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-brand">
+                    <legend class="filters__fieldset-title">Марка</legend>
+                    <select class="filters__select" name="brand-list" id="brand-list-box">
+                      <option value="BMW">BMW</option>
+                      <option value="Mercedec">Mercedec</option>
+                      <option value="Audi">Audi</option>
+                      <option value="Mitsubishi">Mitsubishi</option>
+                      <option value="Chevrolet">Chevrolet</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-model">
+                    <legend class="filters__fieldset-title">Модель</legend>
+                    <select class="filters__select" name="model-list" id="model-list-box">
+                      <option value="1-series">1-series</option>
+                      <option value="3-series">3-series</option>
+                      <option value="5-series">5-series</option>
+                      <option value="7-series">7-series</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-bodywork">
+                    <legend class="filters__fieldset-title">Кузов</legend>
+                    <select class="filters__select" name="bodywork-list" id="bodywork-list-box">
+                      <option value="E81 3d">E81 3d</option>
+                      <option value="A33 8b">A33 8b</option>
+                      <option value="G7">G7</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-modification">
+                    <legend class="filters__fieldset-title">Модификация</legend>
+                    <select class="filters__select" name="modification-list" id="modification-list-box">
+                      <option value="116 d">116 d</option>
+                      <option value="213 z">213 z</option>
+                      <option value="bw 310">bw 310</option>
+                    </select>
+                  </fieldset>
+                  <fieldset class="filters__fieldset filters__fieldset--choose-radius">
+                    <div class="filters__radio-container">
+                      <h3 class="filters__subtitle">R16</h3>
+                      <ul class="filters__radio-list">
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="205/55-r16" value="205/55-r16">
+                          <label class="filters__radio-label" for="205/55-r16">205/55 R16</label>
+                        </li>
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="215/45-r16" value="215/45-r16">
+                          <label class="filters__radio-label" for="215/45-r16">215/45 R16</label>
+                        </li>
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="215/55-r16" value="215/55-r16">
+                          <label class="filters__radio-label" for="215/55-r16">215/55 R16</label>
+                        </li>
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="195/45-r16" value="195/45-r16">
+                          <label class="filters__radio-label" for="195/45-r16">195/45 R16</label>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="filters__radio-container">
+                      <h3 class="filters__subtitle">R17</h3>
+                      <div class="filters__radio-container">
+                        <h4 class="filters__subheading">Передняя ось</h4>
+                        <ul class="filters__radio-list">
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="215/45-r17" value="215/45-r17">
+                            <label class="filters__radio-label" for="215/45-r17">215/45 R17</label>
+                          </li>
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="215/50-r17" value="215/50-r17">
+                            <label class="filters__radio-label" for="215/50-r17">215/50 R17</label>
+                          </li>
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="205/50-r17" value="205/50-r17">
+                            <label class="filters__radio-label" for="205/50-r17">205/50 R17</label>
+                          </li>
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="195/55-r17" value="195/55-r17">
+                            <label class="filters__radio-label" for="195/55-r17">195/55 R17</label>
+                          </li>
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="225/55-r17" value="225/55-r17">
+                            <label class="filters__radio-label" for="225/55-r17">225/55 R17</label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="filters__radio-container">
+                        <h4 class="filters__subheading">Задняя ось</h4>
+                        <ul class="filters__radio-list">
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="225/45-r17" value="225/45-r17">
+                            <label class="filters__radio-label" for="225/45-r17">225/45 R17</label>
+                          </li>
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="225/50-r17" value="225/50-r17">
+                            <label class="filters__radio-label" for="225/50-r17">225/50 R17</label>
+                          </li>
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="245/50-r17" value="245/50-r17">
+                            <label class="filters__radio-label" for="245/50-r17">245/50 R17</label>
+                          </li>
+                          <li class="filters__radio-item">
+                            <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="205/55-r17" value="205/55-r17">
+                            <label class="filters__radio-label" for="205/55-r17">205/55 R17</label>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="filters__radio-container">
+                      <h3 class="filters__subtitle">R18</h3>
+                      <ul class="filters__radio-list">
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="255/40-r18" value="255/40-r18">
+                          <label class="filters__radio-label" for="255/40-r18">255/40 R18</label>
+                        </li>
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="radius" id="245/45-r18" value="245/45-r18">
+                          <label class="filters__radio-label" for="245/45-r18">245/45 R18</label>
+                        </li>
+                      </ul>
+                    </div>
+                  </fieldset>
+                  <div class="filters__settings-block">
+                    <button class="filters__btn-submit" type="submit" name="filters-submit">Подобрать</button>
+                    <button class="filters__btn-parameters" type="button" name="filters-parameters">Дополнительные параметры</button>
+                    <ul class="filters__parameters-list">
+                      <li class="filters__parameters-item">Параметр 1</li>
+                      <li class="filters__parameters-item">Параметр 2</li>
+                      <li class="filters__parameters-item">Параметр 3</li>
+                    </ul>
+                    <button class="filters__btn-reset" type="button" name="filters-reset">Сбросить фильтр</button>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </section>
+        </main>
+        <footer class="page-footer">
+          <div class="page-footer__wrapper wrapper">
+            <h2 class="visually-hidden">Подвал сайта Автомобильных запчастей Auto-Shop</h2>
+            <form class="page-footer__form" action="#" method="post">
+              <h3 class="page-footer__form-title">Подпишитесь на нашу рассылку и узнавайте о акциях быстрее</h3>
+              <div class="page-footer__form-wrapper">
+                <input class="page-footer__form-input" type="email" name="email" id="email-field" placeholder="Введите ваш e-mail:" required>
+                <button class="page-footer__form-btn" type="submit" name="email-submti">Отправить</button>
+              </div>
+            </form>
+            <ul class="page-footer__nav">
+              <li class="page-footer__nav-item-list">
+                <h3 class="page-footer__nav-title">Информация</h3>
+                <ul class="page-footer__nav-list" data-menu-status="closed">
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="about.html">О компании</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="contacts.html">Контакты</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="requisites.html">Реквизиты</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="shops.html">Магазины</a></li>
+                </ul>
+                <div class="page-footer__nav-arrow"></div>
+              </li>
+              <li class="page-footer__nav-item-list">
+                <h3 class="page-footer__nav-title">Сервисный центр</h3>
+                <ul class="page-footer__nav-list" data-menu-status="closed">
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
+                </ul>
+                <div class="page-footer__nav-arrow"></div>
+              </li>
+              <li class="page-footer__nav-item-list">
+                <h3 class="page-footer__nav-title">Интернет-магазин</h3>
+                <ul class="page-footer__nav-list" data-menu-status="closed">
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="promotions.html">Акции</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="agreement.html">Договор оферты</a></li>
+                  <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="privacy.html">Политика обработки персональных данных</a></li>
+                </ul>
+                <div class="page-footer__nav-arrow"></div>
+              </li>
+            </ul>
+            <p class="page-footer__label"><span class="page-footer__label-mobile-word">Onisshop. </span>Интернет-магазин автозапчастей</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- <script type="module" src="js/utils.js"></script>
+    <script type="module" src="js/slider.js"></script> -->
+    <script type="module" src="js/conrol-panel.js"></script>
+    <script type="module" src="js/page-footer.js"></script>
+  </body>

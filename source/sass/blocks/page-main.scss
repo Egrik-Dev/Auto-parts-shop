@@ -1,3 +1,11 @@
+.page-main__title {
+  padding-left: 16px;
+  margin: 0;
+
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
 .page-main__promo {
   margin-bottom: 80px;
 }
@@ -19,9 +27,31 @@
   margin-bottom: $section-margin-bottom;
 }
 
+.page-main__breadcrumbs {
+  margin-bottom: 31px;
+}
+
+.page-main__control-panel {
+  margin-top: 23px;
+}
+
+.page-main__filters {
+  // Будут свойства
+}
+
 @media (min-width: $desktop-width) {
   .page-main {
-    padding: 47px 0 15px;
+    padding-bottom: 15px;
+  }
+
+  .page-main__title {
+    width: 1170px;
+    padding-left: 0;
+    margin: 0 auto 10px;
+
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 1.5px;
   }
 
   .page-main__promo {
@@ -46,6 +76,15 @@
   }
 
   .page-main__banner {
+    @include desktop-wrapper;
+    margin-bottom: $section-margin-bottom;
+  }
+
+  .page-main__breadcrumbs {
+    margin-bottom: 40px;
+  }
+
+  .page-main__control-panel {
     @include desktop-wrapper;
     margin-bottom: $section-margin-bottom;
   }
