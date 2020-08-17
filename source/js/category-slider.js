@@ -6,8 +6,6 @@ const moreContainer = document.querySelector(`[data-slider-name="more"]`);
 const popularProductsSlider = new MakeSlider(popularContainer, `adaptive`);
 const moreProductsSlider = new MakeSlider(moreContainer, `adaptive`);
 
-// Напишем фун-ию которая удаляет старые карточки при переключении категории
-
 // Создадим мапу с всеми категориями
 const CategoryType = {
   SPARES: `spares`,
@@ -445,4 +443,3 @@ const switchCategories = (container, slider) => {
 
 switchCategories(popularContainer, popularProductsSlider);
 switchCategories(moreContainer, moreProductsSlider);
-
