@@ -279,20 +279,20 @@
                     <label class="visually-hidden" for="brand-name-field">Бренд шины</label>
                     <ul class="filters__form-list-wrap">
                       <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="b-gudrich-box" value="b-gudrich">
-                        <label class="filters__label" for="b-gudrich-box">B Gudrich</label>
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="b-gudrich-box" value="b-gudrich" checked>
+                        <label class="filters__checkbox-label" for="b-gudrich-box">B Gudrich</label>
+                      </li>
+                      <li class="filters__form-item-wrap">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="wridrestone-box" value="wridrestone" checked>
+                        <label class="filters__checkbox-label" for="wridrestone-box">Wridrestone</label>
                       </li>
                       <li class="filters__form-item-wrap">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="rarym-box" value="rarym">
-                        <label class="filters__label" for="rarym-box">Rarym</label>
-                      </li>
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="wridrestone-box" value="wridrestone">
-                        <label class="filters__label" for="wridrestone-box">Wridrestone</label>
+                        <label class="filters__checkbox-label" for="rarym-box">Rarym</label>
                       </li>
                       <li class="filters__form-item-wrap">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="bf-hide-box" value="bf-hide">
-                        <label class="filters__label" for="bf-hide-box">BF hide</label>
+                        <label class="filters__checkbox-label" for="bf-hide-box">BF hide</label>
                       </li>
                     </ul>
                     <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
@@ -301,81 +301,83 @@
                     <legend class="filters__fieldset-title">Модель</legend>
                     <input class="filters__input-text" type="text" name="model-name" id="model-name-field" placeholder="Введите модель шины">
                     <label class="visually-hidden" for="model-name-field">Модели шин</label>
-                    <ul class="filters__form-list">
-                      <li class="filters__form-item">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="alina-box" value="alina">
-                        <label class="filters__label" for="alina-box">ALINA</label>
+                    <ul class="filters__form-list-wrap">
+                      <li class="filters__form-item-wrap">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="alina-box" value="alina" checked>
+                        <label class="filters__checkbox-label" for="alina-box">ALINA</label>
                       </li>
-                      <li class="filters__form-item">
+                      <li class="filters__form-item-wrap">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="bliwwas-box" value="bliwwas" checked>
+                        <label class="filters__checkbox-label" for="bliwwas-box">BLIWWAS</label>
+                      </li>
+                      <li class="filters__form-item-wrap">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="force-moode-box" value="force-moode">
-                        <label class="filters__label" for="force-moode-box">FORCE Moode</label>
+                        <label class="filters__checkbox-label" for="force-moode-box">FORCE Moode</label>
                       </li>
-                      <li class="filters__form-item">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="bliwwas-box" value="bliwwas">
-                        <label class="filters__label" for="bliwwas-box">BLIWWAS</label>
-                      </li>
-                      <li class="filters__form-item">
+                      <li class="filters__form-item-wrap">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="ice-gide-box" value="ice-gide">
-                        <label class="filters__label" for="ice-gide-box">ICE Gide</label>
+                        <label class="filters__checkbox-label" for="ice-gide-box">ICE Gide</label>
                       </li>
                     </ul>
                     <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--technology">
-                    <legend class="filters__fieldset-title">Технология</legend>
-                    <a class="filters__hint-link" href="#">
-                      <span class="filters__hint-question">?</span>
-                    </a>
-                    <ul class="filters__radio-list">
-                      <li class="filters__radio-item">
-                        <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="yes" value="yes">
-                        <label class="filters__radio-label" for="yes">Да</label>
-                      </li>
-                      <li class="filters__radio-item">
-                        <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="no" value="no">
-                        <label class="filters__radio-label" for="no">Нет</label>
-                      </li>
-                    </ul>
+                    <div class="filters__fieldset-container">
+                      <legend class="filters__fieldset-title filters__fieldset-title--question">Технология</legend>
+                      <a class="filters__hint-link" href="#">
+                        <span class="filters__hint-question">?</span>
+                      </a>
+                      <ul class="filters__radio-list filters__radio-list--row">
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="yes" value="yes">
+                          <label class="filters__radio-label" for="yes">Да</label>
+                        </li>
+                        <li class="filters__radio-item">
+                          <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="no" value="no">
+                          <label class="filters__radio-label" for="no">Нет</label>
+                        </li>
+                      </ul>
+                    </div>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--discounts">
                     <legend class="filters__fieldset-title">Акции</legend>
-                    <ul class="filters__form-list">
-                      <li class="filters__form-item">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="discounts" id="sale-box" value="sale">
-                        <label class="filters__label" for="sale-box">Sale</label>
+                    <ul class="filters__discounts-list">
+                      <li class="filters__discounts-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="discounts" id="sale-box" value="sale" checked>
+                        <label class="filters__discounts-label" for="sale-box">Sale</label>
                       </li>
-                      <li class="filters__form-item">
+                      <li class="filters__discounts-item">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="discounts" id="new-box" value="new">
-                        <label class="filters__label" for="new-box">New</label>
+                        <label class="filters__discounts-label" for="new-box">New</label>
                       </li>
-                      <li class="filters__form-item">
+                      <li class="filters__discounts-item">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="discounts" id="hit-box" value="hit">
-                        <label class="filters__label" for="hit-box">Hit</label>
+                        <label class="filters__discounts-label" for="hit-box">Hit</label>
                       </li>
-                      <li class="filters__form-item">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="discounts" id="gift-box" value="gift">
-                        <label class="filters__label" for="gift-box">Подарок</label>
+                      <li class="filters__discounts-item">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="discounts" id="gift-box" value="gift" checked>
+                        <label class="filters__discounts-label" for="gift-box">Подарок</label>
                       </li>
                     </ul>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--checkbox-model">
                     <legend class="filters__fieldset-title">Страны</legend>
-                    <ul class="filters__form-list">
-                      <li class="filters__form-item">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="russia-box" value="russia">
-                        <label class="filters__label" for="russia-box">Россия</label>
+                    <ul class="filters__form-list-wrap">
+                      <li class="filters__form-item-wrap">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="russia-box" value="russia" checked>
+                        <label class="filters__checkbox-label" for="russia-box">Россия</label>
                       </li>
-                      <li class="filters__form-item">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="italy-box" value="italy">
-                        <label class="filters__label" for="italy-box">Италия</label>
+                      <li class="filters__form-item-wrap">
+                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="italy-box" value="italy" checked>
+                        <label class="filters__checkbox-label" for="italy-box">Италия</label>
                       </li>
-                      <li class="filters__form-item">
+                      <li class="filters__form-item-wrap">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="germany-box" value="germany">
-                        <label class="filters__label" for="germany-box">Германия</label>
+                        <label class="filters__checkbox-label" for="germany-box">Германия</label>
                       </li>
-                      <li class="filters__form-item">
+                      <li class="filters__form-item-wrap">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="france-box" value="france">
-                        <label class="filters__label" for="france-box">Франция</label>
+                        <label class="filters__checkbox-label" for="france-box">Франция</label>
                       </li>
                     </ul>
                     <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
@@ -388,7 +390,7 @@
                       <li class="filters__parameters-item">Параметр 2</li>
                       <li class="filters__parameters-item">Параметр 3</li>
                     </ul>
-                    <button class="filters__btn-reset" type="button" name="filters-reset">Сбросить фильтр</button>
+                    <button class="filters__btn-reset" type="reset" name="filters-reset">Сбросить фильтр</button>
                   </div>
                 </form>
               </li>
@@ -556,6 +558,13 @@
                 </form>
               </li>
             </ul>
+          </section>
+          <section>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
           </section>
         </main>
         <footer class="page-footer">
