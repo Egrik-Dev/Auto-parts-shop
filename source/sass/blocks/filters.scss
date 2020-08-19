@@ -1,5 +1,5 @@
 .filters {
-  position: absolute;
+  position: fixed;
 
   z-index: 1;
   top: 0;
@@ -13,6 +13,11 @@
   transform: translateX(-200%);
 
   transition: all 0.5s;
+
+  &--open {
+    transform: none;
+    overflow-y: scroll;
+  }
 }
 
 .filters__title {
@@ -22,6 +27,26 @@
   font-size: 15px;
   line-height: 18px;
   text-align: center;
+}
+
+.filters__btn-close {
+  position: absolute;
+  top: 21px;
+  left: 10px;
+
+  border: 0;
+  background-color: transparent;
+
+  &::before {
+    position: absolute;
+
+    width: 13px;
+    height: 9px;
+
+    content: "";
+
+    background: url("../img/icon-arrow-filter.svg") no-repeat 0 0;
+  }
 }
 
 .filters__menu {

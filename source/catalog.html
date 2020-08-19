@@ -8,13 +8,7 @@
   </head>
   <body>
     <div class="main-wrapper">
-      <input class="main-wrapper__toggle visually-hidden" type="checkbox" name="hamburger-toggle-name" value="hamburger" id="hamburger-toggle">
       <nav class="main-wrapper__hamburger-nav hamburger-nav">
-        <button class="hamburger-nav__toggle" type="button">
-          <label class="hamburger-nav__label" for="hamburger-toggle">
-            <span class="visually-hidden">Открыть меню</span>
-          </label>
-        </button>
         <ul class="hamburger-nav__list">
           <li class="hamburger-nav__item hamburger-nav__item--login">Войти</li>
           <li class="hamburger-nav__item hamburger-nav__item--login">Регистрация</li>
@@ -37,6 +31,9 @@
         <header class="page-header page-header--catalog">
           <div class="page-header__user-menu user-menu">
             <div class="user-menu__wrapper">
+              <button class="user-menu__nav-toggle" type="button" data-nav-status="closed">
+                <span class="visually-hidden">Открыть меню</span>
+              </button>
               <ul class="user-menu__shop-info-list">
                 <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Магазины</a></li>
                 <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Акции</a></li>
@@ -113,7 +110,7 @@
                   <option value="По цене (по убыванию)">По цене (по убыв)</option>
                 </select>
               </div>
-              <button class="control-panel__filter-btn" type="button">Фильтры</button>
+              <button class="control-panel__filter-btn" type="button" data-filter-status="closed">Фильтры</button>
               <div class="control-panel__sort-view">
                 <ul class="control-panel__sort-view-list">
                   <li class="control-panel__sort-view-item control-panel__sort-view-item--cards">
@@ -158,6 +155,9 @@
           </section>
           <section class="page-main__filters filters">
             <h2 class="filters__title">Фильтры</h2>
+            <button class="filters__btn-close" type="button" name="filter-close">
+              <span class="visually-hidden">Закрыть фильтры</span>
+            </button>
             <input class="visually-hidden filters__input filters__input--parameters" id="filter-parameters" type="radio" name="filters-toggle" checked>
             <input class="visually-hidden filters__input filters__input--brand" id="filter-brand" type="radio" name="filters-toggle">
             <ul class="filters__menu">
@@ -619,6 +619,7 @@
     </div>
     <!-- <script type="module" src="js/utils.js"></script>
     <script type="module" src="js/slider.js"></script> -->
+    <script type="module" src="js/hamburger-nav.js"></script>
     <script type="module" src="js/conrol-panel.js"></script>
     <script type="module" src="js/filters.js"></script>
     <script type="module" src="js/page-footer.js"></script>

@@ -1,46 +1,77 @@
-.hamburger-nav__toggle {
-  position: absolute;
-  top: 0;
-  left: 0;
+// .hamburger-nav__toggle {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
 
-  display: block;
+//   display: block;
 
-  border: 0;
-  background-color: transparent;
-}
+//   border: 0;
+//   background-color: transparent;
 
-.hamburger-nav__label {
-  &::before {
-    position: absolute;
-    top: 34px;
-    left: 260px;
+//   &::before {
+//     position: absolute;
+//     top: 34px;
+//     left: 260px;
 
-    width: 33px;
-    height: 27px;
+//     width: 33px;
+//     height: 27px;
 
-    content: "";
+//     content: "";
 
-    background-image: url("../img/icon-burger.svg");
-  }
+//     background-image: url("../img/icon-burger.svg");
+//   }
 
-  &::after {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 20px;
+//   &::after {
+//     position: fixed;
+//     top: 0;
+//     bottom: 0;
+//     right: 20px;
 
-    margin: auto 0;
-    width: 12px;
-    height: 22px;
+//     margin: auto 0;
+//     width: 12px;
+//     height: 22px;
 
-    content: "";
+//     content: "";
 
-    background-image: url("../img/icon-arrow-left.svg");
-    opacity: 0;
+//     background-image: url("../img/icon-arrow-left.svg");
+//     opacity: 0;
 
-    transition: 0.6s;
-  }
-}
+//     transition: 0.6s;
+//   }
+// }
+
+// .hamburger-nav__label {
+//   &::before {
+//     position: absolute;
+//     top: 34px;
+//     left: 260px;
+
+//     width: 33px;
+//     height: 27px;
+
+//     content: "";
+
+//     background-image: url("../img/icon-burger.svg");
+//   }
+
+//   &::after {
+//     position: fixed;
+//     top: 0;
+//     bottom: 0;
+//     right: 20px;
+
+//     margin: auto 0;
+//     width: 12px;
+//     height: 22px;
+
+//     content: "";
+
+//     background-image: url("../img/icon-arrow-left.svg");
+//     opacity: 0;
+
+//     transition: 0.6s;
+//   }
+// }
 
 .hamburger-nav__list {
   padding: 19px 0 0 0;
