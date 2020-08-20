@@ -81,8 +81,12 @@
   display: block;
 }
 
-.filters__list-item--parameters {
-  margin-right: 1px;
+.filters__list-item {
+  padding-bottom: 40px;
+
+  &--parameters {
+    margin-right: 1px;
+  }
 }
 
 .filters__input--brand:checked ~ .filters__list .filters__list-item--parameters,
