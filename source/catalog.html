@@ -119,7 +119,7 @@
             </ul>
           </nav>
         </header>
-        <main class="page-main">
+        <main class="page-main page-main--catalog">
           <div class="page-main__breadcrumbs wrapper">
             <ul class="breadcrumbs">
               <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
@@ -127,7 +127,7 @@
               <li class="breadcrumbs__item"><a class="breadcrumbs__link breadcrumbs__link--active">Шины зимние</a></li>
             </ul>
           </div>
-          <h1 class="page-main__title">Нешипованные шины</h1>
+          <h1 class="page-main__title page-main__title--catalog">Нешипованные шины</h1>
           <section class="page-main__control-panel control-panel">
             <h2 class="visually-hidden">Панель фильтров и сортировки</h2>
             <div class="control-panel__sort">
@@ -181,7 +181,7 @@
               </li>
             </ul>
           </section>
-          <section class="page-main__filters filters">
+          <aside class="page-main__filters filters">
             <h2 class="filters__title">Фильтры</h2>
             <button class="filters__btn-close" type="button" name="filter-close">
               <span class="visually-hidden">Закрыть фильтры</span>
@@ -190,7 +190,10 @@
             <input class="visually-hidden filters__input filters__input--brand" id="filter-brand" type="radio" name="filters-toggle">
             <ul class="filters__menu">
               <li class="filters__menu-item filters__menu-item--parameters">
-                <label class="filters__menu-label" for="filter-parameters">По параметрам</label>
+                <label class="filters__menu-label" for="filter-parameters">
+                  <span class="filters__menu-label-mobile">По параметрам</span>
+                  <span class="filters__menu-label-desktop">Параметры</span>
+                </label>
               </li>
               <li class="filters__menu-item filters__menu-item--brand">
                 <label class="filters__menu-label" for="filter-brand">По марке</label>
@@ -200,7 +203,8 @@
               <li class="filters__list-item filters__list-item--parameters">
                 <form class="filters__form" action="https://js.dump/auto-parts" method="POST" enctype="multipart/form-data" autocomplete="off">
                   <fieldset class="filters__fieldset filters__fieldset--seasonality">
-                    <legend class="filters__fieldset-title filters__fieldset-title--seasonality">Сезонность</legend>
+                    <div class="filters__arrow menu-arrow"></div>
+                    <legend class="filters__fieldset-title filters__fieldset-title--seasonality filters__fieldset-title--minimize">Сезонность</legend>
                     <ul class="filters__form-list">
                       <li class="filters__form-item">
                         <a class="filters__hint-link filters__hint-link--seasonality" href="#">
@@ -223,17 +227,24 @@
                         <label class="filters__radio-label" for="all">Все</label>
                       </li>
                       <li class="filters__radio-item">
-                        <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="non-studded" value="non-studded">
-                        <label class="filters__radio-label" for="non-studded">Нешипованные</label>
-                      </li>
-                      <li class="filters__radio-item">
                         <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="studded" value="studded">
                         <label class="filters__radio-label" for="studded">Шипованная</label>
+                        <a class="filters__hint-link filters__hint-link--absolute" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                      </li>
+                      <li class="filters__radio-item">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="non-studded" value="non-studded">
+                        <label class="filters__radio-label" for="non-studded">Нешипованные</label>
+                        <a class="filters__hint-link filters__hint-link--absolute" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
                       </li>
                     </ul>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--price">
-                    <legend class="filters__fieldset-title filters__fieldset-title--price">Цена</legend>
+                    <div class="filters__arrow menu-arrow"></div>
+                    <legend class="filters__fieldset-title filters__fieldset-title--price filters__fieldset-title--minimize">Цена</legend>
                     <div class="filters__range-controls">
                       <div class="filters__scale-bar"></div>
                       <div class="filters__bar-toggle filters__bar-toggle--min"></div>
@@ -250,13 +261,13 @@
                       </div>
                     </div>
                   </fieldset>
-                  <fieldset class="filters__fieldset filters__fieldset--choose-diameter">
+                  <fieldset class="filters__fieldset filters__fieldset--choose-diameter filters__fieldset--select">
                     <div class="filters__fieldset-container">
-                      <legend class="filters__fieldset-title filters__fieldset-title--question">Диаметр</legend>
+                      <legend class="filters__fieldset-title filters__fieldset-title--question filters__fieldset-title--select">Диаметр</legend>
                       <a class="filters__hint-link" href="#">
                         <span class="filters__hint-question">?</span>
                       </a>
-                      <select class="filters__select" name="diameter-list" id="diameter-list-box">
+                      <select class="filters__select filters__select--parameters" name="diameter-list" id="diameter-list-box">
                         <option value="10">10</option>
                         <option value="12">12</option>
                         <option value="12C">12C</option>
@@ -271,13 +282,13 @@
                       </select>
                     </div>
                   </fieldset>
-                  <fieldset class="filters__fieldset filters__fieldset--choose-profile">
+                  <fieldset class="filters__fieldset filters__fieldset--choose-profile filters__fieldset--select">
                     <div class="filters__fieldset-container">
-                      <legend class="filters__fieldset-title filters__fieldset-title--question">Профиль</legend>
+                      <legend class="filters__fieldset-title filters__fieldset-title--question filters__fieldset-title--select">Профиль</legend>
                       <a class="filters__hint-link" href="#">
                         <span class="filters__hint-question">?</span>
                       </a>
-                      <select class="filters__select" name="profile-list" id="diamprofileeter-list-box">
+                      <select class="filters__select filters__select--parameters" name="profile-list" id="diamprofileeter-list-box">
                         <option value="10">10</option>
                         <option value="12">12</option>
                         <option value="12C">12C</option>
@@ -286,13 +297,13 @@
                       </select>
                     </div>
                   </fieldset>
-                  <fieldset class="filters__fieldset filters__fieldset--choose-width">
+                  <fieldset class="filters__fieldset filters__fieldset--choose-width filters__fieldset--select">
                     <div class="filters__fieldset-container">
-                      <legend class="filters__fieldset-title filters__fieldset-title--question">Ширина</legend>
+                      <legend class="filters__fieldset-title filters__fieldset-title--question filters__fieldset-title--select">Ширина</legend>
                       <a class="filters__hint-link" href="#">
                         <span class="filters__hint-question">?</span>
                       </a>
-                      <select class="filters__select" name="profile-width" id="diamprofileeter-width-box">
+                      <select class="filters__select filters__select--parameters" name="profile-width" id="diamprofileeter-width-box">
                         <option value="22">22</option>
                         <option value="24">24</option>
                         <option value="26">26</option>
@@ -302,7 +313,8 @@
                     </div>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--brand">
-                    <legend class="filters__fieldset-title">Бренд</legend>
+                    <div class="filters__arrow menu-arrow"></div>
+                    <legend class="filters__fieldset-title filters__fieldset-title--minimize filters__fieldset-title--search">Бренд</legend>
                     <input class="filters__input-text" type="text" name="brand-name" id="brand-name-field" placeholder="Введите бренд шины">
                     <label class="visually-hidden" for="brand-name-field">Бренд шины</label>
                     <ul class="filters__form-list-wrap">
@@ -326,7 +338,8 @@
                     <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--model">
-                    <legend class="filters__fieldset-title">Модель</legend>
+                    <div class="filters__arrow menu-arrow"></div>
+                    <legend class="filters__fieldset-title filters__fieldset-title--minimize filters__fieldset-title--search">Модель</legend>
                     <input class="filters__input-text" type="text" name="model-name" id="model-name-field" placeholder="Введите модель шины">
                     <label class="visually-hidden" for="model-name-field">Модели шин</label>
                     <ul class="filters__form-list-wrap">
@@ -350,22 +363,22 @@
                     <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--technology">
-                    <div class="filters__fieldset-container">
+                    <div class="filters__label-container">
                       <legend class="filters__fieldset-title filters__fieldset-title--question">Технология</legend>
-                      <a class="filters__hint-link" href="#">
+                      <a class="filters__hint-link filters__hint-link--technology" href="#">
                         <span class="filters__hint-question">?</span>
                       </a>
-                      <ul class="filters__radio-list filters__radio-list--row">
-                        <li class="filters__radio-item">
-                          <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="yes" value="yes">
-                          <label class="filters__radio-label" for="yes">Да</label>
-                        </li>
-                        <li class="filters__radio-item">
-                          <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="no" value="no">
-                          <label class="filters__radio-label" for="no">Нет</label>
-                        </li>
-                      </ul>
                     </div>
+                    <ul class="filters__radio-list filters__radio-list--yesno">
+                      <li class="filters__radio-item filters__radio-item--yesno">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="yes" value="yes">
+                        <label class="filters__radio-label" for="yes">Да</label>
+                      </li>
+                      <li class="filters__radio-item filters__radio-item--yesno">
+                        <input class="filters__radiobutton visually-hidden" type="radio" name="technology" id="no" value="no">
+                        <label class="filters__radio-label" for="no">Нет</label>
+                      </li>
+                    </ul>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--discounts">
                     <legend class="filters__fieldset-title">Акции</legend>
@@ -389,23 +402,24 @@
                     </ul>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--checkbox-model">
-                    <legend class="filters__fieldset-title">Страны</legend>
+                    <div class="filters__arrow menu-arrow"></div>
+                    <legend class="filters__fieldset-title filters__fieldset-title--minimize">Страны</legend>
                     <ul class="filters__form-list-wrap">
-                      <li class="filters__form-item-wrap">
+                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="russia-box" value="russia" checked>
-                        <label class="filters__checkbox-label" for="russia-box">Россия</label>
+                        <label class="filters__checkbox-label filters__checkbox-label--bold" for="russia-box">Россия</label>
                       </li>
-                      <li class="filters__form-item-wrap">
+                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="italy-box" value="italy" checked>
-                        <label class="filters__checkbox-label" for="italy-box">Италия</label>
+                        <label class="filters__checkbox-label filters__checkbox-label--bold" for="italy-box">Италия</label>
                       </li>
-                      <li class="filters__form-item-wrap">
+                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="germany-box" value="germany">
-                        <label class="filters__checkbox-label" for="germany-box">Германия</label>
+                        <label class="filters__checkbox-label filters__checkbox-label--bold for="germany-box">Германия</label>
                       </li>
-                      <li class="filters__form-item-wrap">
+                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="france-box" value="france">
-                        <label class="filters__checkbox-label" for="france-box">Франция</label>
+                        <label class="filters__checkbox-label filters__checkbox-label--bold" for="france-box">Франция</label>
                       </li>
                     </ul>
                     <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
@@ -586,8 +600,8 @@
                 </form>
               </li>
             </ul>
-          </section>
-          <section>
+          </aside>
+          <section class="page-main__products">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
@@ -614,7 +628,7 @@
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="requisites.html">Реквизиты</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="shops.html">Магазины</a></li>
                 </ul>
-                <div class="page-footer__nav-arrow"></div>
+                <div class="page-footer__nav-arrow menu-arrow"></div>
               </li>
               <li class="page-footer__nav-item-list">
                 <h3 class="page-footer__nav-title">Сервисный центр</h3>

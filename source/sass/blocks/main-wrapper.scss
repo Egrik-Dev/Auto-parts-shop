@@ -5,7 +5,7 @@
 
 .main-wrapper__hamburger-nav {
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
 
@@ -35,12 +35,6 @@
     transform: translateX(242px);
   }
 }
-
-// .main-wrapper__toggle:checked ~ .main-wrapper__hamburger-nav .hamburger-nav__label::after {
-//   opacity: 1;
-
-//   right: -20px;
-// }
 
 @media (min-width: $desktop-width) {
   .main-wrapper__hamburger-nav {

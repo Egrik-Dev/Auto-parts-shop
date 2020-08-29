@@ -42,6 +42,14 @@
 @media (min-width: $desktop-width) {
   .page-main {
     padding-bottom: 15px;
+
+    &--catalog {
+      @include desktop-wrapper;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr repeat(4, min-content);
+      // gap: 30px;
+    }
   }
 
   .page-main__title {
@@ -52,6 +60,12 @@
     font-size: 30px;
     line-height: 36px;
     letter-spacing: 1.5px;
+
+    &--catalog {
+      margin-bottom: 20px;
+      grid-column: 1/-1;
+      grid-row: 2/3;
+    }
   }
 
   .page-main__promo {
@@ -81,11 +95,25 @@
   }
 
   .page-main__breadcrumbs {
+    grid-column: 1/-1;
+    grid-row: 1/2;
     margin-bottom: 40px;
   }
 
   .page-main__control-panel {
-    @include desktop-wrapper;
-    margin-bottom: $section-margin-bottom;
+    grid-column: 1/-1;
+    grid-row: 3/4;
+    margin-top: 0;
+    margin-bottom: 47px;
+  }
+
+  .page-main__filters {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+
+  .page-main__products {
+    grid-column: 2/-1;
+    grid-row: 4/5;
   }
 }

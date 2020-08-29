@@ -9,6 +9,7 @@ const menuElement = document.querySelectorAll(`.page-footer__nav-item-list`);
 if (clientWidth < DESKTOP_WIDTH) {
   menuElement.forEach((item) => {
     item.addEventListener(`click`, () => {
+      console.log(`Клик`);
       const submenuElement = item.querySelector(`.page-footer__nav-list`);
       const arrowElement = item.querySelector(`.page-footer__nav-arrow`);
 
