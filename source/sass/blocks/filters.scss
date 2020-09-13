@@ -150,6 +150,7 @@
   grid-template-columns: 58px 1fr;
   align-items: center;
   justify-items: center;
+  padding: 15px 0 6px;
 
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
 }
@@ -167,13 +168,13 @@
   border-radius: 50%;
 
   &--seasonality {
-    margin: 10px 0 0 10px;
+    // margin: 10px 0 0 10px;
   }
 
   &--absolute {
     position: absolute;
     top: -8px;
-    right: -20px;
+    right: -2px;
 
     grid-column: unset;
   }
@@ -187,13 +188,77 @@
   color: #ffffff;
 }
 
+.filters__hint-wrapper {
+  position: relative;
+
+  &--right {
+    grid-column: 2/2;
+    justify-self: end;
+    align-self: center;
+  }
+}
+
+.filters__hint-desc-block {
+  position: absolute;
+  top: 33px;
+  left: 10px;
+  z-index: 1;
+
+  display: none;
+  padding: 10px;
+  width: 150px;
+
+  color: #ffffff;
+
+  background-color: grey;
+  border-radius: 10%;
+
+  &--left::before {
+    position: absolute;
+    top: -7px;
+    left: 0;
+
+    content: "";
+
+    width: 0;
+    height: 0;
+
+    border: 25px solid;
+    border-top-width: 7px;
+    border-color: transparent transparent transparent grey;
+  }
+
+  &--right::after {
+    position: absolute;
+    top: -7px;
+    right: 0;
+
+    content: "";
+
+    width: 0;
+    height: 0;
+
+    border: 25px solid;
+    border-top-width: 7px;
+    border-color: transparent grey transparent transparent;
+  }
+
+  &--show {
+    display: block;
+  }
+}
+
+.filters__hint-desc {
+  margin: 0;
+}
+
 .filters__label {
   position: relative;
 
   grid-column: 2/2;
   justify-self: start;
   width: 100%;
-  margin: 15px 0 6px;
+  // margin: 15px 0 6px;
 
   font-size: 15px;
   line-height: 18px;
@@ -290,7 +355,10 @@
 .filters__radio-item {
   position: relative;
 
+  display: grid;
+  grid-template-columns: min-content 25px;
   margin: 0 20px 15px 0;
+  height: 100%;
 
   line-height: 17px;
 
@@ -301,8 +369,10 @@
 }
 
 .filters__radio-label {
+  grid-column: 1/2;
   display: block;
   padding: 4px 15px;
+  width: max-content;
 
   background-color: #f0f0f4;
   border-radius: 50px;
@@ -420,9 +490,9 @@
 .filters__scale-bar {
   position: absolute;
   top: -1px;
-  left: 30%;
+  left: 78.01px;
 
-  width: 30%;
+  width: 82px;
   height: 3px;
 
   background-color: #ff7931;
@@ -439,11 +509,17 @@
   border-radius: 50%;
 
   &--min {
-    left: 29%;
+    left: 78.01px;
   }
 
   &--max {
-    left: 59%;
+    left: 158.71px;
+  }
+
+  &--increased {
+    width: 10px;
+    height: 10px;
+    top: -4px;
   }
 }
 
@@ -721,11 +797,6 @@
     grid-column: 2/2;
     grid-row: 1/1;
 
-    &--absolute {
-      top: 0;
-      right: -32px;
-    }
-
     &:hover {
       background-color: #a9abb1;
     }
@@ -751,6 +822,11 @@
     &:hover::before {
       border: 1.5px solid #ff7931;
     }
+  }
+
+  .filters__hint-wrapper {
+    grid-column: 2/2;
+    grid-row: 1/1;
   }
 
   .filters__radio-list {

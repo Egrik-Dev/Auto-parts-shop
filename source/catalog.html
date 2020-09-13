@@ -207,9 +207,14 @@
                     <legend class="filters__fieldset-title filters__fieldset-title--seasonality filters__fieldset-title--minimize">Сезонность</legend>
                     <ul class="filters__form-list">
                       <li class="filters__form-item">
-                        <a class="filters__hint-link filters__hint-link--seasonality" href="#">
-                          <span class="filters__hint-question">?</span>
-                        </a>
+                        <div class="filters__hint-wrapper">
+                          <a class="filters__hint-link filters__hint-link--seasonality" href="#">
+                            <span class="filters__hint-question">?</span>
+                          </a>
+                          <div class="filters__hint-desc-block">
+                            <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                          </div>
+                        </div>
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="seasonality-parameters" id="winter-parameters-box" checked>
                         <label class="filters__label" for="winter-parameters-box">Зимние</label>
                       </li>
@@ -229,16 +234,26 @@
                       <li class="filters__radio-item">
                         <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="studded" value="studded">
                         <label class="filters__radio-label" for="studded">Шипованная</label>
-                        <a class="filters__hint-link filters__hint-link--absolute" href="#">
-                          <span class="filters__hint-question">?</span>
-                        </a>
+                        <div class="filters__hint-wrapper filters__hint-wrapper--right">
+                          <a class="filters__hint-link" href="#">
+                            <span class="filters__hint-question">?</span>
+                          </a>
+                          <div class="filters__hint-desc-block">
+                            <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                          </div>
+                        </div>
                       </li>
                       <li class="filters__radio-item">
                         <input class="filters__radiobutton visually-hidden" type="radio" name="type-tyres" id="non-studded" value="non-studded">
                         <label class="filters__radio-label" for="non-studded">Нешипованные</label>
-                        <a class="filters__hint-link filters__hint-link--absolute" href="#">
-                          <span class="filters__hint-question">?</span>
-                        </a>
+                        <div class="filters__hint-wrapper filters__hint-wrapper--right">
+                          <a class="filters__hint-link" href="#">
+                            <span class="filters__hint-question">?</span>
+                          </a>
+                          <div class="filters__hint-desc-block">
+                            <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                          </div>
+                        </div>
                       </li>
                     </ul>
                   </fieldset>
@@ -247,8 +262,8 @@
                     <legend class="filters__fieldset-title filters__fieldset-title--price filters__fieldset-title--minimize">Цена</legend>
                     <div class="filters__range-controls">
                       <div class="filters__scale-bar"></div>
-                      <div class="filters__bar-toggle filters__bar-toggle--min"></div>
-                      <div class="filters__bar-toggle filters__bar-toggle--max"></div>
+                      <div class="filters__bar-toggle filters__bar-toggle--min" data-price-toggle="min"></div>
+                      <div class="filters__bar-toggle filters__bar-toggle--max" data-price-toggle="max"></div>
                     </div>
                     <div class="filters__price-value">
                       <div class="filters__price-indicator">
@@ -264,9 +279,14 @@
                   <fieldset class="filters__fieldset filters__fieldset--choose-diameter filters__fieldset--select">
                     <div class="filters__fieldset-container">
                       <legend class="filters__fieldset-title filters__fieldset-title--question filters__fieldset-title--select">Диаметр</legend>
-                      <a class="filters__hint-link" href="#">
-                        <span class="filters__hint-question">?</span>
-                      </a>
+                      <div class="filters__hint-wrapper">
+                        <a class="filters__hint-link" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                        <div class="filters__hint-desc-block">
+                          <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                        </div>
+                      </div>
                       <select class="filters__select filters__select--parameters" name="diameter-list" id="diameter-list-box">
                         <option value="10">10</option>
                         <option value="12">12</option>
@@ -285,9 +305,14 @@
                   <fieldset class="filters__fieldset filters__fieldset--choose-profile filters__fieldset--select">
                     <div class="filters__fieldset-container">
                       <legend class="filters__fieldset-title filters__fieldset-title--question filters__fieldset-title--select">Профиль</legend>
-                      <a class="filters__hint-link" href="#">
-                        <span class="filters__hint-question">?</span>
-                      </a>
+                      <div class="filters__hint-wrapper">
+                        <a class="filters__hint-link" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                        <div class="filters__hint-desc-block">
+                          <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                        </div>
+                      </div>
                       <select class="filters__select filters__select--parameters" name="profile-list" id="diamprofileeter-list-box">
                         <option value="10">10</option>
                         <option value="12">12</option>
@@ -300,9 +325,14 @@
                   <fieldset class="filters__fieldset filters__fieldset--choose-width filters__fieldset--select">
                     <div class="filters__fieldset-container">
                       <legend class="filters__fieldset-title filters__fieldset-title--question filters__fieldset-title--select">Ширина</legend>
-                      <a class="filters__hint-link" href="#">
-                        <span class="filters__hint-question">?</span>
-                      </a>
+                      <div class="filters__hint-wrapper">
+                        <a class="filters__hint-link" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                        <div class="filters__hint-desc-block">
+                          <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                        </div>
+                      </div>
                       <select class="filters__select filters__select--parameters" name="profile-width" id="diamprofileeter-width-box">
                         <option value="22">22</option>
                         <option value="24">24</option>
@@ -365,9 +395,14 @@
                   <fieldset class="filters__fieldset filters__fieldset--technology">
                     <div class="filters__label-container">
                       <legend class="filters__fieldset-title filters__fieldset-title--question">Технология</legend>
-                      <a class="filters__hint-link filters__hint-link--technology" href="#">
-                        <span class="filters__hint-question">?</span>
-                      </a>
+                      <div class="filters__hint-wrapper">
+                        <a class="filters__hint-link" href="#">
+                          <span class="filters__hint-question">?</span>
+                        </a>
+                        <div class="filters__hint-desc-block">
+                          <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                        </div>
+                      </div>
                     </div>
                     <ul class="filters__radio-list filters__radio-list--yesno">
                       <li class="filters__radio-item filters__radio-item--yesno">
@@ -450,16 +485,26 @@
                     <legend class="filters__fieldset-title filters__fieldset-title--seasonality">Сезонность</legend>
                     <ul class="filters__form-list">
                       <li class="filters__form-item">
-                        <a class="filters__hint-link filters__hint-link--seasonality" href="#">
-                          <span class="filters__hint-question">?</span>
-                        </a>
+                        <div class="filters__hint-wrapper">
+                          <a class="filters__hint-link" href="#">
+                            <span class="filters__hint-question">?</span>
+                          </a>
+                          <div class="filters__hint-desc-block">
+                            <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                          </div>
+                        </div>
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="seasonality-brand" id="summer-brand-box">
                         <label class="filters__label" for="summer-brand-box">Летние</label>
                       </li>
                       <li class="filters__form-item">
-                        <a class="filters__hint-link filters__hint-link--seasonality" href="#">
-                          <span class="filters__hint-question">?</span>
-                        </a>
+                        <div class="filters__hint-wrapper">
+                          <a class="filters__hint-link" href="#">
+                            <span class="filters__hint-question">?</span>
+                          </a>
+                          <div class="filters__hint-desc-block">
+                            <p class="filters__hint-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, incidunt repellat reiciendis soluta saepe at perspiciatis dolores!</p>
+                          </div>
+                        </div>
                         <input class="filters__checkbox visually-hidden" type="checkbox" name="seasonality-brand" id="winter-brand-box">
                         <label class="filters__label" for="winter-brand-box">Зимние</label>
                       </li>
@@ -608,6 +653,7 @@
                 </form>
               </li>
             </ul>
+            <div class="filters__overlay overlay"></div>
           </aside>
           <section class="page-main__products">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis itaque nostrum aliquam vitae magnam impedit hic dolorem. Officiis earum inventore nemo necessitatibus dolore odit, fugiat nihil consectetur minima labore quod?</p>
