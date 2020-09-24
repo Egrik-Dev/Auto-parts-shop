@@ -1,3 +1,5 @@
+import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
+import {makeMenuToggle} from './menu-toggle.js';
 
 const filterBtnElement = document.querySelector(`.control-panel__filter-btn`);
 const filtersSectionElevent = document.querySelector(`.filters`);
@@ -53,7 +55,7 @@ hintWrapperElements.forEach((hintElement) => {
 });
 
 
-// Настройка регулировки цены
+// НАСТРОЙКА РЕГУЛИРОВКИ ЦЕНЫ
 const Toggles = {
   MIN: `min`,
   MAX: `max`
@@ -61,57 +63,80 @@ const Toggles = {
 const leftToggleElement = document.querySelector(`.filters__bar-toggle--min`);
 const rightToggleElement = document.querySelector(`.filters__bar-toggle--max`);
 const scaleBarElement = document.querySelector(`.filters__scale-bar`);
-const WIDTH_SCALE = document.querySelector(`.filters__range-controls`).offsetWidth;
-const MIN_MARGIN = 10;
+const rangeElement = document.querySelector(`.filters__range-controls`);
+const WIDTH_SCALE = rangeElement.offsetWidth;
+const MAX_PRICE = 50000;
+const inputMin = document.querySelector(`#minpriceinput`);
+const inputMax = document.querySelector(`#maxpriceinput`);
+
+const calculatePriceValue = function (togglePosition) {
+  return Math.round(MAX_PRICE / WIDTH_SCALE * togglePosition);
+};
+
+inputMin.value = calculatePriceValue(leftToggleElement.offsetLeft);
+inputMax.value = calculatePriceValue(rightToggleElement.offsetLeft);
+
+
+// Проверям поддерживает ли тач устройство
+function isTouchDevice() {
+  return !!(`ontouchstart` in window);
+}
+
+const EventsToggle = {
+  START: isTouchDevice() ? `touchstart` : `mousedown`,
+  MOVE: isTouchDevice() ? `touchmove` : `mousemove`,
+  END: isTouchDevice() ? `touchend` : `mouseup`
+};
 
 let touchFilterToggle = function (evt, toggle) {
-  const startX = evt.touches[0].clientX;
+  evt.preventDefault();
+  let startX = evt.clientX || evt.touches[0].clientX;
   const positionToggle = toggle.offsetLeft;
-  const widthScaleBar = scaleBarElement.offsetWidth;
-  toggle.classList.add(`filters__bar-toggle--increased`);
+  disableBodyScroll(evt.target);
 
-  const onToggleMove = function (evt) {
-    let walkX = Math.ceil(evt.touches[0].clientX) - startX;
-    toggle.style.left = positionToggle + walkX + `px`;
+  const onToggleMove = function (moveEvt) {
+    let walkX = Math.ceil(moveEvt.clientX || moveEvt.touches[0].clientX) - startX;
+    let coordXToggle = positionToggle + walkX;
+    toggle.style.left = coordXToggle + `px`;
+    scaleBarElement.style.width = rightToggleElement.offsetLeft - leftToggleElement.offsetLeft + `px`;
 
     const movingScaleAndToggle = () => {
       switch (toggle.dataset.priceToggle) {
         case Toggles.MIN:
-          scaleBarElement.style.left = toggle.style.left;
-          scaleBarElement.style.width = widthScaleBar - walkX + `px`;
+          scaleBarElement.style.left = coordXToggle + `px`;
+          inputMin.value = calculatePriceValue(coordXToggle);
 
           // Сделаем чтобы при упирания левого тоггла в край шкалы движение останавливалось
-          if (toggle.offsetLeft <= 0) {
+          if (coordXToggle < 0) {
             toggle.style.left = `0px`;
             scaleBarElement.style.left = `0px`;
             scaleBarElement.style.width = rightToggleElement.offsetLeft + `px`;
+            inputMin.value = 0;
           }
 
-          // Сделаем чтобы при встрече с правым тоглом движение останавливалось
-          if (toggle.offsetLeft >= (rightToggleElement.offsetLeft - MIN_MARGIN)) {
-            toggle.style.left = rightToggleElement.offsetLeft - MIN_MARGIN + `px`;
-            scaleBarElement.style.left = rightToggleElement.offsetLeft - MIN_MARGIN + `px`;
-            scaleBarElement.style.width = MIN_MARGIN + `px`;
+          if (coordXToggle >= rightToggleElement.offsetLeft) {
+            toggle.style.left = rightToggleElement.offsetLeft + `px`;
+            scaleBarElement.style.left = rightToggleElement.offsetLeft + `px`;
+            scaleBarElement.style.width = `0px`;
+            inputMin.value = calculatePriceValue(rightToggleElement.offsetLeft);
           }
           break;
         case Toggles.MAX:
-          scaleBarElement.style.width = widthScaleBar + walkX + `px`;
+          inputMax.value = calculatePriceValue(coordXToggle);
 
           // Сделаем чтобы при упирания правого тоггла в край шкалы движение останавливалось
-          if (toggle.offsetLeft >= WIDTH_SCALE) {
+          if (coordXToggle > WIDTH_SCALE) {
             toggle.style.left = WIDTH_SCALE + `px`;
             scaleBarElement.style.width = WIDTH_SCALE - leftToggleElement.offsetLeft + `px`;
+            inputMax.value = MAX_PRICE;
           }
 
-          // Сделаем чтобы при встрече с левым тоглом движение останавливалось
-          if (toggle.offsetLeft <= (leftToggleElement.offsetLeft + MIN_MARGIN)) {
-            toggle.style.left = leftToggleElement.offsetLeft + MIN_MARGIN + `px`;
-            scaleBarElement.style.width = MIN_MARGIN + `px`;
+          if (coordXToggle <= leftToggleElement.offsetLeft) {
+            toggle.style.left = leftToggleElement.offsetLeft + `px`;
+            scaleBarElement.style.width = `0px`;
+            inputMax.value = calculatePriceValue(leftToggleElement.offsetLeft);
           }
           break;
-
-        default:
-          console.log(`Не понятно куда ты нажал!`);
       }
     };
 
@@ -119,19 +144,102 @@ let touchFilterToggle = function (evt, toggle) {
   };
 
   const onToggleStop = function () {
-    toggle.classList.remove(`filters__bar-toggle--increased`);
-    document.removeEventListener(`touchmove`, onToggleMove);
-    document.removeEventListener(`touchend`, onToggleStop);
+    // Проверим находятся ли оба тоггла на max значении
+    if (leftToggleElement.offsetLeft === WIDTH_SCALE) {
+      leftToggleElement.classList.add(`filters__bar-toggle--up`);
+    } else {
+      leftToggleElement.classList.remove(`filters__bar-toggle--up`);
+    }
+    enableBodyScroll(evt.target);
+    document.removeEventListener(EventsToggle.MOVE, onToggleMove);
+    document.removeEventListener(EventsToggle.END, onToggleStop);
   };
 
-  document.addEventListener(`touchmove`, onToggleMove);
-  document.addEventListener(`touchend`, onToggleStop);
+  document.addEventListener(EventsToggle.MOVE, onToggleMove);
+  document.addEventListener(EventsToggle.END, onToggleStop);
 };
 
-leftToggleElement.addEventListener(`touchstart`, function (evt) {
+leftToggleElement.addEventListener(EventsToggle.START, function (evt) {
   touchFilterToggle(evt, leftToggleElement);
 });
 
-rightToggleElement.addEventListener(`touchstart`, function (evt) {
+rightToggleElement.addEventListener(EventsToggle.START, function (evt) {
   touchFilterToggle(evt, rightToggleElement);
 });
+
+// Напишем условие что при ручном изменении input менялись ползунки
+
+const Inputs = {
+  MIN: `minpriceinput`,
+  MAX: `maxpriceinput`
+};
+
+const manualChangePrice = function (evt) {
+  const calculatedTogglePosition = evt.target.value / (MAX_PRICE / WIDTH_SCALE);
+  const calculatedStartScale = inputMin.value / (MAX_PRICE / WIDTH_SCALE);
+  scaleBarElement.style.left = calculatedStartScale + `px`;
+  leftToggleElement.classList.remove(`filters__bar-toggle--up`);
+
+  switch (evt.target.id) {
+    case Inputs.MIN:
+      leftToggleElement.style.left = calculatedTogglePosition + `px`;
+
+      if (+evt.target.value < 0) {
+        leftToggleElement.style.left = `0px`;
+        scaleBarElement.style.left = `0px`;
+        inputMin.value = 0;
+      }
+
+      if (+evt.target.value > +inputMax.value) {
+        rightToggleElement.style.left = calculatedTogglePosition + `px`;
+        inputMax.value = evt.target.value;
+      }
+
+      if (+evt.target.value > MAX_PRICE) {
+        leftToggleElement.style.left = WIDTH_SCALE + `px`;
+        rightToggleElement.style.left = WIDTH_SCALE + `px`;
+        scaleBarElement.style.left = `0px`;
+        scaleBarElement.style.width = `0px`;
+        inputMax.value = MAX_PRICE;
+        inputMin.value = MAX_PRICE;
+        leftToggleElement.classList.add(`filters__bar-toggle--up`);
+      }
+
+      break;
+    case Inputs.MAX:
+      rightToggleElement.style.left = calculatedTogglePosition + `px`;
+
+      if (+evt.target.value < 0) {
+        leftToggleElement.style.left = `0px`;
+        rightToggleElement.style.left = `0px`;
+        scaleBarElement.style.left = `0px`;
+        scaleBarElement.style.width = `0px`;
+        inputMax.value = 0;
+        inputMin.value = 0;
+      }
+
+      if (+evt.target.value < +inputMin.value) {
+        leftToggleElement.style.left = calculatedTogglePosition + `px`;
+        inputMin.value = evt.target.value;
+      }
+
+      if (+evt.target.value > MAX_PRICE) {
+        inputMax.value = MAX_PRICE;
+        rightToggleElement.style.left = WIDTH_SCALE + `px`;
+      }
+      break;
+  }
+
+  scaleBarElement.style.width = rightToggleElement.offsetLeft - leftToggleElement.offsetLeft + `px`;
+};
+
+const priceInputElements = document.querySelectorAll(`.filters__price-number`);
+priceInputElements.forEach((input) => {
+  input.addEventListener(`input`, (evt) => {
+    manualChangePrice(evt);
+  });
+});
+
+// Сделаем выпадающие пункты фильтров
+const mainContainers = document.querySelectorAll(`[data-menu="main-container"]`);
+mainContainers.forEach((container) => makeMenuToggle(container));

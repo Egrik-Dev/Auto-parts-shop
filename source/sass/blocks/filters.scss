@@ -141,6 +141,12 @@
   }
 }
 
+.filters__menu-container {
+  overflow: hidden;
+
+  transition: opacity 0.3s, height 0.3s;
+}
+
 .filters__form-list {
   @include reset-list;
 }
@@ -166,10 +172,6 @@
 
   background-color: #d7d9df;
   border-radius: 50%;
-
-  &--seasonality {
-    // margin: 10px 0 0 10px;
-  }
 
   &--absolute {
     position: absolute;
@@ -362,6 +364,10 @@
 
   line-height: 17px;
 
+  &--axis {
+    display: block;
+  }
+
   &:nth-last-child(1),
   &:nth-last-child(2):not(.filters__radio-item--axis) {
     margin-bottom: 0;
@@ -500,13 +506,15 @@
 
 .filters__bar-toggle {
   position: absolute;
-  top: -3px;
+  top: -6px;
 
-  width: 7px;
-  height: 7px;
+  width: 15px;
+  height: 15px;
 
   background-color: #ff7931;
   border-radius: 50%;
+
+  cursor: pointer;
 
   &--min {
     left: 78.01px;
@@ -516,10 +524,8 @@
     left: 158.71px;
   }
 
-  &--increased {
-    width: 10px;
-    height: 10px;
-    top: -4px;
+  &--up {
+    z-index: 1;
   }
 }
 
@@ -536,6 +542,7 @@
 
 .filters__price-number {
   padding-bottom: 3px;
+  width: 53px;
 
   line-height: 17px;
 
@@ -655,6 +662,10 @@
   color: #ffffff;
 }
 
+.filters__arrow {
+  display: none;
+}
+
 @media (min-width: $desktop-width) {
   .filters {
     position: relative;
@@ -750,9 +761,10 @@
   }
 
   .filters__arrow {
-    // Основные параметры стрелки хранятся в классе menu-arrow
     top: 1px;
     left: 0;
+
+    display: block;
 
     transform: rotate(180deg);
   }
@@ -780,11 +792,31 @@
   .filters__form-list {
     display: flex;
     flex-wrap: wrap;
+
+    overflow: hidden;
+
+    transition: opacity 0.2s, height 0.2s;
+
+    &[data-menu-status="opened"] {
+      position: relative;
+
+      opacity: 1;
+    }
+
+    &[data-menu-status="closed"] {
+      position: absolute;
+
+      height: 0;
+
+      opacity: 0;
+
+      overflow: hidden;
+    }
   }
 
   .filters__form-item {
-    grid-template-columns: min-content 1fr;
-    justify-items: start;
+    grid-template-columns: min-content 25px;
+    justify-items: end;
 
     border-bottom: none;
 
@@ -913,7 +945,7 @@
 
       content: "";
 
-      background: url(../img/icon-arrowhead.svg) no-repeat 50%;
+      background: url("../img/icon-arrowhead.svg") no-repeat 50%;
 
       cursor: pointer;
       transition: transform 0.2s ease-in;
@@ -921,15 +953,10 @@
   }
 
   .filters__bar-toggle {
-    cursor: pointer;
+    top: -3px;
 
-    transition: ease 0.2s;
-
-    &:hover {
-      width: 10px;
-      height: 10px;
-      top: -4px;
-    }
+    width: 7px;
+    height: 7px;
   }
 
   .filters__discounts-wrapper {
@@ -1020,5 +1047,9 @@
 
     cursor: pointer;
     transition: ease 0.7s;
+  }
+
+  .filters__range-controls {
+    margin-top: 3px;
   }
 }

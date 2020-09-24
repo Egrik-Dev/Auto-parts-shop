@@ -202,10 +202,12 @@
             <ul class="filters__list">
               <li class="filters__list-item filters__list-item--parameters">
                 <form class="filters__form" action="https://js.dump/auto-parts" method="POST" enctype="multipart/form-data" autocomplete="off">
-                  <fieldset class="filters__fieldset filters__fieldset--seasonality">
-                    <div class="filters__arrow menu-arrow"></div>
-                    <legend class="filters__fieldset-title filters__fieldset-title--seasonality filters__fieldset-title--minimize">Сезонность</legend>
-                    <ul class="filters__form-list">
+                  <fieldset class="filters__fieldset filters__fieldset--seasonality" data-menu="main-container">
+                    <div class="filters__title-wrapper">
+                      <div class="filters__arrow menu-arrow" data-menu="arrow"></div>
+                      <legend class="filters__fieldset-title filters__fieldset-title--seasonality filters__fieldset-title--minimize">Сезонность</legend>
+                    </div>
+                    <ul class="filters__form-list" data-menu="inner-container" data-menu-status="opened">
                       <li class="filters__form-item">
                         <div class="filters__hint-wrapper">
                           <a class="filters__hint-link filters__hint-link--seasonality" href="#">
@@ -257,22 +259,26 @@
                       </li>
                     </ul>
                   </fieldset>
-                  <fieldset class="filters__fieldset filters__fieldset--price">
-                    <div class="filters__arrow menu-arrow"></div>
-                    <legend class="filters__fieldset-title filters__fieldset-title--price filters__fieldset-title--minimize">Цена</legend>
-                    <div class="filters__range-controls">
-                      <div class="filters__scale-bar"></div>
-                      <div class="filters__bar-toggle filters__bar-toggle--min" data-price-toggle="min"></div>
-                      <div class="filters__bar-toggle filters__bar-toggle--max" data-price-toggle="max"></div>
+                  <fieldset class="filters__fieldset filters__fieldset--price" data-menu="main-container">
+                    <div class="filters__title-wrapper">
+                      <div class="filters__arrow menu-arrow" data-menu="arrow"></div>
+                      <legend class="filters__fieldset-title filters__fieldset-title--price filters__fieldset-title--minimize">Цена</legend>
                     </div>
-                    <div class="filters__price-value">
-                      <div class="filters__price-indicator">
-                        <span class="filters__price-indicator-word">От</span>
-                        <input class="filters__price-number" type="number" name="minpriceinput" id="minpriceinput" min="0" max="30000" step="100" value="2000">
+                    <div class="filters__menu-container" data-menu="inner-container" data-menu-status="opened">
+                      <div class="filters__range-controls">
+                        <div class="filters__scale-bar"></div>
+                        <div class="filters__bar-toggle filters__bar-toggle--min" data-price-toggle="min"></div>
+                        <div class="filters__bar-toggle filters__bar-toggle--max" data-price-toggle="max"></div>
                       </div>
-                      <div class="filters__price-indicator">
-                        <span class="filters__price-indicator-word">До</span>
-                        <input class="filters__price-number" type="number" name="maxpriceinput" id="maxpriceinput" min="0" max="30000" step="100" value="12000">
+                      <div class="filters__price-value">
+                        <div class="filters__price-indicator">
+                          <span class="filters__price-indicator-word">От</span>
+                          <input class="filters__price-number" type="number" name="minpriceinput" id="minpriceinput" min="0" max="50000" step="500" value="2000">
+                        </div>
+                        <div class="filters__price-indicator">
+                          <span class="filters__price-indicator-word">До</span>
+                          <input class="filters__price-number" type="number" name="maxpriceinput" id="maxpriceinput" min="0" max="50000" step="500" value="12000">
+                        </div>
                       </div>
                     </div>
                   </fieldset>
@@ -342,55 +348,63 @@
                       </select>
                     </div>
                   </fieldset>
-                  <fieldset class="filters__fieldset filters__fieldset--brand">
-                    <div class="filters__arrow menu-arrow"></div>
-                    <legend class="filters__fieldset-title filters__fieldset-title--minimize filters__fieldset-title--search">Бренд</legend>
-                    <input class="filters__input-text" type="text" name="brand-name" id="brand-name-field" placeholder="Введите бренд шины">
-                    <label class="visually-hidden" for="brand-name-field">Бренд шины</label>
-                    <ul class="filters__form-list-wrap">
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="b-gudrich-box" value="b-gudrich" checked>
-                        <label class="filters__checkbox-label" for="b-gudrich-box">B Gudrich</label>
-                      </li>
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="wridrestone-box" value="wridrestone" checked>
-                        <label class="filters__checkbox-label" for="wridrestone-box">Wridrestone</label>
-                      </li>
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="rarym-box" value="rarym">
-                        <label class="filters__checkbox-label" for="rarym-box">Rarym</label>
-                      </li>
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="bf-hide-box" value="bf-hide">
-                        <label class="filters__checkbox-label" for="bf-hide-box">BF hide</label>
-                      </li>
-                    </ul>
-                    <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                  <fieldset class="filters__fieldset filters__fieldset--brand" data-menu="main-container">
+                    <div class="filters__title-wrapper">
+                      <div class="filters__arrow menu-arrow" data-menu="arrow"></div>
+                      <legend class="filters__fieldset-title filters__fieldset-title--minimize filters__fieldset-title--search">Бренд</legend>
+                    </div>
+                    <div class="filters__menu-container" data-menu="inner-container" data-menu-status="opened">
+                      <input class="filters__input-text" type="text" name="brand-name" id="brand-name-field" placeholder="Введите бренд шины">
+                      <label class="visually-hidden" for="brand-name-field">Бренд шины</label>
+                      <ul class="filters__form-list-wrap">
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="b-gudrich-box" value="b-gudrich" checked>
+                          <label class="filters__checkbox-label" for="b-gudrich-box">B Gudrich</label>
+                        </li>
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="wridrestone-box" value="wridrestone" checked>
+                          <label class="filters__checkbox-label" for="wridrestone-box">Wridrestone</label>
+                        </li>
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="rarym-box" value="rarym">
+                          <label class="filters__checkbox-label" for="rarym-box">Rarym</label>
+                        </li>
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="brands" id="bf-hide-box" value="bf-hide">
+                          <label class="filters__checkbox-label" for="bf-hide-box">BF hide</label>
+                        </li>
+                      </ul>
+                      <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                    </div>
                   </fieldset>
-                  <fieldset class="filters__fieldset filters__fieldset--model">
-                    <div class="filters__arrow menu-arrow"></div>
-                    <legend class="filters__fieldset-title filters__fieldset-title--minimize filters__fieldset-title--search">Модель</legend>
-                    <input class="filters__input-text" type="text" name="model-name" id="model-name-field" placeholder="Введите модель шины">
-                    <label class="visually-hidden" for="model-name-field">Модели шин</label>
-                    <ul class="filters__form-list-wrap">
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="alina-box" value="alina" checked>
-                        <label class="filters__checkbox-label" for="alina-box">ALINA</label>
-                      </li>
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="bliwwas-box" value="bliwwas" checked>
-                        <label class="filters__checkbox-label" for="bliwwas-box">BLIWWAS</label>
-                      </li>
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="force-moode-box" value="force-moode">
-                        <label class="filters__checkbox-label" for="force-moode-box">FORCE Moode</label>
-                      </li>
-                      <li class="filters__form-item-wrap">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="ice-gide-box" value="ice-gide">
-                        <label class="filters__checkbox-label" for="ice-gide-box">ICE Gide</label>
-                      </li>
-                    </ul>
-                    <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                  <fieldset class="filters__fieldset filters__fieldset--model" data-menu="main-container">
+                    <div class="filters__title-wrapper">
+                      <div class="filters__arrow menu-arrow" data-menu="arrow"></div>
+                      <legend class="filters__fieldset-title filters__fieldset-title--minimize filters__fieldset-title--search">Модель</legend>
+                    </div>
+                    <div class="filters__menu-container" data-menu="inner-container" data-menu-status="opened">
+                      <input class="filters__input-text" type="text" name="model-name" id="model-name-field" placeholder="Введите модель шины">
+                      <label class="visually-hidden" for="model-name-field">Модели шин</label>
+                      <ul class="filters__form-list-wrap">
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="alina-box" value="alina" checked>
+                          <label class="filters__checkbox-label" for="alina-box">ALINA</label>
+                        </li>
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="bliwwas-box" value="bliwwas" checked>
+                          <label class="filters__checkbox-label" for="bliwwas-box">BLIWWAS</label>
+                        </li>
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="force-moode-box" value="force-moode">
+                          <label class="filters__checkbox-label" for="force-moode-box">FORCE Moode</label>
+                        </li>
+                        <li class="filters__form-item-wrap">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="models" id="ice-gide-box" value="ice-gide">
+                          <label class="filters__checkbox-label" for="ice-gide-box">ICE Gide</label>
+                        </li>
+                      </ul>
+                      <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                    </div>
                   </fieldset>
                   <fieldset class="filters__fieldset filters__fieldset--technology">
                     <div class="filters__label-container">
@@ -444,28 +458,30 @@
                       </li>
                     </ul>
                   </fieldset>
-                  <fieldset class="filters__fieldset filters__fieldset--checkbox-model">
-                    <div class="filters__arrow menu-arrow"></div>
+                  <fieldset class="filters__fieldset filters__fieldset--checkbox-model" data-menu="main-container">
+                    <div class="filters__arrow menu-arrow" data-menu="arrow"></div>
                     <legend class="filters__fieldset-title filters__fieldset-title--minimize">Страны</legend>
-                    <ul class="filters__form-list-wrap">
-                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="russia-box" value="russia" checked>
-                        <label class="filters__checkbox-label filters__checkbox-label--bold" for="russia-box">Россия</label>
-                      </li>
-                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="italy-box" value="italy" checked>
-                        <label class="filters__checkbox-label filters__checkbox-label--bold" for="italy-box">Италия</label>
-                      </li>
-                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="germany-box" value="germany">
-                        <label class="filters__checkbox-label filters__checkbox-label--bold for="germany-box">Германия</label>
-                      </li>
-                      <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                        <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="france-box" value="france">
-                        <label class="filters__checkbox-label filters__checkbox-label--bold" for="france-box">Франция</label>
-                      </li>
-                    </ul>
-                    <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                    <div class="filters__menu-container" data-menu="inner-container" data-menu-status="opened">
+                      <ul class="filters__form-list-wrap">
+                        <li class="filters__form-item-wrap filters__form-item-wrap--top">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="russia-box" value="russia" checked>
+                          <label class="filters__checkbox-label filters__checkbox-label--bold" for="russia-box">Россия</label>
+                        </li>
+                        <li class="filters__form-item-wrap filters__form-item-wrap--top">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="italy-box" value="italy" checked>
+                          <label class="filters__checkbox-label filters__checkbox-label--bold" for="italy-box">Италия</label>
+                        </li>
+                        <li class="filters__form-item-wrap filters__form-item-wrap--top">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="germany-box" value="germany">
+                          <label class="filters__checkbox-label filters__checkbox-label--bold for="germany-box">Германия</label>
+                        </li>
+                        <li class="filters__form-item-wrap filters__form-item-wrap--top">
+                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="france-box" value="france">
+                          <label class="filters__checkbox-label filters__checkbox-label--bold" for="france-box">Франция</label>
+                        </li>
+                      </ul>
+                      <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>
+                    </div>
                   </fieldset>
                   <div class="filters__settings-block">
                     <button class="filters__btn-submit" type="submit" name="filters-submit">Подобрать</button>
@@ -676,7 +692,7 @@
             <ul class="page-footer__nav">
               <li class="page-footer__nav-item-list">
                 <h3 class="page-footer__nav-title">Информация</h3>
-                <ul class="page-footer__nav-list" data-menu-status="closed">
+                <ul class="page-footer__nav-list menu-item" data-menu-status="closed">
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="about.html">О компании</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="contacts.html">Контакты</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="requisites.html">Реквизиты</a></li>
@@ -686,17 +702,17 @@
               </li>
               <li class="page-footer__nav-item-list">
                 <h3 class="page-footer__nav-title">Сервисный центр</h3>
-                <ul class="page-footer__nav-list" data-menu-status="closed">
+                <ul class="page-footer__nav-list menu-item" data-menu-status="closed">
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
                 </ul>
-                <div class="page-footer__nav-arrow"></div>
+                <div class="page-footer__nav-arrow menu-arrow"></div>
               </li>
               <li class="page-footer__nav-item-list">
                 <h3 class="page-footer__nav-title">Интернет-магазин</h3>
-                <ul class="page-footer__nav-list" data-menu-status="closed">
+                <ul class="page-footer__nav-list menu-item" data-menu-status="closed">
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
@@ -705,7 +721,7 @@
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="agreement.html">Договор оферты</a></li>
                   <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="privacy.html">Политика обработки персональных данных</a></li>
                 </ul>
-                <div class="page-footer__nav-arrow"></div>
+                <div class="page-footer__nav-arrow menu-arrow"></div>
               </li>
             </ul>
             <p class="page-footer__label"><span class="page-footer__label-mobile-word">Onisshop. </span>Интернет-магазин автозапчастей</p>
