@@ -12,19 +12,18 @@ export function makeMenuToggle(container) {
     this.fullHeightContainer = ``;
     this.status = this.innerContaier.dataset.menuStatus;
 
-    // Определяем полную высоту
-    const calculateFullHeight = () => {
-      if (this.status === MenuStatus.OPENED) {
-        this.fullHeightContainer = this.innerContaier.offsetHeight;
-        this.startHeightContainer = this.innerContaier.offsetHeight;
-      } else {
-        this.innerContaier.dataset.menuStatus = MenuStatus.OPENED;
-        this.fullHeightContainer = this.innerContaier.offsetHeight;
-        this.innerContaier.dataset.menuStatus = MenuStatus.CLOSED;
-      }
-    };
+    this.calculateFullHeight();
+  };
 
-    calculateFullHeight();
+  MakeOpenableMenu.prototype.calculateFullHeight = function () {
+    if (this.status === MenuStatus.OPENED) {
+      this.fullHeightContainer = this.innerContaier.offsetHeight;
+      this.startHeightContainer = this.innerContaier.offsetHeight;
+    } else {
+      this.innerContaier.dataset.menuStatus = MenuStatus.OPENED;
+      this.fullHeightContainer = this.innerContaier.offsetHeight;
+      this.innerContaier.dataset.menuStatus = MenuStatus.CLOSED;
+    }
   };
 
   MakeOpenableMenu.prototype.setHeight = function () {
@@ -41,6 +40,7 @@ export function makeMenuToggle(container) {
         // Переворачиваем стрелочку
         this.arrow.style = `transform: rotate(180deg);`;
       } else {
+        this.fullHeightContainer = this.innerContaier.offsetHeight;
         this.innerContaier.style.height = `0px`;
         this.arrow.style = `transform: rotate(0deg);`;
       }
