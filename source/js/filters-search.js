@@ -1,9 +1,9 @@
 import {createElement} from './utils.js';
 
 // TODO:
-// При наборе текста в поиск скрывать кнопку
-// При удалении текста из поиска отображать стартовые 4 элемента и кнопку
 
+// Отмеченные инпуты не удаляются после очистки поля поиска, а добавляются в начало
+// Произведен рефакторинг класса отвечающего за поиск в фильтрах
 
 export class FiltersSearch {
   constructor(container, items) {
@@ -16,24 +16,30 @@ export class FiltersSearch {
     this.titleList = this.list.dataset.listTitle;
     this.QUANTITY_RENDER_ITEMS = 4;
     this.startRenderedItems = this.items.slice(0, this.QUANTITY_RENDER_ITEMS);
-    this.activeItems = [];
+    this.renderedItems = [];
+    this.checkedItems = [];
     this.fullHeightContainer = null;
 
     this._renderShowMoreButton();
     this.renderItems(this.startRenderedItems);
-    this.setHeight();
+    this._fixedHeightContainer();
     this.inputChange();
 
     this.renderNewItems = null;
     this.filterItems = null;
   }
 
+  _fixedHeightContainer() {
+    this.innerContaier.style.height = null;
+    this.fullHeightContainer = this.innerContaier.offsetHeight;
+    this.innerContaier.style.height = `${this.fullHeightContainer}px`;
+  }
+
   _renderNewItems() {
-    const newRenderedItems = this.items.slice(this.activeItems.length, this.activeItems.length + this.QUANTITY_RENDER_ITEMS);
+    const newRenderedItems = this.items.slice(this.renderedItems.length, this.renderedItems.length + this.QUANTITY_RENDER_ITEMS);
 
     this.renderItems(newRenderedItems);
-    this._resetHeight();
-    this.setHeight();
+    this._fixedHeightContainer();
   }
 
   _renderShowMoreButton() {
@@ -46,25 +52,27 @@ export class FiltersSearch {
   _deleteShowMoreButton() {
     this.btnMore.removeEventListener(`click`, this.renderNewItems);
     this.btnMore.remove();
+    this.btnMore = null;
   }
 
-  _resetHeight() {
-    this.innerContaier.style.height = null;
-  }
+  // _resetHeight() {
+  //   this.innerContaier.style.height = null;
+  // }
 
-  setHeight() {
-    this.fullHeightContainer = this.innerContaier.offsetHeight;
-    this.innerContaier.style.height = `${this.fullHeightContainer}px`;
-  }
+  // setHeight() {
+  //   this.fullHeightContainer = this.innerContaier.offsetHeight;
+  //   this.innerContaier.style.height = `${this.fullHeightContainer}px`;
+  // }
 
   renderItems(arrItems) {
     arrItems.forEach((item) => {
       const attributes = this._generateАttributeTitles(item);
       const itemList = createElement(this.generateMarkupItems(attributes));
-      this.activeItems.push(itemList);
+      this.renderedItems.push(itemList);
+      console.log(this.renderedItems);
 
       // Сравгиваем кол-во отрисованых элементов с общим кол-ом
-      if (this.activeItems.length === this.items.length) {
+      if (this.renderedItems.length >= this.items.length) {
         this._deleteShowMoreButton();
       }
 
@@ -79,11 +87,18 @@ export class FiltersSearch {
     if (searchQuery === ``) {
       this.deleteAllItems();
       this.renderItems(this.startRenderedItems);
+      this._renderShowMoreButton();
+      this._fixedHeightContainer();
     } else {
-      const filteredArr = this.items.filter((item) => item.includes(searchQuery));
-      console.log(filteredArr);
+      const filteredArr = this.items.filter((item) => item.toLowerCase().includes(searchQuery.toLowerCase()));
       this.deleteAllItems();
       this.renderItems(filteredArr);
+
+      if (this.btnMore !== null) {
+        this._deleteShowMoreButton();
+      }
+
+      this._fixedHeightContainer();
     }
   }
 
@@ -93,7 +108,8 @@ export class FiltersSearch {
   }
 
   deleteAllItems() {
-    this.activeItems.forEach((item) => item.remove());
+    this.renderedItems.forEach((item) => item.remove());
+    this.renderedItems = [];
   }
 
   _generateАttributeTitles(item) {
