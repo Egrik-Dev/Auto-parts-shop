@@ -1,8 +1,11 @@
 import {createElement} from './utils.js';
 
 // TODO:
+// Отмеченные инпуты не удаляются при взаиодействии с поиском, а отрисовываются вначале списка
+// В класс отвечающий за поиск в фильтрах передаётся массив с объектами значений
+// При отрисовке сначала отображаются Checked элементы, а после них unchecked
+// При клике по инпуту изменяется его буелво значение в списке из пункта выше
 
-// Отмеченные инпуты не удаляются после очистки поля поиска, а добавляются в начало
 // Произведен рефакторинг класса отвечающего за поиск в фильтрах
 
 export class FiltersSearch {
@@ -27,6 +30,15 @@ export class FiltersSearch {
 
     this.renderNewItems = null;
     this.filterItems = null;
+  }
+
+  setInputClickHandler(input) {
+    input.addEventListener(`mousedown`, () => {
+      const checkboxElement = input.querySelector(`input`);
+      if (!checkboxElement.checked) {
+        this.checkedItems.push(input);
+      }
+    });
   }
 
   _fixedHeightContainer() {
@@ -68,10 +80,11 @@ export class FiltersSearch {
     arrItems.forEach((item) => {
       const attributes = this._generateАttributeTitles(item);
       const itemList = createElement(this.generateMarkupItems(attributes));
-      this.renderedItems.push(itemList);
-      console.log(this.renderedItems);
 
-      // Сравгиваем кол-во отрисованых элементов с общим кол-ом
+      this.renderedItems.push(itemList);
+      this.setInputClickHandler(itemList, this.setHandler);
+
+      // Сравниваем кол-во отрисованых элементов с общим кол-ом
       if (this.renderedItems.length >= this.items.length) {
         this._deleteShowMoreButton();
       }

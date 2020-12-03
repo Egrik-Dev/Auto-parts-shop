@@ -41,9 +41,6 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
         this.currentPositionSlider -= this.sliderSize;
         this.currentPositionCircle += 1;
         break;
-
-      default:
-        console.log(`Не понятно куда ты нажал!`);
     }
 
     makeSwitching();
@@ -131,9 +128,6 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
           hideSideButton(leftBtnElement);
         }
         break;
-
-      default:
-        console.log(`Не понятно куда ты нажал!`);
     }
 
     this.sliderListElement.style.transition = `0.3s linear`;
