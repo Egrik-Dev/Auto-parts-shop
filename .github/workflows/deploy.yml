@@ -20,8 +20,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Packages
         run: npm ci
+      - name: Setup Key
+        - run: set -eu
+        - run: mkdir "$HOME/.ssh"
+        - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+        - run: chmod 600 "$HOME/.ssh/key"
       - name: Deploy to GH Pages
-        run: |
-          git config --global user.email "egor-office-mail@yandex.ru"
-          git config --global user.name "Egrik-Dev"
-          npm run deploy
+        run: npm run deploy

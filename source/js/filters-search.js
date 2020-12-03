@@ -71,6 +71,7 @@ export class FiltersSearch {
   //   this.innerContaier.style.height = null;
   // }
 
+
   // setHeight() {
   //   this.fullHeightContainer = this.innerContaier.offsetHeight;
   //   this.innerContaier.style.height = `${this.fullHeightContainer}px`;
