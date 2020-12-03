@@ -21,6 +21,7 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Deploy to GH Pages
-        run: npm run deploy
-      - name: Updating Domain
-        run: echo "Update domain"
+        run: |
+          git config --global user.email "egor-office-mail@yandex.ru"
+          git config --global user.name "Egrik-Dev"
+          npm run deploy
