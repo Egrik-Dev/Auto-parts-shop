@@ -36,7 +36,7 @@
     "eslint": "eslint source/**/*.js",
     "test": "npm run editorconfig && npm run stylelint",
     "testjs": "npm run eslint",
-    "build": "gulp css",
+    "build": "gulp build",
     "start": "gulp start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
