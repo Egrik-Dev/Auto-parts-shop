@@ -1,29 +1,28 @@
-
 name: Deploy
 
 on:
-  pull_request:
   push:
     branches:
       - master
 
 jobs:
-  lint:
+  deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Packages
-        run: npm ci
-      - name: Setup key
-        run: set -eu
-        run: mkdir "$HOME/.ssh"
-        run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
-        run: chmod 600 "$HOME/.ssh/key"
-      - name: Deploy to GH Pages
-        run: npm run deploy
+      # Setup key
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
+      # Build
+      - run: npm ci
+      - run: npm run build
+      # Deploy
+      - run: npm run deploy
