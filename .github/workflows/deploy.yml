@@ -1,28 +1,26 @@
-name: Deploy
-
+name: Deployment
 on:
   push:
     branches:
       - master
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [10.x]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      # Setup key
-      - run: set -eu
-      - run: mkdir "$HOME/.ssh"
-      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
-      - run: chmod 600 "$HOME/.ssh/key"
-      # Build
-      - run: npm ci
-      - run: npm run build
-      # Deploy
-      - run: npm run deploy
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install Packages
+      run: npm ci
+    - name: Build page
+      run: npm run build
+    - name: Deploy to gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.KEY }}
+        publish_dir: ./build
