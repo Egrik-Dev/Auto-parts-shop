@@ -242,9 +242,9 @@ priceInputElements.forEach((input) => {
 });
 
 // Настроим поиск по фильтрам
-// const BRANDS_TYRES = [`B Gudrich`, `Wridrestone`, `Rarym`, `BF hide`, `Nokian`, `Pirelli`, `Michelin`, `Continental`, `Hankook`, `Dunlop`, `Yokohama`, `Toyo`];
-// const brandContainer = document.querySelector(`[data-search="container"]`);
-// const brandSearchFilter = new FiltersSearch(brandContainer, BRANDS_TYRES);
+const BRANDS_TYRES = [`B Gudrich`, `Wridrestone`, `Rarym`, `BF hide`, `Nokian`, `Pirelli`, `Michelin`, `Continental`, `Hankook`, `Dunlop`, `Yokohama`, `Toyo`];
+const brandContainer = document.querySelector(`[data-search="container"]`);
+const brandSearchFilter = new FiltersSearch(brandContainer, BRANDS_TYRES);
 
 // Сделаем выпадающие пункты фильтров
 const mainContainers = document.querySelectorAll(`[data-menu="main-container"]`);

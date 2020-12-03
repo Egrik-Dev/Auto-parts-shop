@@ -12,7 +12,6 @@ const server = require(`browser-sync`).create();
 const imagemin = require(`gulp-imagemin`);
 const webp = require(`gulp-webp`);
 const svgstore = require(`gulp-svgstore`);
-const ghPages = require(`gulp-gh-pages-will`);
 const del = require(`del`);
 
 gulp.task(`css`, function () {
@@ -108,10 +107,5 @@ gulp.task(`build`, gulp.series(
     `sprite`,
     `html`
 ));
-
-gulp.task(`deploy`, function () {
-  return gulp.src(`build/**/*.*`)
-    .pipe(ghPages());
-});
 
 gulp.task(`start`, gulp.series(`build`, `server`));
