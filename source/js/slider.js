@@ -27,9 +27,6 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
   this.sliderSize = this.widthSlide + GAP; // Общий размер карточки
   this.container = container;
 
-  // Запускаем фунцкию для стартового подсчёта
-  this.calculateSliderData();
-
   // Функция которая меняет значения текущей позиции слайдера и тоггла
   const changeCurrentPosition = (direction) => {
     switch (direction) {
@@ -208,9 +205,12 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
       }
     }
   };
-
-  this.appendToggles(this.hiddenCards, this.togglesContainerElement);
 }
+
+MakeSlider.prototype.init = function () {
+  this.calculateSliderData();
+  this.appendToggles(this.hiddenCards, this.togglesContainerElement);
+};
 
 MakeSlider.prototype.calculateSliderData = function () {
   const widthContainer = this.container.querySelector(`[data-slider="container"]`).offsetWidth;

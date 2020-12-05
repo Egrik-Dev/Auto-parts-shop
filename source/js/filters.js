@@ -1,6 +1,6 @@
 import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
 import {makeMenuToggle} from './menu-toggle.js';
-// import {FiltersSearch} from './filters-search.js';
+import {FiltersSearch} from './filters-search.js';
 
 const filterBtnElement = document.querySelector(`.control-panel__filter-btn`);
 const filtersSectionElevent = document.querySelector(`.filters`);
@@ -245,6 +245,7 @@ priceInputElements.forEach((input) => {
 const BRANDS_TYRES = [`B Gudrich`, `Wridrestone`, `Rarym`, `BF hide`, `Nokian`, `Pirelli`, `Michelin`, `Continental`, `Hankook`, `Dunlop`, `Yokohama`, `Toyo`];
 const brandContainer = document.querySelector(`[data-search="container"]`);
 const brandSearchFilter = new FiltersSearch(brandContainer, BRANDS_TYRES);
+brandSearchFilter.init();
 
 // Сделаем выпадающие пункты фильтров
 const mainContainers = document.querySelectorAll(`[data-menu="main-container"]`);

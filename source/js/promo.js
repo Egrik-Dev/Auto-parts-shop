@@ -191,8 +191,10 @@ const isTimer = {
 const firstSliderContainer = document.querySelector(`.promo__slider-block`);
 const FIRST_SLIDER_DELAY = 50000;
 const firstPromoSlider = new MakeSlider(firstSliderContainer, `loop`, isTimer.YES, FIRST_SLIDER_DELAY);
+firstPromoSlider.calculateSliderData();
 
 // Запускаем промо слайдер
 const secondSliderContainer = document.querySelector(`.promo__timer-block`);
 const PROMO_SLIDER_DELAY = 80000;
 const secondPromoSlider = new MakeSlider(secondSliderContainer, `loop`, isTimer.YES, PROMO_SLIDER_DELAY);
+secondPromoSlider.calculateSliderData();
