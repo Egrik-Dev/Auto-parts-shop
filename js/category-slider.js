@@ -5,6 +5,8 @@ const popularContainer = document.querySelector(`[data-slider-name="popular"]`);
 const moreContainer = document.querySelector(`[data-slider-name="more"]`);
 const popularProductsSlider = new MakeSlider(popularContainer, `adaptive`);
 const moreProductsSlider = new MakeSlider(moreContainer, `adaptive`);
+popularProductsSlider.init();
+moreProductsSlider.init();
 
 // Создадим мапу с всеми категориями
 const CategoryType = {

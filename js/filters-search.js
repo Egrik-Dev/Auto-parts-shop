@@ -22,14 +22,15 @@ export class FiltersSearch {
     this.renderedItems = [];
     this.checkedItems = [];
     this.fullHeightContainer = null;
+    this.renderNewItems = null;
+    this.filterItems = null;
+  }
 
+  init() {
     this._renderShowMoreButton();
     this.renderItems(this.startRenderedItems);
     this._fixedHeightContainer();
     this.inputChange();
-
-    this.renderNewItems = null;
-    this.filterItems = null;
   }
 
   setInputClickHandler(input) {
