@@ -636,10 +636,26 @@
 }
 
 .filters__discounts-wrapper {
+  position: relative;
+
+  overflow: hidden;
   margin: 0 10px 10px 0;
-  // padding: 6px 15px;
 
   background-color: #f0f0f4;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    content: "";
+
+    background: linear-gradient(91.1deg, #9710e9 1.17%, #fd8d43 99.31%);
+    transition: left 0.7s;
+  }
 }
 
 .filters__discounts-label {
@@ -655,8 +671,8 @@
   text-transform: uppercase;
 }
 
-.filters__checkbox:checked ~ .filters__discounts-wrapper {
-  background: linear-gradient(91.1deg, #9710e9 1.17%, #fd8d43 99.31%);
+.filters__checkbox:checked ~ .filters__discounts-wrapper::before {
+  left: 0;
 }
 
 .filters__checkbox:checked ~ .filters__discounts-wrapper .filters__discounts-label {
@@ -793,8 +809,6 @@
   .filters__form-list {
     display: flex;
     flex-wrap: wrap;
-
-    overflow: hidden;
 
     transition: opacity 0.2s, height 0.2s;
 
@@ -961,36 +975,11 @@
   }
 
   .filters__discounts-wrapper {
-    position: relative;
-
-    overflow: hidden;
     cursor: pointer;
 
-    &::before {
-      position: absolute;
-      top: 0;
-      left: -100%;
-
-      width: 100%;
-      height: 100%;
-
-      content: "";
-
-      background: linear-gradient(91.1deg, #9710e9 1.17%, #fd8d43 99.31%);
-      transition: left 0.7s;
-    }
-
     &:hover .filters__discounts-label {
-      color: #ffffff;
+      color: #9b9b9b;
     }
-
-    &:hover::before {
-      left: 0;
-    }
-  }
-
-  .filters__checkbox:checked ~ .filters__discounts-wrapper::before {
-    background: unset;
   }
 
   .filters__discounts-label {
