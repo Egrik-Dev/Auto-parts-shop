@@ -134,6 +134,14 @@
 
   background-color: #f0f0f4;
   border-radius: 50px;
+
+  &--checked {
+    background-color: #a4a4a7;
+  }
+
+  &--checked .control-panel__tags-link {
+    color: #ffffff;
+  }
 }
 
 .control-panel__tags-link {
@@ -214,18 +222,8 @@
     overflow-x: unset;
   }
 
-  .control-panel__tags-item {
-    &:hover {
-      background-color: #d4d4d6;
-    }
-
-    &--checked {
-      background-color: #a4a4a7;
-    }
-
-    &--checked .control-panel__tags-link {
-      color: #ffffff;
-    }
+  .control-panel__tags-item:hover {
+    background-color: #d4d4d6;
   }
 
   .control-panel__sort-view {
