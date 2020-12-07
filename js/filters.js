@@ -65,7 +65,8 @@ const leftToggleElement = document.querySelector(`.filters__bar-toggle--min`);
 const rightToggleElement = document.querySelector(`.filters__bar-toggle--max`);
 const scaleBarElement = document.querySelector(`.filters__scale-bar`);
 const rangeElement = document.querySelector(`.filters__range-controls`);
-const WIDTH_SCALE = rangeElement.offsetWidth;
+// Вычитаем ширину тоггла чтобы при максимальной выкрутке он не исчезал за край экрана
+const WIDTH_SCALE = rangeElement.offsetWidth - leftToggleElement.offsetWidth;
 const MAX_PRICE = 50000;
 const inputMin = document.querySelector(`#minpriceinput`);
 const inputMax = document.querySelector(`#maxpriceinput`);
