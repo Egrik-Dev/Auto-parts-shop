@@ -1,6 +1,7 @@
 import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
 import {makeMenuToggle} from './menu-toggle.js';
 import {FiltersSearch} from './filters-search.js';
+import {DESKTOP_WIDTH} from './const.js';
 
 const filterBtnElement = document.querySelector(`.control-panel__filter-btn`);
 const filtersSectionElevent = document.querySelector(`.filters`);
@@ -100,7 +101,10 @@ let touchFilterToggle = function (evt, toggle) {
   evt.preventDefault();
   let startX = evt.clientX || evt.touches[0].clientX;
   const positionToggle = toggle.offsetLeft;
-  disableBodyScroll(evt.target);
+
+  if (clientWidth < DESKTOP_WIDTH) {
+    disableBodyScroll(evt.target);
+  }
 
   const onToggleMove = function (moveEvt) {
     let walkX = Math.ceil(moveEvt.clientX || moveEvt.touches[0].clientX) - startX;
@@ -249,7 +253,45 @@ priceInputElements.forEach((input) => {
 });
 
 // Настроим поиск по фильтрам
-const BRANDS_TYRES = [`B Gudrich`, `Wridrestone`, `Rarym`, `BF hide`, `Nokian`, `Pirelli`, `Michelin`, `Continental`, `Hankook`, `Dunlop`, `Yokohama`, `Toyo`];
+// Моковые данные
+const BRANDS_TYRES = [{
+  name: `B Gudrich`,
+  isChecked: false
+}, {
+  name: `Wridrestone`,
+  isChecked: true
+}, {
+  name: `Rarym`,
+  isChecked: false
+}, {
+  name: `BF hide`,
+  isChecked: true
+}, {
+  name: `Nokian`,
+  isChecked: false
+}, {
+  name: `Pirelli`,
+  isChecked: false
+}, {
+  name: `Michelin`,
+  isChecked: false
+}, {
+  name: `Continental`,
+  isChecked: false
+}, {
+  name: `Hankook`,
+  isChecked: false
+}, {
+  name: `Dunlop`,
+  isChecked: true
+}, {
+  name: `Yokohama`,
+  isChecked: false
+}, {
+  name: `Toyo`,
+  isChecked: false
+}];
+
 const brandContainer = document.querySelector(`[data-search="container"]`);
 const brandSearchFilter = new FiltersSearch(brandContainer, BRANDS_TYRES);
 brandSearchFilter.init();
