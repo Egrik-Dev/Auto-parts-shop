@@ -26,9 +26,12 @@ const overlayElement = document.querySelector(`.filters__overlay`);
 
 hintWrapperElements.forEach((hintElement) => {
   const hintIconElement = hintElement.querySelector(`.filters__hint-link`);
+  const hintBlockElement = hintElement.querySelector(`.filters__hint-desc-block`);
+  const positionHintBlock = hintBlockElement.offsetLeft;
+
   hintIconElement.addEventListener(`click`, (evt) => {
     evt.preventDefault();
-    const hintBlockElement = hintElement.querySelector(`.filters__hint-desc-block`);
+
     hintBlockElement.classList.add(`filters__hint-desc-block--show`);
     overlayElement.classList.add(`overlay--show`);
 
@@ -36,7 +39,6 @@ hintWrapperElements.forEach((hintElement) => {
     const clickX = evt.clientX;
     const distanceEdge = clientWidth - clickX;
     const widthHintBlock = hintBlockElement.offsetWidth;
-    const positionHintBlock = hintBlockElement.offsetLeft;
 
     if (distanceEdge < widthHintBlock) {
       hintBlockElement.style.left = positionHintBlock - widthHintBlock + `px`;
@@ -45,16 +47,20 @@ hintWrapperElements.forEach((hintElement) => {
       hintBlockElement.classList.add(`filters__hint-desc-block--left`);
     }
 
-    // Повесим обработчик на закрытие окна
-    overlayElement.addEventListener(`click`, () => {
+    const removeHint = () => {
       if (hintBlockElement.classList.contains(`filters__hint-desc-block--right`)) {
         hintBlockElement.style.left = positionHintBlock + `px`;
       }
       hintBlockElement.classList.remove(`filters__hint-desc-block--show`);
-    });
+      overlayElement.classList.remove(`overlay--show`);
+
+      overlayElement.removeEventListener(`click`, removeHint);
+    };
+
+    // Повесим обработчик на закрытие окна
+    overlayElement.addEventListener(`click`, removeHint);
   });
 });
-
 
 // НАСТРОЙКА РЕГУЛИРОВКИ ЦЕНЫ
 const Toggles = {
