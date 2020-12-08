@@ -1,10 +1,11 @@
 import {createElement} from './utils.js';
 
+const QUANTITY_RENDER_ITEMS = 4;
+
 // TODO:
 // Отмеченные инпуты не удаляются при взаиодействии с поиском, а отрисовываются вначале списка
 // В класс отвечающий за поиск в фильтрах передаётся массив с объектами значений
 // При отрисовке сначала отображаются Checked элементы, а после них unchecked
-// При клике по инпуту изменяется его буелво значение в списке из пункта выше
 
 // Произведен рефакторинг класса отвечающего за поиск в фильтрах
 
@@ -17,10 +18,8 @@ export class FiltersSearch {
     this.input = container.querySelector(`[data-search="input"]`);
     this.btnMore = null;
     this.titleList = this.list.dataset.listTitle;
-    this.QUANTITY_RENDER_ITEMS = 4;
-    this.startRenderedItems = this.items.slice(0, this.QUANTITY_RENDER_ITEMS);
+    this.startRenderedItems = this.items.slice(0, QUANTITY_RENDER_ITEMS);
     this.renderedItems = [];
-    this.checkedItems = [];
     this.fullHeightContainer = null;
     this.renderNewItems = null;
     this.filterItems = null;
@@ -28,18 +27,37 @@ export class FiltersSearch {
 
   init() {
     this._renderShowMoreButton();
-    this.renderItems(this.startRenderedItems);
+    this._sortArrItems();
+    this.renderItems(this._createStartRenderItems());
     this._fixedHeightContainer();
     this.inputChange();
   }
 
-  setInputClickHandler(input) {
+  setInputClickHandler(input, item) {
     input.addEventListener(`mousedown`, () => {
-      const checkboxElement = input.querySelector(`input`);
-      if (!checkboxElement.checked) {
-        this.checkedItems.push(input);
-      }
+      this.items.forEach((itemmm) => {
+        if (itemmm.name === item.name) {
+          itemmm.isChecked = !itemmm.isChecked;
+        }
+      });
     });
+  }
+
+  _createStartRenderItems() {
+    const arrItems = this.items.filter((item) => item.isChecked);
+    if (this.items.length >= QUANTITY_RENDER_ITEMS && arrItems.length < QUANTITY_RENDER_ITEMS) {
+      while (arrItems.length !== QUANTITY_RENDER_ITEMS) {
+        arrItems.push(this.items[arrItems.length]);
+      }
+    } else if (this.items.length < QUANTITY_RENDER_ITEMS) {
+      return this.items;
+    }
+
+    return arrItems;
+  }
+
+  _sortArrItems() {
+    this.items.sort((a, b) => b.isChecked - a.isChecked);
   }
 
   _fixedHeightContainer() {
@@ -49,7 +67,7 @@ export class FiltersSearch {
   }
 
   _renderNewItems() {
-    const newRenderedItems = this.items.slice(this.renderedItems.length, this.renderedItems.length + this.QUANTITY_RENDER_ITEMS);
+    const newRenderedItems = this.items.slice(this.renderedItems.length, this.renderedItems.length + QUANTITY_RENDER_ITEMS);
 
     this.renderItems(newRenderedItems);
     this._fixedHeightContainer();
@@ -68,23 +86,13 @@ export class FiltersSearch {
     this.btnMore = null;
   }
 
-  // _resetHeight() {
-  //   this.innerContaier.style.height = null;
-  // }
-
-
-  // setHeight() {
-  //   this.fullHeightContainer = this.innerContaier.offsetHeight;
-  //   this.innerContaier.style.height = `${this.fullHeightContainer}px`;
-  // }
-
   renderItems(arrItems) {
     arrItems.forEach((item) => {
       const attributes = this._generateАttributeTitles(item);
       const itemList = createElement(this.generateMarkupItems(attributes));
 
       this.renderedItems.push(itemList);
-      this.setInputClickHandler(itemList, this.setHandler);
+      this.setInputClickHandler(itemList, item);
 
       // Сравниваем кол-во отрисованых элементов с общим кол-ом
       if (this.renderedItems.length >= this.items.length) {
@@ -101,11 +109,12 @@ export class FiltersSearch {
     // Если поисковой запрос пустой то отрисовываем стартовые элементы
     if (searchQuery === ``) {
       this.deleteAllItems();
-      this.renderItems(this.startRenderedItems);
       this._renderShowMoreButton();
+      this._sortArrItems();
+      this.renderItems(this._createStartRenderItems());
       this._fixedHeightContainer();
     } else {
-      const filteredArr = this.items.filter((item) => item.toLowerCase().includes(searchQuery.toLowerCase()));
+      const filteredArr = this.items.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
       this.deleteAllItems();
       this.renderItems(filteredArr);
 
@@ -129,9 +138,10 @@ export class FiltersSearch {
 
   _generateАttributeTitles(item) {
     return {
-      titleBrand: item,
+      titleBrand: item.name,
       name: this.titleList,
-      id: item.toLowerCase()
+      checked: item.isChecked,
+      id: item.name.toLowerCase()
         .split(``)
         .map((letter) => letter === ` ` ? `-` : letter)
         .join(``)
@@ -139,9 +149,9 @@ export class FiltersSearch {
   }
 
   generateMarkupItems(attributes) {
-    const {titleBrand, name, id} = attributes;
+    const {titleBrand, name, id, checked} = attributes;
     return (`<li class="filters__form-item-wrap">
-        <input class="filters__checkbox visually-hidden" type="checkbox" name="${name}" id="${id}-box" value="${id}">
+        <input class="filters__checkbox visually-hidden" type="checkbox" name="${name}" id="${id}-box" value="${id}" ${checked ? `checked` : ``}>
         <label class="filters__checkbox-label" for="${id}-box">${titleBrand}</label>
       </li>
     `);
