@@ -3,10 +3,6 @@ import {createElement} from './utils.js';
 const QUANTITY_RENDER_ITEMS = 4;
 
 // TODO:
-// Отмеченные инпуты не удаляются при взаиодействии с поиском, а отрисовываются вначале списка
-// В класс отвечающий за поиск в фильтрах передаётся массив с объектами значений
-// При отрисовке сначала отображаются Checked элементы, а после них unchecked
-
 // Произведен рефакторинг класса отвечающего за поиск в фильтрах
 
 export class FiltersSearch {
@@ -18,21 +14,57 @@ export class FiltersSearch {
     this.input = container.querySelector(`[data-search="input"]`);
     this.btnMore = null;
     this.titleList = this.list.dataset.listTitle;
-    this.startRenderedItems = this.items.slice(0, QUANTITY_RENDER_ITEMS);
     this.renderedItems = [];
     this.fullHeightContainer = null;
-    this.renderNewItems = null;
-    this.filterItems = null;
+    this.renderNewItems = this._renderNewItems.bind(this);
+    this.filterItems = this._filterItems.bind(this);
+
+    this.input.addEventListener(`input`, this.filterItems);
   }
 
   init() {
     this._renderShowMoreButton();
     this._sortArrItems();
-    this.renderItems(this._createStartRenderItems());
+    this._renderItems(this._createStartRenderItems());
     this._fixedHeightContainer();
-    this.inputChange();
   }
 
+  _renderShowMoreButton() {
+    this.btnMore = createElement(this.generateMarkupShowMore());
+    this.innerContaier.append(this.btnMore);
+    this.btnMore.addEventListener(`click`, this.renderNewItems);
+  }
+
+  _sortArrItems() {
+    this.items.sort((a, b) => b.isChecked - a.isChecked);
+  }
+
+  _renderItems(arrItems) {
+    arrItems.forEach((item) => {
+      const attributes = this._generateАttributeTitles(item);
+      const itemList = createElement(this.generateMarkupItems(attributes));
+
+      this.renderedItems.push(itemList);
+      this.setInputClickHandler(itemList, item);
+
+      // Сравниваем кол-во отрисованых элементов с общим кол-ом
+      if (this.renderedItems.length >= this.items.length) {
+        this._deleteShowMoreButton();
+      }
+
+      this.list.append(itemList);
+    });
+  }
+
+  _fixedHeightContainer() {
+    this.innerContaier.style.height = null;
+    this.fullHeightContainer = this.innerContaier.offsetHeight;
+    this.innerContaier.style.height = `${this.fullHeightContainer}px`;
+  }
+
+
+  // FIXME:
+  // Исправить itemmm
   setInputClickHandler(input, item) {
     input.addEventListener(`mousedown`, () => {
       this.items.forEach((itemmm) => {
@@ -56,51 +88,17 @@ export class FiltersSearch {
     return arrItems;
   }
 
-  _sortArrItems() {
-    this.items.sort((a, b) => b.isChecked - a.isChecked);
-  }
-
-  _fixedHeightContainer() {
-    this.innerContaier.style.height = null;
-    this.fullHeightContainer = this.innerContaier.offsetHeight;
-    this.innerContaier.style.height = `${this.fullHeightContainer}px`;
-  }
-
   _renderNewItems() {
     const newRenderedItems = this.items.slice(this.renderedItems.length, this.renderedItems.length + QUANTITY_RENDER_ITEMS);
 
-    this.renderItems(newRenderedItems);
+    this._renderItems(newRenderedItems);
     this._fixedHeightContainer();
-  }
-
-  _renderShowMoreButton() {
-    this.btnMore = createElement(this.generateMarkupShowMore());
-    this.innerContaier.append(this.btnMore);
-    this.renderNewItems = this._renderNewItems.bind(this);
-    this.btnMore.addEventListener(`click`, this.renderNewItems);
   }
 
   _deleteShowMoreButton() {
     this.btnMore.removeEventListener(`click`, this.renderNewItems);
     this.btnMore.remove();
     this.btnMore = null;
-  }
-
-  renderItems(arrItems) {
-    arrItems.forEach((item) => {
-      const attributes = this._generateАttributeTitles(item);
-      const itemList = createElement(this.generateMarkupItems(attributes));
-
-      this.renderedItems.push(itemList);
-      this.setInputClickHandler(itemList, item);
-
-      // Сравниваем кол-во отрисованых элементов с общим кол-ом
-      if (this.renderedItems.length >= this.items.length) {
-        this._deleteShowMoreButton();
-      }
-
-      this.list.append(itemList);
-    });
   }
 
   _filterItems(evt) {
@@ -111,12 +109,12 @@ export class FiltersSearch {
       this.deleteAllItems();
       this._renderShowMoreButton();
       this._sortArrItems();
-      this.renderItems(this._createStartRenderItems());
+      this._renderItems(this._createStartRenderItems());
       this._fixedHeightContainer();
     } else {
       const filteredArr = this.items.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
       this.deleteAllItems();
-      this.renderItems(filteredArr);
+      this._renderItems(filteredArr);
 
       if (this.btnMore !== null) {
         this._deleteShowMoreButton();
@@ -124,11 +122,6 @@ export class FiltersSearch {
 
       this._fixedHeightContainer();
     }
-  }
-
-  inputChange() {
-    this.filterItems = this._filterItems.bind(this);
-    this.input.addEventListener(`input`, this.filterItems);
   }
 
   deleteAllItems() {
