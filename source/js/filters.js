@@ -79,7 +79,7 @@ const inputMin = document.querySelector(`#minpriceinput`);
 const inputMax = document.querySelector(`#maxpriceinput`);
 
 const calculatePriceValue = function (togglePosition) {
-  return Math.round(MAX_PRICE / WIDTH_SCALE * togglePosition);
+  return Math.round((MAX_PRICE / WIDTH_SCALE * togglePosition) / 100) * 100;
 };
 
 inputMin.value = calculatePriceValue(leftToggleElement.offsetLeft);
