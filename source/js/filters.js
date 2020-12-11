@@ -2,6 +2,8 @@ import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
 import {makeMenuToggle} from './menu-toggle.js';
 import {FiltersSearch} from './filters-search.js';
 import {DESKTOP_WIDTH} from './const.js';
+import {brandTyresMocks, modelTyresMocks, countriesMocks} from './mocks.js';
+import {LargeSelectionFilter} from './large-selection-filter.js';
 
 const filterBtnElement = document.querySelector(`.control-panel__filter-btn`);
 const filtersSectionElevent = document.querySelector(`.filters`);
@@ -253,48 +255,17 @@ priceInputElements.forEach((input) => {
 });
 
 // Настроим поиск по фильтрам
-// Моковые данные
-const BRANDS_TYRES = [{
-  name: `B Gudrich`,
-  isChecked: false
-}, {
-  name: `Wridrestone`,
-  isChecked: true
-}, {
-  name: `Rarym`,
-  isChecked: false
-}, {
-  name: `BF hide`,
-  isChecked: true
-}, {
-  name: `Nokian`,
-  isChecked: false
-}, {
-  name: `Pirelli`,
-  isChecked: false
-}, {
-  name: `Michelin`,
-  isChecked: false
-}, {
-  name: `Continental`,
-  isChecked: false
-}, {
-  name: `Hankook`,
-  isChecked: false
-}, {
-  name: `Dunlop`,
-  isChecked: true
-}, {
-  name: `Yokohama`,
-  isChecked: false
-}, {
-  name: `Toyo`,
-  isChecked: false
-}];
-
-const brandContainer = document.querySelector(`[data-search="container"]`);
-const brandSearchFilter = new FiltersSearch(brandContainer, BRANDS_TYRES);
+const brandContainer = document.querySelector(`.filters__fieldset--brand`);
+const brandSearchFilter = new FiltersSearch(brandContainer, brandTyresMocks);
 brandSearchFilter.init();
+
+const modelContainer = document.querySelector(`.filters__fieldset--model`);
+const modelSearchFilter = new FiltersSearch(modelContainer, modelTyresMocks);
+modelSearchFilter.init();
+
+const countriesContainer = document.querySelector(`.filters__fieldset--checkbox-model`);
+const countriesFilter = new LargeSelectionFilter(countriesContainer, countriesMocks);
+countriesFilter.init();
 
 // Сделаем выпадающие пункты фильтров
 const mainContainers = document.querySelectorAll(`[data-menu="main-container"]`);
