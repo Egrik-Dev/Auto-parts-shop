@@ -2,9 +2,6 @@ import {createElement} from './utils.js';
 
 const QUANTITY_RENDER_ITEMS = 4;
 
-// TODO:
-// Произведен рефакторинг класса отвечающего за поиск в фильтрах
-
 export class FiltersSearch {
   constructor(container, items) {
     this.container = container;
@@ -30,59 +27,69 @@ export class FiltersSearch {
   }
 
   _renderShowMoreButton() {
-    this.btnMore = createElement(this.generateMarkupShowMore());
+    this.btnMore = createElement(this._generateMarkupShowMore());
     this.innerContaier.append(this.btnMore);
     this.btnMore.addEventListener(`click`, this.renderNewItems);
+  }
+
+  _deleteShowMoreButton() {
+    this.btnMore.removeEventListener(`click`, this.renderNewItems);
+    this.btnMore.remove();
+    this.btnMore = null;
   }
 
   _sortArrItems() {
     this.items.sort((a, b) => b.isChecked - a.isChecked);
   }
 
+  _filterItems(evt) {
+    const searchQuery = evt.target.value;
+
+    // Если поисковой запрос пустой то отрисовываем стартовые элементы
+    if (searchQuery === ``) {
+      this._deleteAllItems();
+      this.init();
+    } else {
+      const filteredArr = this.items.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      this._deleteAllItems();
+      this._renderItems(filteredArr);
+
+      if (this.btnMore) {
+        this._deleteShowMoreButton();
+      }
+
+      this._fixedHeightContainer();
+    }
+  }
+
   _renderItems(arrItems) {
     arrItems.forEach((item) => {
       const attributes = this._generateАttributeTitles(item);
-      const itemList = createElement(this.generateMarkupItems(attributes));
+      const input = createElement(this._generateMarkupItems(attributes));
 
-      this.renderedItems.push(itemList);
-      this.setInputClickHandler(itemList, item);
+      this.renderedItems.push(input);
+      this._setInputClickHandler(input, item);
 
       // Сравниваем кол-во отрисованых элементов с общим кол-ом
       if (this.renderedItems.length >= this.items.length) {
         this._deleteShowMoreButton();
       }
 
-      this.list.append(itemList);
-    });
-  }
-
-  _fixedHeightContainer() {
-    this.innerContaier.style.height = null;
-    this.fullHeightContainer = this.innerContaier.offsetHeight;
-    this.innerContaier.style.height = `${this.fullHeightContainer}px`;
-  }
-
-
-  // FIXME:
-  // Исправить itemmm
-  setInputClickHandler(input, item) {
-    input.addEventListener(`mousedown`, () => {
-      this.items.forEach((itemmm) => {
-        if (itemmm.name === item.name) {
-          itemmm.isChecked = !itemmm.isChecked;
-        }
-      });
+      this.list.append(input);
     });
   }
 
   _createStartRenderItems() {
+    if (this.items.length < QUANTITY_RENDER_ITEMS) {
+      return this.items;
+    }
+
     const arrItems = this.items.filter((item) => item.isChecked);
+
     if (this.items.length >= QUANTITY_RENDER_ITEMS && arrItems.length < QUANTITY_RENDER_ITEMS) {
       while (arrItems.length !== QUANTITY_RENDER_ITEMS) {
         arrItems.push(this.items[arrItems.length]);
       }
-    } else if (this.items.length < QUANTITY_RENDER_ITEMS) {
-      return this.items;
     }
 
     return arrItems;
@@ -95,38 +102,25 @@ export class FiltersSearch {
     this._fixedHeightContainer();
   }
 
-  _deleteShowMoreButton() {
-    this.btnMore.removeEventListener(`click`, this.renderNewItems);
-    this.btnMore.remove();
-    this.btnMore = null;
-  }
-
-  _filterItems(evt) {
-    const searchQuery = evt.target.value;
-
-    // Если поисковой запрос пустой то отрисовываем стартовые элементы
-    if (searchQuery === ``) {
-      this.deleteAllItems();
-      this._renderShowMoreButton();
-      this._sortArrItems();
-      this._renderItems(this._createStartRenderItems());
-      this._fixedHeightContainer();
-    } else {
-      const filteredArr = this.items.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
-      this.deleteAllItems();
-      this._renderItems(filteredArr);
-
-      if (this.btnMore !== null) {
-        this._deleteShowMoreButton();
-      }
-
-      this._fixedHeightContainer();
-    }
-  }
-
-  deleteAllItems() {
+  _deleteAllItems() {
     this.renderedItems.forEach((item) => item.remove());
     this.renderedItems = [];
+  }
+
+  _setInputClickHandler(input, itemRendered) {
+    input.addEventListener(`mousedown`, () => {
+      this.items.forEach((item) => {
+        if (item.name === itemRendered.name) {
+          item.isChecked = !item.isChecked;
+        }
+      });
+    });
+  }
+
+  _fixedHeightContainer() {
+    this.innerContaier.style.height = null;
+    this.fullHeightContainer = this.innerContaier.offsetHeight;
+    this.innerContaier.style.height = `${this.fullHeightContainer}px`;
   }
 
   _generateАttributeTitles(item) {
@@ -141,7 +135,7 @@ export class FiltersSearch {
     };
   }
 
-  generateMarkupItems(attributes) {
+  _generateMarkupItems(attributes) {
     const {titleBrand, name, id, checked} = attributes;
     return (`<li class="filters__form-item-wrap">
         <input class="filters__checkbox visually-hidden" type="checkbox" name="${name}" id="${id}-box" value="${id}" ${checked ? `checked` : ``}>
@@ -150,7 +144,7 @@ export class FiltersSearch {
     `);
   }
 
-  generateMarkupShowMore() {
+  _generateMarkupShowMore() {
     return (`<button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>`);
   }
 }
