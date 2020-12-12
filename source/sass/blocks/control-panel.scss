@@ -256,19 +256,22 @@
 
     border: none;
     cursor: pointer;
+    opacity: 0.3;
 
     &--cards {
-      width: 23px;
-      height: 21px;
-
-      background: url("../img/icon-view-box.svg") no-repeat center center;
+      fill: transparent;
     }
 
     &--list {
-      width: 25px;
-      height: 19px;
-
-      background: url("../img/icon-view-list.svg") no-repeat center center;
+      fill: #48494d;
     }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .control-panel__sort-view-input:checked ~ .control-panel__sort-view-label .control-panel__sort-view-btn {
+    opacity: 1;
   }
 }

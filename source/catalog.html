@@ -142,14 +142,22 @@
               <div class="control-panel__sort-view">
                 <ul class="control-panel__sort-view-list">
                   <li class="control-panel__sort-view-item control-panel__sort-view-item--cards">
-                    <button class="control-panel__sort-view-btn control-panel__sort-view-btn--cards" type="button">
-                      <span class="visually-hidden">Отображение товаров карточками</span>
-                    </button>
+                    <input class="control-panel__sort-view-input visually-hidden" type="radio" name="control-panel-btn" id="cards-view" value="cards-view" checked>
+                    <label for="cards-view" class="control-panel__sort-view-label">
+                      <svg class="control-panel__sort-view-btn control-panel__sort-view-btn--cards" width="23" height="21">
+                        <use xlink:href="img/sprite.svg#icon-view-box"></use>
+                      </svg>
+                      <span class="visually-hidden">Отображение товаров списком</span>
+                    </label>
                   </li>
                   <li class="control-panel__sort-view-item control-panel__sort-view-item--list">
-                    <button class="control-panel__sort-view-btn control-panel__sort-view-btn--list" type="button">
+                    <input class="control-panel__sort-view-input visually-hidden" type="radio" name="control-panel-btn" id="list-view" value="list-view">
+                    <label for="list-view" class="control-panel__sort-view-label">
+                      <svg class="control-panel__sort-view-btn control-panel__sort-view-btn--list" width="25" height="19">
+                        <use xlink:href="img/sprite.svg#icon-view-list"></use>
+                      </svg>
                       <span class="visually-hidden">Отображение товаров списком</span>
-                    </button>
+                    </label>
                   </li>
                 </ul>
               </div>
