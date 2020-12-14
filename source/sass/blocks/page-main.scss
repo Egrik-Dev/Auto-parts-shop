@@ -39,6 +39,10 @@
   // Будут свойства
 }
 
+.page-main__products-catalog {
+  padding: 30px 22px;
+}
+
 @media (min-width: $desktop-width) {
   .page-main {
     padding-bottom: 15px;

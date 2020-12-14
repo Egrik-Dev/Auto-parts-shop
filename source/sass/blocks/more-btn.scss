@@ -1,0 +1,25 @@
+.more-btn__text {
+  display: block;
+  padding: 17px 0 14px;
+  margin: 0 auto;
+
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #bdbec2;
+
+  background-color: #f0f0f4;
+
+  &--desktop {
+    display: none;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .more-btn {
+    width: 252px;
+  }
+}
