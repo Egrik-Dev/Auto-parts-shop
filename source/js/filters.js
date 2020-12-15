@@ -270,3 +270,22 @@ countriesFilter.init();
 // Сделаем выпадающие пункты фильтров
 const mainContainers = document.querySelectorAll(`[data-menu="main-container"]`);
 mainContainers.forEach((container) => makeMenuToggle(container));
+
+// Напишем фун-ию переключения страниц пагинации
+const itemPagElements = document.querySelectorAll(`[data-pag="item"]`);
+
+let currentActivePagItem = document.querySelector(`.products-catalog__pagination-item--active`);
+
+itemPagElements.forEach((item) => {
+  item.addEventListener(`click`, (evt) => {
+    evt.preventDefault();
+
+    const target = evt.currentTarget;
+
+    if (target !== currentActivePagItem) {
+      currentActivePagItem.classList.remove(`products-catalog__pagination-item--active`);
+      currentActivePagItem = target;
+      currentActivePagItem.classList.add(`products-catalog__pagination-item--active`);
+    }
+  });
+});
