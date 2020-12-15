@@ -17,11 +17,6 @@
 
 .products-catalog__pagination-list {
   @include reset-list;
-  // display: grid;
-  // grid-template-columns: repeat(7, minmax(17px, 39px));
-  // justify-items: center;
-  // justify-content: center;
-  // column-gap: 15px;
   display: flex;
   justify-content: center;
 }
@@ -57,4 +52,18 @@
 
 .products-catalog__pagination-link {
   color: inherit;
+}
+
+@media (min-width: $desktop-width) {
+  .products-catalog {
+    width: 870px;
+  }
+
+  .products-catalog__list {
+    margin: 0 0 70px;
+  }
+
+  .products-catalog__more-btn {
+    display: none;
+  }
 }

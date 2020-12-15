@@ -52,7 +52,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: 1fr repeat(4, min-content);
-      // gap: 30px;
+      padding-bottom: 100px;
     }
   }
 
@@ -114,10 +114,17 @@
   .page-main__filters {
     grid-column: 1/2;
     grid-row: 4/5;
+    margin-right: 27px;
   }
 
   .page-main__products {
     grid-column: 2/-1;
     grid-row: 4/5;
+  }
+
+  .page-main__products-catalog {
+    grid-column: 2/3;
+    grid-row: 4/5;
+    padding: 0;
   }
 }
