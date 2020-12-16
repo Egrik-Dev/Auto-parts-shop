@@ -23,10 +23,6 @@
 
 .products-catalog__pagination-item {
   display: flex;
-  width: 37px;
-  height: 37px;
-  align-items: center;
-  justify-content: center;
   margin-right: 8px;
 
   font-size: 18px;
@@ -34,14 +30,15 @@
   color: #a8a8a8;
 
   &--ellipsis {
+    align-items: center;
     width: 17px;
-    margin: 0 2px;
+    margin: 0 7px;
   }
 
   &--active {
     color: #ff7931;
 
-    border: 1px solid #ff7931;
+    outline: 1px solid #ff7931;
   }
 
   &:nth-last-child(3),
@@ -51,7 +48,13 @@
 }
 
 .products-catalog__pagination-link {
+  padding: 8px 14px;
+
   color: inherit;
+
+  &:hover {
+    outline: 1px solid #ff7931;
+  }
 }
 
 @media (min-width: $desktop-width) {
