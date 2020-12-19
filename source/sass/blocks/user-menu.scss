@@ -143,23 +143,6 @@
 
   .user-menu__icons-item {
     position: relative;
-
-    &--cart::before {
-      position: absolute;
-      bottom: 0;
-      right: -10px;
-
-      content: "1";
-      text-align: center;
-      color: #ffffff;
-      font-size: 12px;
-
-      width: 23px;
-      height: 23px;
-
-      border-radius: 50%;
-      background-color: #ff7931;
-    }
   }
 
   .user-menu__icon-image {
@@ -181,6 +164,22 @@
     &--cart:hover {
       stroke: #ff7931;
     }
+  }
+
+  .user-menu__quantity-block {
+    position: absolute;
+    bottom: 0;
+    right: -10px;
+
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+
+    width: 23px;
+    height: 23px;
+
+    border-radius: 50%;
+    background-color: #ff7931;
   }
 
   .user-menu__icons-list {
