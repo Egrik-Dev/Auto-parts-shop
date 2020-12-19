@@ -143,6 +143,10 @@
 
   .user-menu__icons-item {
     position: relative;
+
+    &:hover .user-menu__icon-image--cart {
+      stroke: #ff7931;
+    }
   }
 
   .user-menu__icon-image {
@@ -160,8 +164,7 @@
       }
     }
 
-    &--popular:hover,
-    &--cart:hover {
+    &--popular:hover {
       stroke: #ff7931;
     }
   }
