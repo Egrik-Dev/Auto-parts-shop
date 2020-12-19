@@ -1,7 +1,7 @@
 import {createElement} from './utils.js';
 
 const productElements = document.querySelectorAll(`.product`);
-const mainCart = document.querySelector(`.user-menu__icons-item--cart`);
+const mainCart = document.querySelector(`.user-menu__icons-item--cart a`);
 
 productElements.forEach((product) => {
   const cart = product.querySelector(`.product__cart-btn`);
