@@ -15,6 +15,9 @@ productElements.forEach((product) => {
       } else {
         goodsInCart.innerHTML++;
       }
+
+      const priceElement = product.querySelector(`.product__price-block`);
+      priceElement.classList.add(`product__price-block--cart`);
     });
   }
 });
