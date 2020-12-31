@@ -42,8 +42,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  justify-items: end;
   gap: 14px;
   margin: 0;
+  padding: 0;
 
   list-style: none;
 }
@@ -60,6 +62,22 @@
   &--login {
     fill: #a8a8a8;
   }
+}
+
+.user-menu__quantity-block {
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+
+  text-align: center;
+  color: #ffffff;
+  font-size: 12px;
+
+  width: 23px;
+  height: 23px;
+
+  border-radius: 50%;
+  background-color: #ff7931;
 }
 
 @media (min-width: $desktop-width) {
@@ -167,22 +185,6 @@
     &--popular:hover {
       stroke: #ff7931;
     }
-  }
-
-  .user-menu__quantity-block {
-    position: absolute;
-    bottom: 0;
-    right: -10px;
-
-    text-align: center;
-    color: #ffffff;
-    font-size: 12px;
-
-    width: 23px;
-    height: 23px;
-
-    border-radius: 50%;
-    background-color: #ff7931;
   }
 
   .user-menu__icons-list {
