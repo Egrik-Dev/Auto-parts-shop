@@ -17,7 +17,10 @@ productElements.forEach((product) => {
       }
 
       const priceElement = product.querySelector(`.product__price-block`);
+      const quantityElement = product.querySelector(`.product__quantity-block`);
       priceElement.classList.add(`product__price-block--cart`);
+      quantityElement.classList.add(`product__quantity-block--show`);
+      cart.classList.add(`product__cart-btn--added`);
     });
   }
 });
