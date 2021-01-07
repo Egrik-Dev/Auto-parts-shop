@@ -204,11 +204,10 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 6px 5px;
-  height: 27px;
-  width: 100px;
+  height: 39px;
+  width: 110px;
 
+  font-size: 16px;
   line-height: 18px;
 
   border-radius: 10px 0 0 0;
@@ -222,14 +221,14 @@
 }
 
 .product__change-quantity {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 100%;
   padding: 0;
 
+  color: #ffffff;
+
   border: none;
-  border-radius: 50%;
-  // border-color: #ec7608;
-  background-color: #ffffff;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -238,10 +237,18 @@
   width: 24px;
 
   text-align: center;
+  color: #ffffff;
 
   border: none;
-  border-radius: 50%;
-  // border-color: #ec7608;
+  background-color: transparent;
+}
+
+.product__line {
+  width: 1px;
+  height: 100%;
+
+  background-color: #ffffff;
+  transform: rotate(15deg);
 }
 
 @media (min-width: $desktop-width) {
