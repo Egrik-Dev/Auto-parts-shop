@@ -2,21 +2,21 @@
 import {createElement} from './utils.js';
 import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
 
+// Создадим пустой объект без прототипа
+const Direction = Object.create(null);
+Direction.LEFT = `left`;
+Direction.RIGHT = `right`;
+
+const Mode = {
+  LOOP: `loop`,
+  ADAPTIVE: `adaptive`
+};
+const Flag = {
+  YES: `yes`,
+  NO: `no`
+};
+
 export function MakeSlider(container, mode, isTimer = `no`, delay) {
-  // Создадим пустой объект без прототипа
-  const Direction = Object.create(null);
-  Direction.LEFT = `left`;
-  Direction.RIGHT = `right`;
-
-  const Mode = {
-    LOOP: `loop`,
-    ADAPTIVE: `adaptive`
-  };
-  const Flag = {
-    YES: `yes`,
-    NO: `no`
-  };
-
   const slideElement = container.querySelector(`[data-slider="slide"]`);
   this.sliderListElement = container.querySelector(`[data-slider="list"]`); // Список с слайдами
   this.togglesContainerElement = container.querySelector(`[data-toggle="list"]`);
