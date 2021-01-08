@@ -1,5 +1,28 @@
 import {createElement} from './utils.js';
 
+export class MainCart {
+  constructor() {
+    this.allProducts = [];
+    this.totalQuantity = 0;
+  }
+
+  changeCart(product) {
+    const index = this.allProducts.findIndex((good) => good.title === product.title);
+
+    if (index === -1) {
+      this.allProducts.push(product);
+    } else {
+      this.allProducts = [].concat(this.allProducts.slice(0, index), product, this.allProducts.slice(index + 1));
+    }
+
+    this._calculateTotalProducts();
+  }
+
+  _calculateTotalProducts() {
+    // Тут нужен метод reduce для суммирования кол-ва товаров в корзине
+  }
+}
+
 const productElements = document.querySelectorAll(`.product`);
 const mainCart = document.querySelector(`.user-menu__icons-item--cart a`);
 
