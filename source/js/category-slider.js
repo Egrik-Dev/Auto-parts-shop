@@ -382,7 +382,7 @@ const generateMarkupCart = () => {
   </a>`);
 };
 
-const generateMarkupPopular = (product) => {
+const generateMarkupProduct = (product) => {
   const {title, url, photo, photoSize, stock, price, sticker, features} = product;
 
   return (`<li class="category-slider__goods-item product" data-slider="slide">
@@ -424,9 +424,9 @@ const switchCategories = (container, slider) => {
 
         // Берем массив с карточками и рендерим их
         const currentArrProducts = categoriesProducts[item.dataset.category.toUpperCase()].products;
-        const popularContainerElement = container.querySelector(`.category-slider__goods-list`);
+        const goodsContainerElement = container.querySelector(`.category-slider__goods-list`);
         currentArrProducts.forEach((product) => {
-          popularContainerElement.append(createElement(generateMarkupPopular(product)));
+          goodsContainerElement.append(createElement(generateMarkupProduct(product)));
         });
 
         // Перезапускаем работу слайдера с новыми данными
@@ -434,7 +434,7 @@ const switchCategories = (container, slider) => {
         slider.reloadSlider();
 
         // Вставляем новую ссылку в кнопку "Смотреть ещё"
-        const showMoreBtn = container.querySelector(`.category-slider__goods-more-btn`);
+        const showMoreBtn = container.querySelector(`.more-btn`);
         showMoreBtn.setAttribute(`href`, categoriesProducts[item.dataset.category.toUpperCase()].url);
 
         currentCategory = item.dataset.category;
