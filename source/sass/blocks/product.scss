@@ -166,8 +166,12 @@
     background-image: url("../img/icon-good-cart.svg");
   }
 
-  &--added::after {
-    background-image: url("../img/icon-check-big.svg");
+  &--added {
+    cursor: default;
+
+    &::after {
+      background-image: url("../img/icon-check-big.svg");
+    }
   }
 }
 
