@@ -355,11 +355,11 @@
                     </div>
                     <div class="product__cart-block">
                       <div class="product__quantity-block">
-                        <button class="product__change-quantity">-</button>
+                        <button class="product__change-quantity" data-product-quantity="minus">-</button>
                         <div class="product__line"></div>
-                        <input class="prodcut__quantity-input" type="text" name="quantity-goods" id="quantity-product-1-popular" value="1">
+                        <input class="prodcut__quantity-input" type="number" name="quantity-goods" id="quantity-product-1-popular"  min="0" max="99" value="0">
                         <div class="product__line"></div>
-                        <button class="product__change-quantity">+</button>
+                        <button class="product__change-quantity" data-product-quantity="plus">+</button>
                       </div>
                       <a class="product__cart-link" href="cart.html">
                         <button class="product__cart-btn" type="submit">
