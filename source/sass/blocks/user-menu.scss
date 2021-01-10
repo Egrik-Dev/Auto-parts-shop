@@ -69,6 +69,8 @@
   bottom: 0;
   right: -10px;
 
+  display: none;
+
   text-align: center;
   color: #ffffff;
   font-size: 12px;
@@ -78,6 +80,10 @@
 
   border-radius: 50%;
   background-color: #ff7931;
+
+  &--show {
+    display: block;
+  }
 }
 
 @media (min-width: $desktop-width) {

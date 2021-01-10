@@ -1,49 +1,55 @@
-// import {createElement} from './utils.js';
-
 export class MainCart {
   constructor(cart) {
     this.mainCart = cart;
     this.allProducts = [];
     this.totalQuantity = 0;
+    this.quantityBlockElement = cart.querySelector(`.user-menu__quantity-block`);
+    this.quantityNumberElement = cart.querySelector(`.user-menu__quantity-number`);
   }
 
-  changeCart(product) {
-    const index = this.allProducts.findIndex((good) => good.title === product.title);
+  addNewProduct(title, id, quantity) {
+    const newProduct = {title, id, quantity};
 
-    if (index === -1) {
-      this.allProducts.push(product);
-    } else {
-      this.allProducts = [].concat(this.allProducts.slice(0, index), product, this.allProducts.slice(index + 1));
-    }
+    this.allProducts.push(newProduct);
+    this._calculateTotalProducts();
+    this._showTotalQuantity();
+  }
+
+  removeProduct(id) {
+    const index = this.allProducts.findIndex((product) => product.id === id);
+    this.allProducts = [].concat(this.allProducts.slice(0, index), this.allProducts.slice(index + 1));
+    this._removeTotalQuantity();
+  }
+
+  recalcQuantity(id, quantity) {
+    this.allProducts.forEach((product) => {
+      if (product.id === id) {
+        product.quantity = quantity;
+      }
+    });
 
     this._calculateTotalProducts();
   }
 
-  addNewProduct(title, id) {
-    const newProduct = {
-      title,
-      id,
-      quantity: 1
-    };
-
-    this.allProducts.push(newProduct);
-  }
-
   _calculateTotalProducts() {
-    // Тут нужен метод reduce для суммирования кол-ва товаров в корзине
+    this.totalQuantity = this.allProducts.reduce((sum, product) => sum + product.quantity, 0);
+
+    if (this.totalQuantity > 99) {
+      this.quantityNumberElement.textContent = `99+`;
+    } else {
+      this.quantityNumberElement.textContent = this.totalQuantity;
+    }
   }
 
-  _generateMarkupCart() {
-    return (`<div class="user-menu__quantity-block">
-    <span class="user-menu__quantity-number">1</span>
-  </div>`);
+  _showTotalQuantity() {
+    if (this.allProducts.length > 0) {
+      this.quantityBlockElement.classList.add(`user-menu__quantity-block--show`);
+    }
+  }
+
+  _removeTotalQuantity() {
+    if (this.allProducts.length === 0) {
+      this.quantityBlockElement.classList.remove(`user-menu__quantity-block--show`);
+    }
   }
 }
-
-// const goodsInCart = mainCart.querySelector(`.user-menu__quantity-number`);
-
-// if (goodsInCart === null) {
-//   mainCart.append(createElement(generateMarkupCart()));
-// } else {
-//   goodsInCart.innerHTML++;
-// }

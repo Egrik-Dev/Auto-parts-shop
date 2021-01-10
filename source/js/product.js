@@ -32,18 +32,20 @@ export class Product {
     this._addOneItem();
     this.cartProductBtn.disabled = true;
 
-    this.mainCart.addNewProduct(this.title, this.id);
+    this.mainCart.addNewProduct(this.title, this.id, Number(this.quantityInputElement.value));
   }
 
   _removeFromCart() {
     this.priceElement.classList.remove(`product__price-block--cart`);
     this._removeQuantityBlock();
     this.cartProductBtn.disabled = false;
+    this.mainCart.removeProduct(this.id);
   }
 
   _inputChange() {
     this._checkMaxValue();
     this._checkMinValue();
+    this.mainCart.recalcQuantity(this.id, Number(this.quantityInputElement.value));
   }
 
   _checkMaxValue() {
@@ -62,12 +64,14 @@ export class Product {
     this.quantityInputElement.value++;
 
     this._checkMaxValue();
+    this.mainCart.recalcQuantity(this.id, Number(this.quantityInputElement.value));
   }
 
   _removeOneItem() {
     this.quantityInputElement.value--;
 
     this._checkMinValue();
+    this.mainCart.recalcQuantity(this.id, Number(this.quantityInputElement.value));
   }
 
   _showQuantityBlock() {
