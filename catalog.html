@@ -101,6 +101,9 @@
                         <use xlink:href="img/sprite.svg#icon-cart"></use>
                       </svg>
                     </a>
+                    <div class="user-menu__quantity-block">
+                      <span class="user-menu__quantity-number">0</span>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -439,24 +442,7 @@
                     </div>
                     <div class="filters__menu-container" data-menu="inner-container" data-menu-status="opened">
                       <ul class="filters__form-list-wrap" data-search="list">
-                        <!-- <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="russia-box" value="russia" checked>
-                          <label class="filters__checkbox-label filters__checkbox-label--bold" for="russia-box">Россия</label>
-                        </li>
-                        <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="italy-box" value="italy" checked>
-                          <label class="filters__checkbox-label filters__checkbox-label--bold" for="italy-box">Италия</label>
-                        </li>
-                        <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="germany-box" value="germany">
-                          <label class="filters__checkbox-label filters__checkbox-label--bold" for="germany-box">Германия</label>
-                        </li>
-                        <li class="filters__form-item-wrap filters__form-item-wrap--top">
-                          <input class="filters__checkbox visually-hidden" type="checkbox" name="countries" id="france-box" value="france">
-                          <label class="filters__checkbox-label filters__checkbox-label--bold" for="france-box">Франция</label>
-                        </li> -->
                       </ul>
-                      <!-- <button class="filters__btn-more" type="button" name="btn-more">Показать еще</button> -->
                     </div>
                   </fieldset>
                   <div class="filters__settings-block">
@@ -681,11 +667,11 @@
                 </div>
                 <div class="product__cart-block">
                   <div class="product__quantity-block">
-                    <button class="product__change-quantity">-</button>
+                    <button class="product__change-quantity" data-product-quantity="minus">-</button>
                     <div class="product__line"></div>
-                    <input class="prodcut__quantity-input" type="text" name="quantity-goods" id="quantity-product-2-catalog" value="1">
+                    <input class="prodcut__quantity-input" type="number" name="quantity-goods" id="quantity-product-2-catalog" min="0" max="99" value="0">
                     <div class="product__line"></div>
-                    <button class="product__change-quantity">+</button>
+                    <button class="product__change-quantity" data-product-quantity="plus">+</button>
                   </div>
                   <a class="product__cart-link" href="cart.html">
                     <button class="product__cart-btn" type="submit">
@@ -758,11 +744,11 @@
                 </div>
                 <div class="product__cart-block">
                   <div class="product__quantity-block">
-                    <button class="product__change-quantity">-</button>
+                    <button class="product__change-quantity" data-product-quantity="minus">-</button>
                     <div class="product__line"></div>
-                    <input class="prodcut__quantity-input" type="text" name="quantity-goods" id="quantity-product-3-catalog" value="1">
+                    <input class="prodcut__quantity-input" type="number" name="quantity-goods" id="quantity-product-3-catalog" min="0" max="99" value="0">
                     <div class="product__line"></div>
-                    <button class="product__change-quantity">+</button>
+                    <button class="product__change-quantity" data-product-quantity="plus">+</button>
                   </div>
                   <a class="product__cart-link" href="cart.html">
                     <button class="product__cart-btn" type="submit">
@@ -835,11 +821,11 @@
                 </div>
                 <div class="product__cart-block">
                   <div class="product__quantity-block">
-                    <button class="product__change-quantity">-</button>
+                    <button class="product__change-quantity" data-product-quantity="minus">-</button>
                     <div class="product__line"></div>
-                    <input class="prodcut__quantity-input" type="text" name="quantity-goods" id="quantity-product-5-catalog" value="1">
+                    <input class="prodcut__quantity-input" type="number" name="quantity-goods" id="quantity-product-5-catalog" min="0" max="99" value="0">
                     <div class="product__line"></div>
-                    <button class="product__change-quantity">+</button>
+                    <button class="product__change-quantity" data-product-quantity="plus">+</button>
                   </div>
                   <a class="product__cart-link" href="cart.html">
                     <button class="product__cart-btn" type="submit">
@@ -935,4 +921,5 @@
     <script type="module" src="js/filters.js"></script>
     <script type="module" src="js/page-footer.js"></script>
     <script type="module" src="js/cart.js"></script>
+    <script type="module" src="js/product.js"></script>
   </body>
