@@ -1,7 +1,5 @@
 import {MainCart} from './cart.js';
 
-// TODO:
-
 export class Product {
   constructor(container, id, mainCart) {
     this.container = container;
@@ -11,22 +9,75 @@ export class Product {
     this.title = this.container.querySelector(`.product__title`).textContent;
     this.cartProductBtn = container.querySelector(`.product__cart-btn`);
     this.priceElement = container.querySelector(`.product__price-block`);
-    this.quantityElement = container.querySelector(`.product__quantity-block`);
+    this.quantityBlockElement = container.querySelector(`.product__quantity-block`);
+    this.minusBtnElement = this.quantityBlockElement.querySelector(`[data-product-quantity="minus"]`);
+    this.plusBtnElement = this.quantityBlockElement.querySelector(`[data-product-quantity="plus"]`);
+    this.quantityInputElement = this.quantityBlockElement.querySelector(`.prodcut__quantity-input`);
 
     this.addToCard = this._addToCard.bind(this);
+    this.addOneItem = this._addOneItem.bind(this);
+    this.removeOneItem = this._removeOneItem.bind(this);
+    this.inputChange = this._inputChange.bind(this);
 
-    this.cartProductBtn.addEventListener(`click`, this.addToCard);
+    this.minusBtnElement.addEventListener(`click`, this.removeOneItem);
+    this.plusBtnElement.addEventListener(`click`, this.addOneItem);
+    this.quantityInputElement.addEventListener(`input`, this.inputChange);
   }
 
   _addToCard(evt) {
     evt.preventDefault();
 
     this.priceElement.classList.add(`product__price-block--cart`);
-    this.quantityElement.classList.add(`product__quantity-block--show`);
-    this.cartProductBtn.classList.add(`product__cart-btn--added`);
+    this._showQuantityBlock();
+    this._addOneItem();
     this.cartProductBtn.disabled = true;
 
     this.mainCart.addNewProduct(this.title, this.id);
+  }
+
+  _removeFromCart() {
+    this.priceElement.classList.remove(`product__price-block--cart`);
+    this._removeQuantityBlock();
+    this.cartProductBtn.disabled = false;
+  }
+
+  _inputChange() {
+    this._checkMaxValue();
+    this._checkMinValue();
+  }
+
+  _checkMaxValue() {
+    if (Number(this.quantityInputElement.value) >= 99) {
+      this.quantityInputElement.value = 99;
+    }
+  }
+
+  _checkMinValue() {
+    if (Number(this.quantityInputElement.value) <= 0) {
+      this._removeFromCart();
+    }
+  }
+
+  _addOneItem() {
+    this.quantityInputElement.value++;
+
+    this._checkMaxValue();
+  }
+
+  _removeOneItem() {
+    this.quantityInputElement.value--;
+
+    this._checkMinValue();
+  }
+
+  _showQuantityBlock() {
+    this.quantityBlockElement.classList.add(`product__quantity-block--show`);
+    this.cartProductBtn.classList.add(`product__cart-btn--added`);
+  }
+
+  _removeQuantityBlock() {
+    this.quantityBlockElement.classList.remove(`product__quantity-block--show`);
+    this.cartProductBtn.classList.remove(`product__cart-btn--added`);
   }
 }
 
@@ -39,5 +90,6 @@ productElements.forEach((product, index) => {
   if (cart) {
     // Так как у товаров нет уникального id, передаём его индекс
     const productElement = new Product(product, index, mainCart);
+    productElement.cartProductBtn.addEventListener(`click`, productElement.addToCard);
   }
 });

@@ -245,6 +245,11 @@
 
   border: none;
   background-color: transparent;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+  }
 }
 
 .product__line {
