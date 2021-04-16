@@ -1,5 +1,5 @@
-import {createElement} from './utils.js';
-import {MakeSlider} from './slider.js';
+import { createElement } from "./utils.js";
+import { MakeSlider } from "./slider.js";
 
 // -- ТАЙМЕР ОБРАТНОГО ОТСЧЁТА --
 const makeTimer = (element, time) => {
@@ -8,15 +8,22 @@ const makeTimer = (element, time) => {
   const MAX_SYMBOLS = 13;
 
   if (titleElement.innerHTML.length > MAX_SYMBOLS) {
-    const trimmedTitle = titleElement.innerHTML.split(``).slice(0, MAX_SYMBOLS).join(``);
+    const trimmedTitle = titleElement.innerHTML
+      .split(``)
+      .slice(0, MAX_SYMBOLS)
+      .join(``);
     titleElement.innerHTML = trimmedTitle + `...`;
   }
 
   // Функция изменения промо карточки
   const changeDataCard = () => {
-    const promoBlockElement = element.querySelector(`.promo__timer-price-block`);
+    const promoBlockElement = element.querySelector(
+      `.promo__timer-price-block`
+    );
     const textElement = element.querySelector(`.promo__timer-text`);
-    const promoPriceBlockElement = element.querySelector(`.promo__timer-price-item--old`);
+    const promoPriceBlockElement = element.querySelector(
+      `.promo__timer-price-item--old`
+    );
     const promoPriceElement = element.querySelector(`.promo__timer-price--old`);
     const priceElement = element.querySelector(`.promo__timer-price`);
     textElement.innerHTML = `Акция завершена!`;
@@ -29,7 +36,7 @@ const makeTimer = (element, time) => {
   if (time.HOURS < 0) {
     changeDataCard();
   } else {
-  // Функция вычитания 1 единицы измерения
+    // Функция вычитания 1 единицы измерения
     const subtractingOne = (unitTime) => {
       const oneUnitTime = 1;
       unitTime -= oneUnitTime;
@@ -42,8 +49,12 @@ const makeTimer = (element, time) => {
       container.innerHTML = `${twoSymbolsNumber.slice(-2)}`;
     };
 
-    const secondsElement = element.querySelector(`.promo__timer-number--seconds`);
-    const minutesElement = element.querySelector(`.promo__timer-number--minutes`);
+    const secondsElement = element.querySelector(
+      `.promo__timer-number--seconds`
+    );
+    const minutesElement = element.querySelector(
+      `.promo__timer-number--minutes`
+    );
     const hoursElement = element.querySelector(`.promo__timer-number--hours`);
 
     let seconds = time.SECONDS;
@@ -62,7 +73,7 @@ const makeTimer = (element, time) => {
       if (minutes === 0 && seconds === 0) {
         hours = subtractingOne(hours);
         changeTime(hours, hoursElement);
-        minutes = 60;
+        minutes = 59;
       }
 
       if (seconds === 0) {
@@ -81,6 +92,10 @@ const makeTimer = (element, time) => {
   }
 };
 
+const addDays = 1;
+const dateTommorow = new Date();
+dateTommorow.setDate(dateTommorow.getDate() + addDays);
+
 // Предположим что данные о акционных товарах мы получаем с сервера
 const promoProducts = [
   {
@@ -89,7 +104,7 @@ const promoProducts = [
     photo: `img/promo-bulb.jpg`,
     newPrice: 200,
     oldPrice: 500,
-    dateEnd: `2020-06-08T14:55:00`
+    dateEnd: dateTommorow,
   },
   {
     title: `Ремень ГРМ`,
@@ -97,7 +112,7 @@ const promoProducts = [
     photo: `img/promo-belt.png`,
     newPrice: 800,
     oldPrice: 1500,
-    dateEnd: `2020-09-09T10:00:00`
+    dateEnd: new Date(),
   },
   {
     title: `Шина 205/80 R16 104Q Misha RF Power Grum`,
@@ -105,15 +120,15 @@ const promoProducts = [
     photo: `img/promo-tyre.png`,
     newPrice: 8500,
     oldPrice: 11500,
-    dateEnd: `2020-06-11T19:30:00`
-  }
+    dateEnd: dateTommorow,
+  },
 ];
 
 // Теперь напишем разметку которую мы будем аппендить на сайт
 const generateMarkupPromo = (product) => {
-  const {title, url, photo, newPrice, oldPrice} = product;
+  const { title, url, photo, newPrice, oldPrice } = product;
 
-  return (`<li class="prommo__timer-item" data-slider="slide">
+  return `<li class="prommo__timer-item" data-slider="slide">
   <div class="promo__timer-good">
     <a class="promo__timer-good-link" href="${url}">
       <h3 class="promo__timer-title">${title}</h3>
@@ -155,19 +170,22 @@ const generateMarkupPromo = (product) => {
       </ul>
     </div>
   </div>
-</li>`);
+</li>`;
 };
 
 // Функция для рассчёта оставшегося времени акции
 const countRemainingTime = (date) => {
   const nowTimeStamp = Date.now();
+
   const dateTimeStamp = Date.parse(date);
   const differ = dateTimeStamp - nowTimeStamp;
+
   const time = {
-    HOURS: Math.floor(((differ / 1000) / 60) / 60),
-    MINUTES: Math.round(((differ / 1000) / 60) % 60),
-    SECONDS: Math.round((differ / 1000) % 60)
+    HOURS: Math.floor(differ / 1000 / 60 / 60),
+    MINUTES: Math.floor((differ / 1000 / 60) % 60),
+    SECONDS: Math.floor((differ / 1000) % 60),
   };
+
   return time;
 };
 
@@ -184,17 +202,27 @@ promoProducts.forEach((item, index) => {
 // Флаг на работу таймера
 const isTimer = {
   YES: `yes`,
-  NO: `no`
+  NO: `no`,
 };
 
 // Запускаем первый слайдер
 const firstSliderContainer = document.querySelector(`.promo__slider-block`);
 const FIRST_SLIDER_DELAY = 50000;
-const firstPromoSlider = new MakeSlider(firstSliderContainer, `loop`, isTimer.YES, FIRST_SLIDER_DELAY);
+const firstPromoSlider = new MakeSlider(
+  firstSliderContainer,
+  `loop`,
+  isTimer.YES,
+  FIRST_SLIDER_DELAY
+);
 firstPromoSlider.calculateSliderData();
 
 // Запускаем промо слайдер
 const secondSliderContainer = document.querySelector(`.promo__timer-block`);
 const PROMO_SLIDER_DELAY = 80000;
-const secondPromoSlider = new MakeSlider(secondSliderContainer, `loop`, isTimer.YES, PROMO_SLIDER_DELAY);
+const secondPromoSlider = new MakeSlider(
+  secondSliderContainer,
+  `loop`,
+  isTimer.YES,
+  PROMO_SLIDER_DELAY
+);
 secondPromoSlider.calculateSliderData();
