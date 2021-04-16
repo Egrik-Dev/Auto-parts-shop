@@ -1,5 +1,5 @@
-import { createElement } from "./utils.js";
-import { MakeSlider } from "./slider.js";
+import {createElement} from "./utils.js";
+import {MakeSlider} from "./slider.js";
 
 // -- ТАЙМЕР ОБРАТНОГО ОТСЧЁТА --
 const makeTimer = (element, time) => {
@@ -18,11 +18,11 @@ const makeTimer = (element, time) => {
   // Функция изменения промо карточки
   const changeDataCard = () => {
     const promoBlockElement = element.querySelector(
-      `.promo__timer-price-block`
+        `.promo__timer-price-block`
     );
     const textElement = element.querySelector(`.promo__timer-text`);
     const promoPriceBlockElement = element.querySelector(
-      `.promo__timer-price-item--old`
+        `.promo__timer-price-item--old`
     );
     const promoPriceElement = element.querySelector(`.promo__timer-price--old`);
     const priceElement = element.querySelector(`.promo__timer-price`);
@@ -50,10 +50,10 @@ const makeTimer = (element, time) => {
     };
 
     const secondsElement = element.querySelector(
-      `.promo__timer-number--seconds`
+        `.promo__timer-number--seconds`
     );
     const minutesElement = element.querySelector(
-      `.promo__timer-number--minutes`
+        `.promo__timer-number--minutes`
     );
     const hoursElement = element.querySelector(`.promo__timer-number--hours`);
 
@@ -126,7 +126,7 @@ const promoProducts = [
 
 // Теперь напишем разметку которую мы будем аппендить на сайт
 const generateMarkupPromo = (product) => {
-  const { title, url, photo, newPrice, oldPrice } = product;
+  const {title, url, photo, newPrice, oldPrice} = product;
 
   return `<li class="prommo__timer-item" data-slider="slide">
   <div class="promo__timer-good">
@@ -209,10 +209,10 @@ const isTimer = {
 const firstSliderContainer = document.querySelector(`.promo__slider-block`);
 const FIRST_SLIDER_DELAY = 50000;
 const firstPromoSlider = new MakeSlider(
-  firstSliderContainer,
-  `loop`,
-  isTimer.YES,
-  FIRST_SLIDER_DELAY
+    firstSliderContainer,
+    `loop`,
+    isTimer.YES,
+    FIRST_SLIDER_DELAY
 );
 firstPromoSlider.calculateSliderData();
 
@@ -220,9 +220,9 @@ firstPromoSlider.calculateSliderData();
 const secondSliderContainer = document.querySelector(`.promo__timer-block`);
 const PROMO_SLIDER_DELAY = 80000;
 const secondPromoSlider = new MakeSlider(
-  secondSliderContainer,
-  `loop`,
-  isTimer.YES,
-  PROMO_SLIDER_DELAY
+    secondSliderContainer,
+    `loop`,
+    isTimer.YES,
+    PROMO_SLIDER_DELAY
 );
 secondPromoSlider.calculateSliderData();
