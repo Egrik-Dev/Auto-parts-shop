@@ -1,6 +1,7 @@
 # Добро пожаловать в Auto-parts-shop 🎉
 
 Ссылка на проект - https://egrik-dev.github.io/Auto-parts-shop
+![screenshot](./source/img/screenshots.png)
 
 ## Функционал магазина
 
