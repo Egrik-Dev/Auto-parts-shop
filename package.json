@@ -7,9 +7,7 @@
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "1.x",
     "autoprefixer": "9.7.x",
-    "braces": "^3.0.2",
     "browser-sync": "2.26.x",
-    "deep-extend": "^0.6.0",
     "del": "5.1.0",
     "eslint": "6.8.0",
     "eslint-config-htmlacademy": "0.5.2",
@@ -24,12 +22,9 @@
     "gulp-sourcemaps": "2.6.x",
     "gulp-svgstore": "^7.0.1",
     "gulp-webp": "^4.0.1",
-    "stylelint": "13.2.x",
-    "stylelint-config-htmlacademy": "0.1.x"
+    "stylelint": "13.2.x"
   },
-  "dependencies": {
-    "body-scroll-lock": "^3.0.3"
-  },
+  "dependencies": {},
   "scripts": {
     "editorconfig": "editorconfig-cli",
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
