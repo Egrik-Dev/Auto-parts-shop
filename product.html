@@ -1,12 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Интернет-магазин Автозапчастей Auto-Shop</title>
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
 <body>
-  <h1>Страница товара</h1>
+  <div class="main-wrapper">
+    <nav class="main-wrapper__hamburger-nav hamburger-nav">
+      <ul class="hamburger-nav__list">
+        <li class="hamburger-nav__item hamburger-nav__item--login">
+          <a class="hamburger-nav__link" href="login.html">Войти</a>
+        </li>
+        <li class="hamburger-nav__item hamburger-nav__item--login">
+          <a class="hamburger-nav__link" href="registration.html">Регистрация</a>
+        </li>
+        <li class="hamburger-nav__item hamburger-nav__item--category-slider">
+          <a class="hamburger-nav__link" href="wishes.html">Избранное</a>
+        </li>
+        <li class="hamburger-nav__item hamburger-nav__item--shops">
+          <a class="hamburger-nav__link" href="shops.html">Магазины</a>
+        </li>
+        <li class="hamburger-nav__item hamburger-nav__item--promotions">
+          <a class="hamburger-nav__link" href="promo.html">Акции</a>
+        </li>
+        <li class="hamburger-nav__item hamburger-nav__item--delivery">
+          <a class="hamburger-nav__link" href="delivery.html">Доставка<br> и оплата</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link">Каталог запчастей</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link" href="catalog/to.html">Каталог ТО</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link" href="catalog/tyres.html">Шины</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link" href="catalog/wheels.html">Диски</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link" href="catalog/batteries.html">Аккумуляторы</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link" href="catalog/oils.html">Автомасла</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link" href="catalog/lights.html">Автолампы</a>
+        </li>
+        <li class="hamburger-nav__item">
+          <a class="hamburger-nav__link" href="catalog/accessories.html">Аксессуары</a>
+        </li>
+        <li class="hamburger-nav__item hamburger-nav__item--adress">Санкт-Петербург, ул Большая Конюшенная, д 19</li>
+      </ul>
+    </nav>
+    <div class="main-wrapper__content-container">
+      <header class="page-header page-header--product">
+        <div class="page-header__user-menu user-menu">
+          <div class="user-menu__wrapper">
+            <button class="user-menu__nav-toggle" type="button" data-nav-status="closed">
+              <span class="visually-hidden">Открыть меню</span>
+            </button>
+            <ul class="user-menu__shop-info-list">
+              <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Магазины</a></li>
+              <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Акции</a></li>
+              <li class="user-menu__shop-info-item"><a class="user-menu__link" href="#">Доставка и оплата</a></li>
+            </ul>
+            <a href="index.html" class="user-menu__logo">
+              <span class="visually-hidden">Логотип магазина Auto-parts</span>
+              <svg class="user-menu__logo-image" width="69" height="38">
+                <use xlink:href="img/sprite.svg#icon-logo"></use>
+              </svg>
+            </a>
+            <div class="user-menu__adress-block">
+              <p class="user-menu__adress-text">Санкт-Петербург, ул Большая Конюшенная, д 19</p>
+            </div>
+            <div class="user-menu__icons-block">
+              <ul class="user-menu__icons-list">
+                <li class="user-menu__icons-item">
+                  <a href="category-slider.html">
+                    <span class="visually-hidden">Избранное</span>
+                    <svg class="user-menu__icon-image user-menu__icon-image--popular" width="26" height="24">
+                      <use xlink:href="img/sprite.svg#icon-heart"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="user-menu__icons-item user-menu__icons-item--login">
+                  <a href="logn.html">
+                    <span class="visually-hidden">Личный кабинет</span>
+                    <svg class="user-menu__icon-image user-menu__icon-image--login" width="21" height="24">
+                      <use xlink:href="img/sprite.svg#icon-login"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="user-menu__icons-item user-menu__icons-item--cart">
+                  <a href="cart.html">
+                    <span class="visually-hidden">Корзина</span>
+                    <svg class="user-menu__icon-image user-menu__icon-image--cart" width="28" height="24">
+                      <use xlink:href="img/sprite.svg#icon-cart"></use>
+                    </svg>
+                  </a>
+                  <div class="user-menu__quantity-block">
+                    <span class="user-menu__quantity-number">0</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <nav class="page-header__main-nav main-nav main-nav--hidden">
+          <ul class="main-nav__list">
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог Запчастей</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог ТО</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Шины</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Диски</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Аккумуляторы</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Автомасла</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Автолампы</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="#">Аксессуары</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <h1>Страница товара</h1>
+      </main>
+      <footer class="page-footer">
+        <div class="page-footer__wrapper wrapper">
+          <h2 class="visually-hidden">Подвал сайта Автомобильных запчастей Auto-Shop</h2>
+          <form class="page-footer__form" action="#" method="post">
+            <h3 class="page-footer__form-title">Подпишитесь на нашу рассылку и узнавайте о акциях быстрее</h3>
+            <div class="page-footer__form-wrapper">
+              <input class="page-footer__form-input" type="email" name="email" id="email-field" placeholder="Введите ваш e-mail:" required>
+              <button class="page-footer__form-btn" type="submit" name="email-submti">Отправить</button>
+            </div>
+          </form>
+          <ul class="page-footer__nav">
+            <li class="page-footer__nav-item-list">
+              <h3 class="page-footer__nav-title">Информация</h3>
+              <ul class="page-footer__nav-list menu-item" data-menu-status="closed">
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="about.html">О компании</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="contacts.html">Контакты</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="requisites.html">Реквизиты</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="shops.html">Магазины</a></li>
+              </ul>
+              <div class="page-footer__nav-arrow menu-arrow"></div>
+            </li>
+            <li class="page-footer__nav-item-list">
+              <h3 class="page-footer__nav-title">Сервисный центр</h3>
+              <ul class="page-footer__nav-list menu-item" data-menu-status="closed">
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
+              </ul>
+              <div class="page-footer__nav-arrow menu-arrow"></div>
+            </li>
+            <li class="page-footer__nav-item-list">
+              <h3 class="page-footer__nav-title">Интернет-магазин</h3>
+              <ul class="page-footer__nav-list menu-item" data-menu-status="closed">
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="delivery.html">Доставка и самовывоз</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="payment.html">Оплата</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="returns-and-exchanges.html">Возврат-обмен</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="news.html">Новости</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="promotions.html">Акции</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="agreement.html">Договор оферты</a></li>
+                <li class="page-footer__nav-item"><a class="page-footer__nav-link" href="privacy.html">Политика обработки персональных данных</a></li>
+              </ul>
+              <div class="page-footer__nav-arrow menu-arrow"></div>
+            </li>
+          </ul>
+          <p class="page-footer__label"><span class="page-footer__label-mobile-word">Onisshop. </span>Интернет-магазин автозапчастей</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <div class="overlay" data-block="page-overlay"></div>
+  <script type="module" src="js/hamburger-nav.js"></script>
+  <script type="module" src="js/page-footer.js"></script>
 </body>
 </html>
