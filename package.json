@@ -22,7 +22,8 @@
     "gulp-sourcemaps": "2.6.x",
     "gulp-svgstore": "^7.0.1",
     "gulp-webp": "^4.0.1",
-    "stylelint": "13.2.x"
+    "stylelint": "13.2.x",
+    "stylelint-config-htmlacademy": "0.1.x"
   },
   "dependencies": {},
   "scripts": {
