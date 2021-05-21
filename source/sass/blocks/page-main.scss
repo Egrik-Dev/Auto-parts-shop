@@ -41,6 +41,7 @@
 
 .page-main__products-catalog {
   padding: 30px 22px;
+  margin-bottom: 48px;
 }
 
 @media (min-width: $desktop-width) {
@@ -126,5 +127,6 @@
     grid-column: 2/3;
     grid-row: 4/5;
     padding: 0;
+    margin: 0;
   }
 }

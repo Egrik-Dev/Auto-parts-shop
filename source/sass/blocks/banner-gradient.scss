@@ -1,0 +1,37 @@
+.banner-gradient__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  height: 195px;
+
+  background: linear-gradient(91.1deg, #9710e9 1.17%, #fd8d43 99.31%);
+}
+
+.banner-gradient__link {
+  color: #ffffff;
+}
+
+.banner-gradient__title {
+  margin: 0;
+
+  text-transform: uppercase;
+  font-size: 35px;
+  line-height: 43px;
+  letter-spacing: 0.04em;
+}
+
+.banner-gradient__desc {
+  margin: 0;
+
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media (min-width: $desktop-width) {
+  .banner-gradient__block {
+    display: none;
+  }
+}
