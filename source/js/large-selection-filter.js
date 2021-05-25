@@ -116,6 +116,6 @@ export class LargeSelectionFilter {
   }
 
   _generateMarkupShowMore() {
-    return (`<button class="filters__btn-more" type="button" name="btn-more">Показать еще</button>`);
+    return (`<button class="btn-orange" type="button" name="btn-more">Показать еще</button>`);
   }
 }

@@ -49,6 +49,25 @@ input[type="radio"].visually-hidden {
   }
 }
 
+.btn-orange {
+  margin: 0;
+  padding: 0 0 2px;
+
+  line-height: 17px;
+  color: #ff7931;
+
+  border-color: transparent;
+  border-width: 1px;
+  border-bottom-color: rgba(255,121,49,.2);
+  background-color: transparent;  
+  cursor: pointer;
+
+  &--big {
+    font-size: 15px;
+    line-height: 18px;
+  }
+}
+
 @media (min-width: $desktop-width) {
   .wrapper {
     display: flex;

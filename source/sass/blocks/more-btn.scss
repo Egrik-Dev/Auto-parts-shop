@@ -22,4 +22,14 @@
   .more-btn {
     width: 252px;
   }
+
+  .more-btn__text {
+    &--desktop {
+      display: block;
+    }
+    
+    &--mobile {
+      display: none;
+    }
+  }
 }
