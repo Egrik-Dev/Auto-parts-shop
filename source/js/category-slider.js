@@ -2,10 +2,9 @@ import {MakeSlider} from './slider.js';
 import {createElement} from './utils.js';
 
 const popularContainer = document.querySelector(`[data-slider-name="popular"]`);
+
 const moreContainer = document.querySelector(`[data-slider-name="more"]`);
-const popularProductsSlider = new MakeSlider(popularContainer, `adaptive`);
 const moreProductsSlider = new MakeSlider(moreContainer, `adaptive`);
-popularProductsSlider.init();
 moreProductsSlider.init();
 
 // Создадим мапу с всеми категориями
@@ -435,7 +434,9 @@ const switchCategories = (container, slider) => {
 
         // Вставляем новую ссылку в кнопку "Смотреть ещё"
         const showMoreBtn = container.querySelector(`.more-btn`);
-        showMoreBtn.setAttribute(`href`, categoriesProducts[item.dataset.category.toUpperCase()].url);
+        if (showMoreBtn) {
+          showMoreBtn.setAttribute(`href`, categoriesProducts[item.dataset.category.toUpperCase()].url);
+        }
 
         currentCategory = item.dataset.category;
       }
@@ -443,5 +444,10 @@ const switchCategories = (container, slider) => {
   });
 };
 
-switchCategories(popularContainer, popularProductsSlider);
+if (popularContainer) {
+  const popularProductsSlider = new MakeSlider(popularContainer, `adaptive`);
+  popularProductsSlider.init();
+  switchCategories(popularContainer, popularProductsSlider);
+}
+
 switchCategories(moreContainer, moreProductsSlider);
