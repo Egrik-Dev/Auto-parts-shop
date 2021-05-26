@@ -136,16 +136,20 @@
             <p class="product-card__article">Код товара: 1380198269</p>
             <ul class="product-card__interactions">
               <li class="product-card__interactions-item">
-                <span class="visually-hidden">Добавить в избранное</span>
-                <svg class="icon-feature icon-feature--heart" width="27" height="25">
-                  <use xlink:href="img/sprite.svg#icon-heart"></use>
-                </svg>
+                <button class="product-card__interactions-btn" type="button">
+                  <span class="visually-hidden">Добавить в избранное</span>
+                  <svg class="icon-feature icon-feature--heart" width="27" height="25">
+                    <use xlink:href="img/sprite.svg#icon-heart"></use>
+                  </svg>
+                </button>
               </li>
               <li class="product-card__interactions-item">
-                <span class="visually-hidden">Добавить в сравнение</span>
-                <svg class="icon-feature" width="20" height="27">
-                  <use xlink:href="img/sprite.svg#icon-compare"></use>
-                </svg>
+                <button class="product-card__interactions-btn" type="button">
+                  <span class="visually-hidden">Добавить в сравнение</span>
+                  <svg class="icon-feature" width="20" height="27">
+                    <use xlink:href="img/sprite.svg#icon-compare"></use>
+                  </svg>
+                </button>
               </li>
               <li class="product-card__interactions-item">
                 <div class="product-card__rating">
@@ -212,10 +216,33 @@
                 </dl>
               </li>
             </ul>
-            <button class="product-card__btn-buy" type="submit">Купить шину</button>
           </div>
+          <div class="product-card__img-block">
+            <ul class="product-card__promotions-list">
+              <li class="product-card__promotions-item">Sale</li>
+              <li class="product-card__promotions-item">+ подарок</li>
+              <li class="product-card__promotions-item">
+                <p class="product-card__promotions-item-desc">0/0/24</p>
+                <p class="product-card__promotions-item-desc">625 в месяц</p>
+              </li>
+            </ul>
+            <ul class="product-card__advantages-list">
+              <li class="product-card__advantages-item">
+                <span class="visually-hidden">Для зимы</span>
+                <svg class="product-card__advantage-img" width="38" height="31">
+                  <use xlink:href="img/sprite.svg#icon-snowflake"></use>
+                </svg>
+              </li>
+            </ul>
+            <img class="product-card__img" src="img/product-tyre.png" alt="Фото товара Шина 205/80 R16 104Q Misha RF Power Grum" width="222" height="380">
+            <ul class="product-card__price-block">
+              <li class="product-card__price-item product-card__price-item--old">12 981 ₽</li>
+              <li class="product-card__price-item">15 981 ₽</li>
+            </ul>
+          </div>
+          <button class="product-card__btn-buy" type="submit">Купить шину</button>
+          <button class="btn-orange btn-orange--big" type="submit">Нашли дешевле? Снизим цену!</button>
         </section>
-
         <section class="page-main__banner-gradient banner-gradient">
           <a class="banner-gradient__link" href="service.html">
             <div class="banner-gradient__block">
@@ -224,8 +251,28 @@
             </div>
           </a>
         </section>
-        <section class="page-main__category-slider category-slider category-slider--mobile" data-slider-name="more">
-          <h2 class="category-slider__title  category-slider__title--big">С этим покупают</h2>
+        <section class="page-main__category-slider category-slider" data-slider-name="more">
+          <h2 class="category-slider__title  category-slider__title--big">С этим товаром покупают</h2>
+          <ul class="category-slider__category-list category-slider__category-list--desktop">
+            <li class="category-slider__category-item category-slider__category-item--checked" data-category="spares">
+              <a class="category-slider__category-item-link" href="#">Запчасти</a>
+            </li>
+            <li class="category-slider__category-item" data-category="autochemistry">
+              <a class="category-slider__category-item-link" href="#">Автохимия</a>
+            </li>
+            <li class="category-slider__category-item" data-category="tyres">
+              <a class="category-slider__category-item-link" href="#">Шины и диски</a>
+            </li>
+            <li class="category-slider__category-item" data-category="electronics">
+              <a class="category-slider__category-item-link" href="#">Автоэлектроника</a>
+            </li>
+            <li class="category-slider__category-item" data-category="tools">
+              <a class="category-slider__category-item-link" href="#">Инструменты</a>
+            </li>
+            <li class="category-slider__category-item" data-category="accessories">
+              <a class="category-slider__category-item-link" href="#">Аксессуары и другое</a>
+            </li>
+          </ul>
           <div class="category-slider__goods-block">
             <ul class="category-slider__slider-buttons slider-buttons">
               <li class="slider-buttons__btn category-slider__slider-btn category-slider__slider-btn--left" data-side="left">
@@ -522,12 +569,12 @@
     </div>
   </div>
   <div class="overlay" data-block="page-overlay"></div>
-  <div class="overlay" data-block="page-overlay"></div>
   <script type="module" src="js/slider.js"></script>
   <script type="module" src="js/hamburger-nav.js"></script>
   <script type="module" src="js/catalog-more-slider.js"></script>
   <script type="module" src="js/cart.js"></script>
   <script type="module" src="js/product.js"></script>
+  <script type="module" src="js/category-slider.js"></script>
   <script type="module" src="js/page-footer.js"></script>
 </body>
 </html>
