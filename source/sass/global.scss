@@ -50,21 +50,35 @@ input[type="radio"].visually-hidden {
 }
 
 .btn-orange {
-  margin: 0;
-  padding: 0 0 2px;
+  padding-bottom: 1px;
 
-  line-height: 17px;
+  font-size: 16px;
+  line-height: 19px;
   color: #ff7931;
-
-  border-color: transparent;
-  border-width: 1px;
-  border-bottom-color: rgba(255, 121, 49, 0.2);
-  background-color: transparent;
-  cursor: pointer;
+  text-align: center;
+  
+  border-bottom: 1px solid rgba(255,121,49,.2);
 
   &--big {
     font-size: 15px;
     line-height: 18px;
+  }
+}
+
+.btn-main {
+  font-size: 11px;
+  line-height: 13px;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.12em;
+
+  border: none;
+  background-color: #ff7931;
+  cursor: pointer;
+
+  &--big {
+    font-size: 14px;
+    line-height: 17px;
   }
 }
 
