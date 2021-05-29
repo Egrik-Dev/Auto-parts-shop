@@ -1,9 +1,9 @@
-import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
-import {makeMenuToggle} from './menu-toggle.js';
-import {FiltersSearch} from './filters-search.js';
-import {DESKTOP_WIDTH} from './const.js';
-import {brandTyresMocks, modelTyresMocks, countriesMocks} from './mocks.js';
-import {LargeSelectionFilter} from './large-selection-filter.js';
+import { disableBodyScroll, enableBodyScroll } from "./bodyScrollLock.es6.js";
+import { makeMenuToggle } from "./menu-toggle.js";
+import { FiltersSearch } from "./filters-search.js";
+import { DESKTOP_WIDTH } from "./const.js";
+import { brandTyresMocks, modelTyresMocks, countriesMocks } from "./mocks.js";
+import { LargeSelectionFilter } from "./large-selection-filter.js";
 
 const filterBtnElement = document.querySelector(`.control-panel__filter-btn`);
 const filtersSectionElevent = document.querySelector(`.filters`);
@@ -21,7 +21,6 @@ closeFilterElement.addEventListener(`click`, () => {
   bodyElement.removeAttribute(`style`);
 });
 
-
 // Настроим отображение блоков с подсказками
 const hintWrapperElements = document.querySelectorAll(`.filters__hint-wrapper`);
 const clientWidth = document.body.clientWidth;
@@ -29,7 +28,9 @@ const overlayElement = document.querySelector(`.filters__overlay`);
 
 hintWrapperElements.forEach((hintElement) => {
   const hintIconElement = hintElement.querySelector(`.filters__hint-link`);
-  const hintBlockElement = hintElement.querySelector(`.filters__hint-desc-block`);
+  const hintBlockElement = hintElement.querySelector(
+    `.filters__hint-desc-block`
+  );
   const positionHintBlock = hintBlockElement.offsetLeft;
 
   hintIconElement.addEventListener(`click`, (evt) => {
@@ -51,7 +52,9 @@ hintWrapperElements.forEach((hintElement) => {
     }
 
     const removeHint = () => {
-      if (hintBlockElement.classList.contains(`filters__hint-desc-block--right`)) {
+      if (
+        hintBlockElement.classList.contains(`filters__hint-desc-block--right`)
+      ) {
         hintBlockElement.style.left = positionHintBlock + `px`;
       }
       hintBlockElement.classList.remove(`filters__hint-desc-block--show`);
@@ -68,7 +71,7 @@ hintWrapperElements.forEach((hintElement) => {
 // НАСТРОЙКА РЕГУЛИРОВКИ ЦЕНЫ
 const Toggles = {
   MIN: `min`,
-  MAX: `max`
+  MAX: `max`,
 };
 const leftToggleElement = document.querySelector(`.filters__bar-toggle--min`);
 const rightToggleElement = document.querySelector(`.filters__bar-toggle--max`);
@@ -81,12 +84,11 @@ const inputMin = document.querySelector(`#minpriceinput`);
 const inputMax = document.querySelector(`#maxpriceinput`);
 
 const calculatePriceValue = function (togglePosition) {
-  return Math.round((MAX_PRICE / WIDTH_SCALE * togglePosition) / 100) * 100;
+  return Math.round(((MAX_PRICE / WIDTH_SCALE) * togglePosition) / 100) * 100;
 };
 
 inputMin.value = calculatePriceValue(leftToggleElement.offsetLeft);
 inputMax.value = calculatePriceValue(rightToggleElement.offsetLeft);
-
 
 // Проверям поддерживает ли тач устройство
 function isTouchDevice() {
@@ -96,7 +98,7 @@ function isTouchDevice() {
 const EventsToggle = {
   START: isTouchDevice() ? `touchstart` : `mousedown`,
   MOVE: isTouchDevice() ? `touchmove` : `mousemove`,
-  END: isTouchDevice() ? `touchend` : `mouseup`
+  END: isTouchDevice() ? `touchend` : `mouseup`,
 };
 
 let touchFilterToggle = function (evt, toggle) {
@@ -109,10 +111,12 @@ let touchFilterToggle = function (evt, toggle) {
   }
 
   const onToggleMove = function (moveEvt) {
-    let walkX = Math.ceil(moveEvt.clientX || moveEvt.touches[0].clientX) - startX;
+    let walkX =
+      Math.ceil(moveEvt.clientX || moveEvt.touches[0].clientX) - startX;
     let coordXToggle = positionToggle + walkX;
     toggle.style.left = coordXToggle + `px`;
-    scaleBarElement.style.width = rightToggleElement.offsetLeft - leftToggleElement.offsetLeft + `px`;
+    scaleBarElement.style.width =
+      rightToggleElement.offsetLeft - leftToggleElement.offsetLeft + `px`;
 
     const movingScaleAndToggle = () => {
       switch (toggle.dataset.priceToggle) {
@@ -141,7 +145,8 @@ let touchFilterToggle = function (evt, toggle) {
           // Сделаем чтобы при упирания правого тоггла в край шкалы движение останавливалось
           if (coordXToggle > WIDTH_SCALE) {
             toggle.style.left = WIDTH_SCALE + `px`;
-            scaleBarElement.style.width = WIDTH_SCALE - leftToggleElement.offsetLeft + `px`;
+            scaleBarElement.style.width =
+              WIDTH_SCALE - leftToggleElement.offsetLeft + `px`;
             inputMax.value = MAX_PRICE;
           }
 
@@ -185,7 +190,7 @@ rightToggleElement.addEventListener(EventsToggle.START, function (evt) {
 
 const Inputs = {
   MIN: `minpriceinput`,
-  MAX: `maxpriceinput`
+  MAX: `maxpriceinput`,
 };
 
 const manualChangePrice = function (evt) {
@@ -244,7 +249,8 @@ const manualChangePrice = function (evt) {
       break;
   }
 
-  scaleBarElement.style.width = rightToggleElement.offsetLeft - leftToggleElement.offsetLeft + `px`;
+  scaleBarElement.style.width =
+    rightToggleElement.offsetLeft - leftToggleElement.offsetLeft + `px`;
 };
 
 const priceInputElements = document.querySelectorAll(`.filters__price-number`);
@@ -263,18 +269,27 @@ const modelContainer = document.querySelector(`.filters__fieldset--model`);
 const modelSearchFilter = new FiltersSearch(modelContainer, modelTyresMocks);
 modelSearchFilter.init();
 
-const countriesContainer = document.querySelector(`.filters__fieldset--checkbox-model`);
-const countriesFilter = new LargeSelectionFilter(countriesContainer, countriesMocks);
+const countriesContainer = document.querySelector(
+  `.filters__fieldset--checkbox-model`
+);
+const countriesFilter = new LargeSelectionFilter(
+  countriesContainer,
+  countriesMocks
+);
 countriesFilter.init();
 
 // Сделаем выпадающие пункты фильтров
-const mainContainers = document.querySelectorAll(`[data-menu="main-container"]`);
+const mainContainers = document.querySelectorAll(
+  `[data-menu="main-container"]`
+);
 mainContainers.forEach((container) => makeMenuToggle(container));
 
 // Напишем фун-ию переключения страниц пагинации
 const itemPagElements = document.querySelectorAll(`[data-pag="item"]`);
 
-let currentActivePagItem = document.querySelector(`.products-catalog__pagination-item--active`);
+let currentActivePagItem = document.querySelector(
+  `.products-catalog__pagination-item--active`
+);
 
 itemPagElements.forEach((item) => {
   item.addEventListener(`click`, (evt) => {
@@ -283,9 +298,13 @@ itemPagElements.forEach((item) => {
     const target = evt.currentTarget;
 
     if (target !== currentActivePagItem) {
-      currentActivePagItem.classList.remove(`products-catalog__pagination-item--active`);
+      currentActivePagItem.classList.remove(
+        `products-catalog__pagination-item--active`
+      );
       currentActivePagItem = target;
-      currentActivePagItem.classList.add(`products-catalog__pagination-item--active`);
+      currentActivePagItem.classList.add(
+        `products-catalog__pagination-item--active`
+      );
     }
   });
 });

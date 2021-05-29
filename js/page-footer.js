@@ -8,12 +8,11 @@ const clientWidth = document.body.clientWidth;
 const menuElement = document.querySelectorAll(`.page-footer__nav-item-list`);
 
 const go = function (menuItem) {
-  toggleMenu(menuItem)
-    .then((list) => {
-      if (list.dataset.menuStatus === MenuStatus.CLOSED) {
-        list.classList.remove(`page-footer__nav-list--opened`);
-      }
-    });
+  toggleMenu(menuItem).then((list) => {
+    if (list.dataset.menuStatus === MenuStatus.CLOSED) {
+      list.classList.remove(`page-footer__nav-list--opened`);
+    }
+  });
 };
 
 const toggleMenu = function (menuItem) {

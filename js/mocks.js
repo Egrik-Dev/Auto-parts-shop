@@ -1,111 +1,124 @@
-export const brandTyresMocks = [{
-  name: `B Gudrich`,
-  isChecked: false
-}, {
-  name: `Wridrestone`,
-  isChecked: true
-}, {
-  name: `Rarym`,
-  isChecked: false
-}, {
-  name: `BF hide`,
-  isChecked: true
-}, {
-  name: `Nokian`,
-  isChecked: false
-}, {
-  name: `Pirelli`,
-  isChecked: false
-}, {
-  name: `Michelin`,
-  isChecked: false
-}, {
-  name: `Continental`,
-  isChecked: false
-}, {
-  name: `Hankook`,
-  isChecked: false
-}, {
-  name: `Dunlop`,
-  isChecked: true
-}, {
-  name: `Yokohama`,
-  isChecked: false
-}, {
-  name: `Toyo`,
-  isChecked: false
-}];
+export const brandTyresMocks = [
+  {
+    name: `B Gudrich`,
+    isChecked: false,
+  },
+  {
+    name: `Wridrestone`,
+    isChecked: true,
+  },
+  {
+    name: `Rarym`,
+    isChecked: false,
+  },
+  {
+    name: `BF hide`,
+    isChecked: true,
+  },
+  {
+    name: `Nokian`,
+    isChecked: false,
+  },
+  {
+    name: `Pirelli`,
+    isChecked: false,
+  },
+  {
+    name: `Michelin`,
+    isChecked: false,
+  },
+  {
+    name: `Continental`,
+    isChecked: false,
+  },
+  {
+    name: `Hankook`,
+    isChecked: false,
+  },
+  {
+    name: `Dunlop`,
+    isChecked: true,
+  },
+  {
+    name: `Yokohama`,
+    isChecked: false,
+  },
+  {
+    name: `Toyo`,
+    isChecked: false,
+  },
+];
 
 export const modelTyresMocks = [
   {
     name: `ALINA`,
-    isChecked: true
+    isChecked: true,
   },
   {
     name: `BLIWWAS`,
-    isChecked: true
+    isChecked: true,
   },
   {
     name: `FORCE Moode`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `ICE Guide`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `X-Ice North 2`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `X-Ice Snow`,
-    isChecked: false
-  }
+    isChecked: false,
+  },
 ];
 
 export const countriesMocks = [
   {
     name: `Россия`,
-    isChecked: true
+    isChecked: true,
   },
   {
     name: `Италия`,
-    isChecked: true
+    isChecked: true,
   },
   {
     name: `Германия`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `Франция`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `Венгрия`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `Япония`,
-    isChecked: true
+    isChecked: true,
   },
   {
     name: `Словакия`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `США`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `Швеция`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `Норвегия`,
-    isChecked: false
+    isChecked: false,
   },
   {
     name: `Китай`,
-    isChecked: false
-  }
+    isChecked: false,
+  },
 ];

@@ -1,4 +1,4 @@
-import {createElement} from './utils.js';
+import { createElement } from "./utils.js";
 
 const QUANTITY_RENDER_ITEMS = 4;
 
@@ -6,7 +6,9 @@ export class LargeSelectionFilter {
   constructor(container, items) {
     this.container = container;
     this.items = items;
-    this.innerContaier = this.container.querySelector(`[data-menu="inner-container"]`);
+    this.innerContaier = this.container.querySelector(
+      `[data-menu="inner-container"]`
+    );
     this.list = container.querySelector(`[data-search="list"]`);
     this.btnMore = null;
     this.titleList = this.list.dataset.listTitle;
@@ -62,7 +64,10 @@ export class LargeSelectionFilter {
 
     const arrItems = this.items.filter((item) => item.isChecked);
 
-    if (this.items.length >= QUANTITY_RENDER_ITEMS && arrItems.length < QUANTITY_RENDER_ITEMS) {
+    if (
+      this.items.length >= QUANTITY_RENDER_ITEMS &&
+      arrItems.length < QUANTITY_RENDER_ITEMS
+    ) {
       while (arrItems.length !== QUANTITY_RENDER_ITEMS) {
         arrItems.push(this.items[arrItems.length]);
       }
@@ -72,7 +77,10 @@ export class LargeSelectionFilter {
   }
 
   _renderNewItems() {
-    const newRenderedItems = this.items.slice(this.renderedItems.length, this.renderedItems.length + QUANTITY_RENDER_ITEMS);
+    const newRenderedItems = this.items.slice(
+      this.renderedItems.length,
+      this.renderedItems.length + QUANTITY_RENDER_ITEMS
+    );
 
     this._renderItems(newRenderedItems);
     this._fixedHeightContainer();
@@ -99,23 +107,26 @@ export class LargeSelectionFilter {
       titleBrand: item.name,
       name: this.titleList,
       checked: item.isChecked,
-      id: item.name.toLowerCase()
+      id: item.name
+        .toLowerCase()
         .split(``)
-        .map((letter) => letter === ` ` ? `-` : letter)
-        .join(``)
+        .map((letter) => (letter === ` ` ? `-` : letter))
+        .join(``),
     };
   }
 
   _generateMarkupItems(attributes) {
-    const {titleBrand, name, id, checked} = attributes;
-    return (`<li class="filters__form-item-wrap">
-        <input class="filters__checkbox visually-hidden" type="checkbox" name="${name}" id="${id}-box" value="${id}" ${checked ? `checked` : ``}>
+    const { titleBrand, name, id, checked } = attributes;
+    return `<li class="filters__form-item-wrap">
+        <input class="filters__checkbox visually-hidden" type="checkbox" name="${name}" id="${id}-box" value="${id}" ${
+      checked ? `checked` : ``
+    }>
         <label class="filters__checkbox-label" for="${id}-box">${titleBrand}</label>
       </li>
-    `);
+    `;
   }
 
   _generateMarkupShowMore() {
-    return (`<button class="btn-orange" type="button" name="btn-more">Показать еще</button>`);
+    return `<button class="btn-orange" type="button" name="btn-more">Показать еще</button>`;
   }
 }

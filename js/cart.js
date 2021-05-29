@@ -3,12 +3,16 @@ export class MainCart {
     this.mainCart = cart;
     this.allProducts = [];
     this.totalQuantity = 0;
-    this.quantityBlockElement = cart.querySelector(`.user-menu__quantity-block`);
-    this.quantityNumberElement = cart.querySelector(`.user-menu__quantity-number`);
+    this.quantityBlockElement = cart.querySelector(
+      `.user-menu__quantity-block`
+    );
+    this.quantityNumberElement = cart.querySelector(
+      `.user-menu__quantity-number`
+    );
   }
 
   addNewProduct(title, id, quantity) {
-    const newProduct = {title, id, quantity};
+    const newProduct = { title, id, quantity };
 
     this.allProducts.push(newProduct);
     this._calculateTotalProducts();
@@ -17,7 +21,10 @@ export class MainCart {
 
   removeProduct(id) {
     const index = this.allProducts.findIndex((product) => product.id === id);
-    this.allProducts = [].concat(this.allProducts.slice(0, index), this.allProducts.slice(index + 1));
+    this.allProducts = [].concat(
+      this.allProducts.slice(0, index),
+      this.allProducts.slice(index + 1)
+    );
     this._removeTotalQuantity();
   }
 
@@ -32,7 +39,10 @@ export class MainCart {
   }
 
   _calculateTotalProducts() {
-    this.totalQuantity = this.allProducts.reduce((sum, product) => sum + product.quantity, 0);
+    this.totalQuantity = this.allProducts.reduce(
+      (sum, product) => sum + product.quantity,
+      0
+    );
 
     if (this.totalQuantity > 99) {
       this.quantityNumberElement.textContent = `99+`;
@@ -43,13 +53,17 @@ export class MainCart {
 
   _showTotalQuantity() {
     if (this.allProducts.length > 0) {
-      this.quantityBlockElement.classList.add(`user-menu__quantity-block--show`);
+      this.quantityBlockElement.classList.add(
+        `user-menu__quantity-block--show`
+      );
     }
   }
 
   _removeTotalQuantity() {
     if (this.allProducts.length === 0) {
-      this.quantityBlockElement.classList.remove(`user-menu__quantity-block--show`);
+      this.quantityBlockElement.classList.remove(
+        `user-menu__quantity-block--show`
+      );
     }
   }
 }

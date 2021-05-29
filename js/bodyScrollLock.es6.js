@@ -1,5 +1,3 @@
-
-
 // Older browsers don't support event options, feature detect it.
 
 // Adopted and modified solution from Bohdan Didukh (2017)
@@ -11,14 +9,19 @@ if (typeof window !== `undefined`) {
     get passive() {
       hasPassiveEvents = true;
       return undefined;
-    }
+    },
   };
   window.addEventListener(`testPassive`, null, passiveTestOptions);
   window.removeEventListener(`testPassive`, null, passiveTestOptions);
 }
 
-const isIosDevice = typeof window !== `undefined` && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === `MacIntel` && window.navigator.maxTouchPoints > 1);
-
+const isIosDevice =
+  typeof window !== `undefined` &&
+  window.navigator &&
+  window.navigator.platform &&
+  (/iP(ad|hone|od)/.test(window.navigator.platform) ||
+    (window.navigator.platform === `MacIntel` &&
+      window.navigator.maxTouchPoints > 1));
 
 let locks = [];
 let documentListenerAdded = false;
@@ -27,13 +30,14 @@ let previousBodyOverflowSetting;
 let previousBodyPaddingRight;
 
 // returns true if `el` should be allowed to receive touchmove events.
-const allowTouchMove = (el) => locks.some((lock) => {
-  if (lock.options.allowTouchMove && lock.options.allowTouchMove(el)) {
-    return true;
-  }
+const allowTouchMove = (el) =>
+  locks.some((lock) => {
+    if (lock.options.allowTouchMove && lock.options.allowTouchMove(el)) {
+      return true;
+    }
 
-  return false;
-});
+    return false;
+  });
 
 const preventDefault = (rawEvent) => {
   const e = rawEvent || window.event;
@@ -64,8 +68,10 @@ const setOverflowHidden = (options) => {
   setTimeout(() => {
     // If previousBodyPaddingRight is already set, don't set it again.
     if (previousBodyPaddingRight === undefined) {
-      const reserveScrollBarGap = !!options && options.reserveScrollBarGap === true;
-      const scrollBarGap = window.innerWidth - document.documentElement.clientWidth;
+      const reserveScrollBarGap =
+        !!options && options.reserveScrollBarGap === true;
+      const scrollBarGap =
+        window.innerWidth - document.documentElement.clientWidth;
 
       if (reserveScrollBarGap && scrollBarGap > 0) {
         previousBodyPaddingRight = document.body.style.paddingRight;
@@ -104,7 +110,11 @@ const restoreOverflowSetting = () => {
 };
 
 // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight#Problems_and_solutions
-const isTargetElementTotallyScrolled = (targetElement) => targetElement ? targetElement.scrollHeight - targetElement.scrollTop <= targetElement.clientHeight : false;
+const isTargetElementTotallyScrolled = (targetElement) =>
+  targetElement
+    ? targetElement.scrollHeight - targetElement.scrollTop <=
+      targetElement.clientHeight
+    : false;
 
 const handleScroll = (event, targetElement) => {
   const clientY = event.targetTouches[0].clientY - initialClientY;
@@ -133,14 +143,19 @@ export const disableBodyScroll = (targetElement, options) => {
     // called on this targetElement before.
     if (!targetElement) {
       // eslint-disable-next-line no-console
-      console.error(`disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices.`);
+      console.error(
+        `disableBodyScroll unsuccessful - targetElement must be provided when calling disableBodyScroll on IOS devices.`
+      );
       return;
     }
 
-    if (targetElement && !locks.some((lock) => lock.targetElement === targetElement)) {
+    if (
+      targetElement &&
+      !locks.some((lock) => lock.targetElement === targetElement)
+    ) {
       const lock = {
         targetElement,
-        options: options || {}
+        options: options || {},
       };
 
       locks = [...locks, lock];
@@ -159,7 +174,11 @@ export const disableBodyScroll = (targetElement, options) => {
       };
 
       if (!documentListenerAdded) {
-        document.addEventListener(`touchmove`, preventDefault, hasPassiveEvents ? {passive: false} : undefined);
+        document.addEventListener(
+          `touchmove`,
+          preventDefault,
+          hasPassiveEvents ? { passive: false } : undefined
+        );
         documentListenerAdded = true;
       }
     }
@@ -167,7 +186,7 @@ export const disableBodyScroll = (targetElement, options) => {
     setOverflowHidden(options);
     const lock = {
       targetElement,
-      options: options || {}
+      options: options || {},
     };
 
     locks = [...locks, lock];
@@ -183,7 +202,11 @@ export const clearAllBodyScrollLocks = () => {
     });
 
     if (documentListenerAdded) {
-      document.removeEventListener(`touchmove`, preventDefault, hasPassiveEvents ? {passive: false} : undefined);
+      document.removeEventListener(
+        `touchmove`,
+        preventDefault,
+        hasPassiveEvents ? { passive: false } : undefined
+      );
       documentListenerAdded = false;
     }
 
@@ -201,7 +224,9 @@ export const enableBodyScroll = (targetElement) => {
   if (isIosDevice) {
     if (!targetElement) {
       // eslint-disable-next-line no-console
-      console.error(`enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices.`);
+      console.error(
+        `enableBodyScroll unsuccessful - targetElement must be provided when calling enableBodyScroll on IOS devices.`
+      );
       return;
     }
 
@@ -211,7 +236,11 @@ export const enableBodyScroll = (targetElement) => {
     locks = locks.filter((lock) => lock.targetElement !== targetElement);
 
     if (documentListenerAdded && locks.length === 0) {
-      document.removeEventListener(`touchmove`, preventDefault, hasPassiveEvents ? {passive: false} : undefined);
+      document.removeEventListener(
+        `touchmove`,
+        preventDefault,
+        hasPassiveEvents ? { passive: false } : undefined
+      );
 
       documentListenerAdded = false;
     }

@@ -1,4 +1,4 @@
-import {MainCart} from './cart.js';
+import { MainCart } from "./cart.js";
 
 export class Product {
   constructor(container, id, mainCart) {
@@ -9,10 +9,18 @@ export class Product {
     this.title = this.container.querySelector(`.product__title`).textContent;
     this.cartProductBtn = container.querySelector(`.product__cart-btn`);
     this.priceElement = container.querySelector(`.product__price-block`);
-    this.quantityBlockElement = container.querySelector(`.product__quantity-block`);
-    this.minusBtnElement = this.quantityBlockElement.querySelector(`[data-product-quantity="minus"]`);
-    this.plusBtnElement = this.quantityBlockElement.querySelector(`[data-product-quantity="plus"]`);
-    this.quantityInputElement = this.quantityBlockElement.querySelector(`.prodcut__quantity-input`);
+    this.quantityBlockElement = container.querySelector(
+      `.product__quantity-block`
+    );
+    this.minusBtnElement = this.quantityBlockElement.querySelector(
+      `[data-product-quantity="minus"]`
+    );
+    this.plusBtnElement = this.quantityBlockElement.querySelector(
+      `[data-product-quantity="plus"]`
+    );
+    this.quantityInputElement = this.quantityBlockElement.querySelector(
+      `.prodcut__quantity-input`
+    );
 
     this.addToCard = this._addToCard.bind(this);
     this.addOneItem = this._addOneItem.bind(this);
@@ -32,7 +40,11 @@ export class Product {
     this._addOneItem();
     this.cartProductBtn.disabled = true;
 
-    this.mainCart.addNewProduct(this.title, this.id, Number(this.quantityInputElement.value));
+    this.mainCart.addNewProduct(
+      this.title,
+      this.id,
+      Number(this.quantityInputElement.value)
+    );
   }
 
   _removeFromCart() {
@@ -45,7 +57,10 @@ export class Product {
   _inputChange() {
     this._checkMaxValue();
     this._checkMinValue();
-    this.mainCart.recalcQuantity(this.id, Number(this.quantityInputElement.value));
+    this.mainCart.recalcQuantity(
+      this.id,
+      Number(this.quantityInputElement.value)
+    );
   }
 
   _checkMaxValue() {
@@ -64,14 +79,20 @@ export class Product {
     this.quantityInputElement.value++;
 
     this._checkMaxValue();
-    this.mainCart.recalcQuantity(this.id, Number(this.quantityInputElement.value));
+    this.mainCart.recalcQuantity(
+      this.id,
+      Number(this.quantityInputElement.value)
+    );
   }
 
   _removeOneItem() {
     this.quantityInputElement.value--;
 
     this._checkMinValue();
-    this.mainCart.recalcQuantity(this.id, Number(this.quantityInputElement.value));
+    this.mainCart.recalcQuantity(
+      this.id,
+      Number(this.quantityInputElement.value)
+    );
   }
 
   _showQuantityBlock() {
@@ -94,6 +115,9 @@ productElements.forEach((product, index) => {
   if (cart) {
     // Так как у товаров нет уникального id, передаём его индекс
     const productElement = new Product(product, index, mainCart);
-    productElement.cartProductBtn.addEventListener(`click`, productElement.addToCard);
+    productElement.cartProductBtn.addEventListener(
+      `click`,
+      productElement.addToCard
+    );
   }
 });

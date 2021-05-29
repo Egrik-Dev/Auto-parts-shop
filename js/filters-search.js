@@ -1,4 +1,4 @@
-import {LargeSelectionFilter} from './large-selection-filter.js';
+import { LargeSelectionFilter } from "./large-selection-filter.js";
 
 export class FiltersSearch extends LargeSelectionFilter {
   constructor(container, items) {
@@ -18,7 +18,9 @@ export class FiltersSearch extends LargeSelectionFilter {
       this._deleteAllItems();
       this.init();
     } else {
-      const filteredArr = this.items.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      const filteredArr = this.items.filter((item) =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
       this._deleteAllItems();
       this._renderItems(filteredArr);
 
