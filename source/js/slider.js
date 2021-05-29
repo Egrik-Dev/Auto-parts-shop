@@ -1,6 +1,6 @@
 // Добавим импорты
-import {createElement} from './utils.js';
-import {disableBodyScroll, enableBodyScroll} from './bodyScrollLock.es6.js';
+import { createElement } from "./utils.js";
+import { disableBodyScroll, enableBodyScroll } from "./bodyScrollLock.es6.js";
 
 // Создадим пустой объект без прототипа
 const Direction = Object.create(null);
@@ -9,20 +9,23 @@ Direction.RIGHT = `right`;
 
 const Mode = {
   LOOP: `loop`,
-  ADAPTIVE: `adaptive`
+  ADAPTIVE: `adaptive`,
 };
 const Flag = {
   YES: `yes`,
-  NO: `no`
+  NO: `no`,
 };
 
 export function MakeSlider(container, mode, isTimer = `no`, delay) {
   const slideElement = container.querySelector(`[data-slider="slide"]`);
   this.sliderListElement = container.querySelector(`[data-slider="list"]`); // Список с слайдами
-  this.togglesContainerElement = container.querySelector(`[data-toggle="list"]`);
+  this.togglesContainerElement =
+    container.querySelector(`[data-toggle="list"]`);
   const leftBtnElement = container.querySelector(`[data-side="left"]`);
   const rightBtnElement = container.querySelector(`[data-side="right"]`);
-  const GAP = Number(getComputedStyle(slideElement).marginRight.split(``).slice(0, -2).join(``));
+  const GAP = Number(
+    getComputedStyle(slideElement).marginRight.split(``).slice(0, -2).join(``)
+  );
   this.widthSlide = slideElement.offsetWidth; // Ширина слайда
   this.sliderSize = this.widthSlide + GAP; // Общий размер карточки
   this.container = container;
@@ -66,9 +69,13 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
 
   // Напишем функцию которая переключает активный тогл
   const changeActiveToggle = () => {
-    let activeElement = this.togglesContainerElement.querySelector(`[data-toggle-status="active"]`);
+    let activeElement = this.togglesContainerElement.querySelector(
+      `[data-toggle-status="active"]`
+    );
     activeElement.dataset.toggleStatus = `none`;
-    this.togglesContainerElement.children[this.currentPositionCircle].dataset.toggleStatus = `active`;
+    this.togglesContainerElement.children[
+      this.currentPositionCircle
+    ].dataset.toggleStatus = `active`;
   };
 
   const hideSideButton = (btn) => {
@@ -100,7 +107,10 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
   const makeSwitching = () => {
     switch (mode) {
       case Mode.LOOP:
-        if (this.currentPositionSlider < -this.maxWidthSlider || this.currentPositionSlider > 0) {
+        if (
+          this.currentPositionSlider < -this.maxWidthSlider ||
+          this.currentPositionSlider > 0
+        ) {
           goToFirstSlide();
         } else {
           switchSLide();
@@ -155,7 +165,9 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
       } else if (isSwiping) {
         disableBodyScroll(this.sliderListElement);
         this.sliderListElement.style.transition = `0ms linear`;
-        this.sliderListElement.style.transform = `translateX(${this.currentPositionSlider + (walkX * 1.5)}px)`;
+        this.sliderListElement.style.transform = `translateX(${
+          this.currentPositionSlider + walkX * 1.5
+        }px)`;
       } else if (walkY > 3 || walkY < -3) {
         isVerticalScroll = true;
       } else {
@@ -183,23 +195,29 @@ export function MakeSlider(container, mode, isTimer = `no`, delay) {
 
   // Запрограмируем переключение слайдов по нажатию на кнопки
   if (leftBtnElement) {
-    leftBtnElement.addEventListener(`click`, () => changeCurrentPosition(Direction.LEFT));
+    leftBtnElement.addEventListener(`click`, () =>
+      changeCurrentPosition(Direction.LEFT)
+    );
   }
 
   if (rightBtnElement) {
-    rightBtnElement.addEventListener(`click`, () => changeCurrentPosition(Direction.RIGHT));
+    rightBtnElement.addEventListener(`click`, () =>
+      changeCurrentPosition(Direction.RIGHT)
+    );
   }
 
   // Функции которые генерят и аппендят тогглы
   const generateMarkupToggle = (status) => {
-    return (`<li class="slider-toggles__item" data-toggle-status="${status}"></li>`);
+    return `<li class="slider-toggles__item" data-toggle-status="${status}"></li>`;
   };
 
   this.appendToggles = (quantity, containerToggles) => {
     if (containerToggles.children.length === 0) {
       for (let i = 0; i < quantity; i++) {
         if (i === 0) {
-          containerToggles.append(createElement(generateMarkupToggle(`active`)));
+          containerToggles.append(
+            createElement(generateMarkupToggle(`active`))
+          );
         }
         containerToggles.append(createElement(generateMarkupToggle(`none`)));
       }
@@ -213,9 +231,13 @@ MakeSlider.prototype.init = function () {
 };
 
 MakeSlider.prototype.calculateSliderData = function () {
-  const widthContainer = this.container.querySelector(`[data-slider="container"]`).offsetWidth;
+  const widthContainer = this.container.querySelector(
+    `[data-slider="container"]`
+  ).offsetWidth;
   const visibleCards = Math.round(widthContainer / this.widthSlide); // Количество видимых карточек
-  this.QUANTITY_SLIDES = this.container.querySelectorAll(`[data-slider="slide"]`).length; // Всего слайдов
+  this.QUANTITY_SLIDES = this.container.querySelectorAll(
+    `[data-slider="slide"]`
+  ).length; // Всего слайдов
   this.currentPositionSlider = 0;
   this.currentPositionCircle = 0;
   this.hiddenCards = this.QUANTITY_SLIDES - visibleCards; // Количество скрытых карточек
@@ -228,7 +250,9 @@ MakeSlider.prototype.reloadSlider = function () {
 
   // След. шаг - это удалить элементы тогглов
   while (this.togglesContainerElement.firstChild) {
-    this.togglesContainerElement.removeChild(this.togglesContainerElement.firstChild);
+    this.togglesContainerElement.removeChild(
+      this.togglesContainerElement.firstChild
+    );
   }
 
   this.appendToggles(this.hiddenCards, this.togglesContainerElement);

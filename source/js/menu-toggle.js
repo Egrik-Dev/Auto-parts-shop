@@ -7,7 +7,9 @@ export function makeMenuToggle(container) {
   const MakeOpenableMenu = function (mainContainer) {
     this.container = mainContainer;
     this.arrow = mainContainer.querySelector(`[data-menu="arrow"]`);
-    this.innerContaier = this.container.querySelector(`[data-menu="inner-container"]`);
+    this.innerContaier = this.container.querySelector(
+      `[data-menu="inner-container"]`
+    );
     this.startHeightContainer = 0;
     this.fullHeightContainer = ``;
     this.status = this.innerContaier.dataset.menuStatus;
@@ -58,8 +60,7 @@ export function makeMenuToggle(container) {
   filterMenu.setHeight();
   const arrow = container.querySelector(`[data-menu="arrow"]`);
   arrow.addEventListener(`click`, () => {
-    filterMenu.toggledContainer()
-    .then((innerContainer) => {
+    filterMenu.toggledContainer().then((innerContainer) => {
       if (innerContainer.offsetHeight === 0) {
         innerContainer.dataset.menuStatus = MenuStatus.CLOSED;
         innerContainer.classList.add(`visually-hidden`);
