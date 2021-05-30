@@ -55,10 +55,9 @@
 
 @media (min-width: $desktop-width) {
   .page-main {
-    padding-bottom: 15px;
+    @include desktop-wrapper;
 
     &--catalog {
-      @include desktop-wrapper;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: 1fr repeat(4, min-content);
@@ -83,28 +82,19 @@
   }
 
   .page-main__promo {
-    @include desktop-wrapper;
     margin-bottom: 73px;
   }
 
   .page-main__search {
-    @include desktop-wrapper;
     padding: 0;
     margin-bottom: $section-margin-bottom;
   }
 
   .page-main__categories {
-    @include desktop-wrapper;
-    margin-bottom: $section-margin-bottom;
-  }
-
-  .page-main__category-slider {
-    @include desktop-wrapper;
     margin-bottom: $section-margin-bottom;
   }
 
   .page-main__banner {
-    @include desktop-wrapper;
     margin-bottom: $section-margin-bottom;
   }
 
@@ -137,5 +127,9 @@
     grid-row: 4/5;
     padding: 0;
     margin: 0;
+  }
+
+  .page-main__product-card {
+    padding: 0;
   }
 }

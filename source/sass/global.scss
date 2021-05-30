@@ -71,10 +71,11 @@ input[type="radio"].visually-hidden {
   text-transform: uppercase;
   color: #ffffff;
   letter-spacing: 0.12em;
+  text-align: center;
 
   border: none;
   background-color: #ff7931;
-  cursor: pointer;
+  border-radius: 3px;
 
   &--big {
     font-size: 14px;
