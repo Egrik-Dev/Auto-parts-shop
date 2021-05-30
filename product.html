@@ -111,7 +111,7 @@
         </div>
         <nav class="page-header__main-nav main-nav main-nav--hidden">
           <ul class="main-nav__list">
-            <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог Запчастей</a></li>
+            <li class="main-nav__item"><a class="main-nav__link" href="/catalog.html">Каталог Запчастей</a></li>
             <li class="main-nav__item"><a class="main-nav__link" href="#">Каталог ТО</a></li>
             <li class="main-nav__item"><a class="main-nav__link" href="#">Шины</a></li>
             <li class="main-nav__item"><a class="main-nav__link" href="#">Диски</a></li>
@@ -122,7 +122,7 @@
           </ul>
         </nav>
       </header>
-      <main>
+      <main class="page-main">
         <div class="page-main__breadcrumbs wrapper">
           <ul class="breadcrumbs">
             <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
@@ -219,29 +219,32 @@
           </div>
           <div class="product-card__img-block">
             <ul class="product-card__promotions-list">
-              <li class="product-card__promotions-item">Sale</li>
+              <li class="product-card__sale-sticker btn-main btn-main--big">Sale</li>
               <li class="product-card__promotions-item">+ подарок</li>
               <li class="product-card__promotions-item">
                 <p class="product-card__promotions-item-desc">0/0/24</p>
-                <p class="product-card__promotions-item-desc">625 в месяц</p>
+                <p class="product-card__promotions-item-desc product-card__promotions-item-desc--small">625 в месяц</p>
               </li>
             </ul>
             <ul class="product-card__advantages-list">
               <li class="product-card__advantages-item">
                 <span class="visually-hidden">Для зимы</span>
-                <svg class="product-card__advantage-img" width="38" height="31">
+                <svg class="product-card__advantage-img product-card__advantage-img--mobile" width="38" height="31">
                   <use xlink:href="img/sprite.svg#icon-snowflake"></use>
+                </svg>
+                <svg class="product-card__advantage-img product-card__advantage-img--desktop" width="36" height="40">
+                  <use xlink:href="img/sprite.svg#icon-snowflake-big"></use>
                 </svg>
               </li>
             </ul>
-            <img class="product-card__img" src="img/product-tyre.png" alt="Фото товара Шина 205/80 R16 104Q Misha RF Power Grum" width="222" height="380">
+            <img class="product-card__img" src="img/product-card-tyre.png" alt="Фото товара Шина 205/80 R16 104Q Misha RF Power Grum" width="222" height="380">
             <ul class="product-card__price-block">
               <li class="product-card__price-item product-card__price-item--old">12 981 ₽</li>
               <li class="product-card__price-item">15 981 ₽</li>
             </ul>
           </div>
           <button class="product-card__btn-buy btn-main btn-main--big" type="submit">Купить<span class="product-card__btn-word"> шину</span></button>
-          <a class="btn-orange btn-orange--big" href="#">Нашли дешевле? Снизим цену!</button>
+          <a class="product-card__btn-orange btn-orange btn-orange--big" href="#">Нашли дешевле? Снизим цену!</a>
         </section>
         <section class="page-main__banner-gradient banner-gradient">
           <a class="banner-gradient__link" href="service.html">
